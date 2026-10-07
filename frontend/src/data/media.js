@@ -1,0 +1,58 @@
+/** Locally stored documentary photographs with source, creator, and reuse metadata. */
+const imageSet = path => [480, 960, 1440].map(width => `${path.replace('.webp', `-${width}w.webp`)} ${width}w`).join(', ')
+export const mediaItems = [
+  {
+    id: 'greig-tulip-aksu-zhabagly', kind: 'flower', category: 'Қызғалдақ', sourceId: 'photo-greig',
+    title: { kz: 'Грейг қызғалдағы табиғи ортада', ru: 'Тюльпан Грейга в природной среде', en: 'Greig’s tulip in its natural setting' },
+    location: { kz: 'Ақсу-Жабағылы қорығы', ru: 'Заповедник Аксу-Жабаглы', en: 'Aksu-Zhabagly Nature Reserve' }, year: '2014',
+    image: '/images/tulipa-greigii-wild.webp', srcSet: imageSet('/images/tulipa-greigii-wild.webp'),
+    alt: { kz: 'Ақсу-Жабағылы қорығындағы жабайы қызыл-сары Грейг қызғалдағы', ru: 'Дикие красно-жёлтые тюльпаны Грейга в заповеднике Аксу-Жабаглы', en: 'Wild red and yellow Greig’s tulips in Aksu-Zhabagly Nature Reserve' },
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png',
+    author: 'V. A. Kovshar · Wikimedia Commons', license: 'CC BY-SA 4.0', processing: 'Resized and converted to WebP for the site',
+  },
+  {
+    id: 'aksu-zhabagly-mountains', kind: 'landscape', category: 'Табиғат', sourceId: 'photo-aksu',
+    title: { kz: 'Ақсу-Жабағылы таулары', ru: 'Горы Аксу-Жабаглы', en: 'Mountains of Aksu-Zhabagly' },
+    location: { kz: 'Ақсу-Жабағылы қорығы', ru: 'Заповедник Аксу-Жабаглы', en: 'Aksu-Zhabagly Nature Reserve' }, year: '2022',
+    image: '/images/aksu-zhabagly-mountains.webp', srcSet: imageSet('/images/aksu-zhabagly-mountains.webp'),
+    alt: { kz: 'Ақсу-Жабағылы қорығындағы тау сілемдері', ru: 'Горный ландшафт заповедника Аксу-Жабаглы', en: 'Mountain landscape in Aksu-Zhabagly Nature Reserve' },
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Aksu_Zhabagly_mountains.jpg',
+    author: 'Jack Bartovsky · Wikimedia Commons', license: 'CC BY-SA 4.0', processing: 'Resized and converted to WebP for the site',
+  },
+  {
+    id: 'otrar-aerial', kind: 'landscape', category: 'Тарихи орындар', sourceId: 'photo-otrar',
+    title: { kz: 'Отырар археологиялық орны', ru: 'Археологический памятник Отрар', en: 'Otrar archaeological site' },
+    location: { kz: 'Отырар, Түркістан облысы', ru: 'Отрар, Туркестанская область', en: 'Otrar, Turkistan Region' }, year: '2016',
+    image: '/images/otrar-aerial.webp', srcSet: imageSet('/images/otrar-aerial.webp'),
+    alt: { kz: 'Отырар археологиялық орнының әуеден көрінісі', ru: 'Вид с воздуха на археологический памятник Отрар', en: 'Aerial view of Otrar archaeological site' },
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Otrar-aerial-view-May-2016-2.jpg',
+    author: 'GaiJorayev · Wikimedia Commons', license: 'CC BY 4.0', processing: 'Resized and converted to WebP for the site',
+  },
+  {
+    id: 'turkistan-mausoleum', kind: 'landscape', category: 'Тарихи орындар', sourceId: 'photo-turkistan',
+    title: { kz: 'Қожа Ахмет Ясауи кесенесі', ru: 'Мавзолей Ходжи Ахмеда Ясави', en: 'Mausoleum of Khoja Ahmed Yasawi' },
+    location: { kz: 'Түркістан', ru: 'Туркестан', en: 'Turkistan' }, year: '—',
+    image: '/images/turkistan-mausoleum.webp', srcSet: imageSet('/images/turkistan-mausoleum.webp'),
+    alt: { kz: 'Түркістандағы Қожа Ахмет Ясауи кесенесі', ru: 'Мавзолей Ходжи Ахмеда Ясави в Туркестане', en: 'Mausoleum of Khoja Ahmed Yasawi in Turkistan' },
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg',
+    author: 'Petar Milošević · Wikimedia Commons', license: 'CC BY-SA 4.0', processing: 'Resized and converted to WebP for the site',
+  },
+  {
+    id: 'shymkent-downtown', kind: 'landscape', category: 'Қала', sourceId: 'photo-shymkent',
+    title: { kz: 'Шымкент қаласының орталығы', ru: 'Центр Шымкента', en: 'Downtown Shymkent' },
+    location: { kz: 'Шымкент', ru: 'Шымкент', en: 'Shymkent' }, year: '2015',
+    image: '/images/shymkent-downtown.webp', srcSet: imageSet('/images/shymkent-downtown.webp'),
+    alt: { kz: 'Шымкент қаласының орталық бөлігіндегі көшелер', ru: 'Улицы центральной части Шымкента', en: 'Streets in central Shymkent' },
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg',
+    author: 'Rassim · Wikimedia Commons', license: 'CC BY-SA 3.0', processing: 'Resized and converted to WebP for the site',
+  },
+  {
+    id: 'gartenflora-plate-773', kind: 'archive', category: 'Архив', sourceId: 'bhl',
+    title: { kz: 'Gartenflora · 773-тақта', ru: 'Gartenflora · таблица 773', en: 'Gartenflora · plate 773' },
+    location: { kz: 'Ботаникалық басылым, 1873', ru: 'Ботаническое издание, 1873', en: 'Botanical issue, 1873' }, year: '1873',
+    image: '/images/gartenflora-1873.webp', srcSet: imageSet('/images/gartenflora-1873.webp'),
+    alt: { kz: 'Gartenflora журналының 1873 жылғы 773-тақтасы', ru: 'Таблица 773 журнала Gartenflora за 1873 год', en: 'Plate 773 from the 1873 volume of Gartenflora' },
+    sourceUrl: 'https://www.biodiversitylibrary.org/page/47574892',
+    author: 'Digitized by Biodiversity Heritage Library', license: 'Public Domain Mark 1.0', processing: 'Converted to WebP for the site',
+  },
+]

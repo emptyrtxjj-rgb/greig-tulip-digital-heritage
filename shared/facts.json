@@ -1,0 +1,701 @@
+[
+  {
+    "id": "accepted-name",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Қабылданған ғылыми атау",
+      "ru": "Принятое научное название",
+      "en": "Accepted scientific name"
+    },
+    "value": "Tulipa greigii Regel",
+    "detail": {
+      "kz": "Kew Plants of the World Online бұл атауды қабылданған түр атауы ретінде береді.",
+      "ru": "Plants of the World Online Королевских ботанических садов Кью принимает это название вида.",
+      "en": "Plants of the World Online at Kew treats this as an accepted species name."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "naming-author",
+    "category": "history",
+    "status": "verified",
+    "title": {
+      "kz": "Авторлық белгі",
+      "ru": "Авторское обозначение",
+      "en": "Name authority"
+    },
+    "value": "Regel",
+    "detail": {
+      "kz": "Ғылыми атаудағы Regel — есімді жариялаған ботаник Эдуард Регельге сілтеме.",
+      "ru": "Regel в научной записи — ссылка на ботаника Эдуарда Регеля, опубликовавшего название.",
+      "en": "Regel in the botanical name refers to botanist Eduard Regel, who published it."
+    },
+    "source": [
+      "ipni",
+      "bhl"
+    ]
+  },
+  {
+    "id": "family",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Тұқымдасы",
+      "ru": "Семейство",
+      "en": "Family"
+    },
+    "value": "Liliaceae",
+    "detail": {
+      "kz": "Kew жіктеуінде Грейг қызғалдағы лалагүлдер тұқымдасына енгізілген.",
+      "ru": "В классификации Kew тюльпан Грейга отнесён к семейству Liliaceae.",
+      "en": "Kew classifies Greig’s tulip in the family Liliaceae."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "genus",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Туысы",
+      "ru": "Род",
+      "en": "Genus"
+    },
+    "value": "Tulipa",
+    "detail": {
+      "kz": "Түр Tulipa туысына жатады; ботаникалық атауда туыс атауы бас әріппен жазылады.",
+      "ru": "Вид относится к роду Tulipa; в биноминальном названии род пишется с заглавной буквы.",
+      "en": "The species belongs to the genus Tulipa; the genus name is capitalized in the binomial."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "life-form",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Тіршілік пішіні",
+      "ru": "Жизненная форма",
+      "en": "Life form"
+    },
+    "value": {
+      "kz": "Пиязшықты геофит",
+      "ru": "Луковичный геофит",
+      "en": "Bulbous geophyte"
+    },
+    "detail": {
+      "kz": "Kew түрді пиязшық арқылы қолайсыз маусымды жер астында өткізетін көпжылдық геофит ретінде сипаттайды.",
+      "ru": "Kew описывает вид как луковичный геофит: многолетнее растение переживает неблагоприятный сезон под землёй.",
+      "en": "Kew describes it as a bulbous geophyte, a perennial that survives an unfavourable season underground."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "first-publication",
+    "category": "history",
+    "status": "verified",
+    "title": {
+      "kz": "Алғашқы жарияланым",
+      "ru": "Первая публикация",
+      "en": "First publication"
+    },
+    "value": "1873",
+    "detail": {
+      "kz": "IPNI мен Kew ғылыми атаудың Gartenflora 22-томында, 290-бетте жарияланғанын көрсетеді.",
+      "ru": "IPNI и Kew указывают публикацию названия в Gartenflora, том 22, страница 290.",
+      "en": "IPNI and Kew cite the name in Gartenflora, volume 22, page 290."
+    },
+    "source": [
+      "ipni",
+      "kew"
+    ]
+  },
+  {
+    "id": "archival-plate",
+    "category": "archive",
+    "status": "verified",
+    "title": {
+      "kz": "Архивтік тақта",
+      "ru": "Архивная таблица",
+      "en": "Archival plate"
+    },
+    "value": "773",
+    "detail": {
+      "kz": "1873 жылғы басылымның 773-тақтасы — атау тарихын түпнұсқадан тексеруге болатын ботаникалық иллюстрация.",
+      "ru": "Таблица 773 в издании 1873 года — ботаническая иллюстрация, позволяющая сверить публикацию с первоисточником.",
+      "en": "Plate 773 in the 1873 issue is a botanical illustration that can be checked against the original publication."
+    },
+    "source": [
+      "bhl"
+    ]
+  },
+  {
+    "id": "original-locality",
+    "category": "history",
+    "status": "verified",
+    "title": {
+      "kz": "Бастапқы деректегі мекен",
+      "ru": "Место в исходной записи",
+      "en": "Locality in the original record"
+    },
+    "value": "Turkestan",
+    "detail": {
+      "kz": "IPNI-дің бастапқы дерек ескертпесінде «Turkestan» көрсетілген. Бұл тарихи жазба қазіргі нақты популяция координатасы емес.",
+      "ru": "В исходной заметке IPNI указано «Turkestan». Это историческая запись, а не координата современной популяции.",
+      "en": "IPNI’s original-data note says “Turkestan”. This historical wording is not a coordinate for a present-day population."
+    },
+    "source": [
+      "ipni"
+    ]
+  },
+  {
+    "id": "1877-discrepancy",
+    "category": "history",
+    "status": "verified",
+    "title": {
+      "kz": "1877 жылғы атау нені білдіреді?",
+      "ru": "Что означает запись 1877 года?",
+      "en": "What does the 1877 record mean?"
+    },
+    "value": "var. typica",
+    "detail": {
+      "kz": "1877 жылы Tulipa greigii var. typica деген жазба кездеседі. Kew оны жарамды жарияланбаған атау деп белгілейді; бұл түрдің алғашқы жарияланымы 1873 деген деректі өзгертпейді.",
+      "ru": "В 1877 году встречается запись Tulipa greigii var. typica. Kew отмечает, что название не было валидно опубликовано; это не меняет датировку первой публикации вида — 1873 год.",
+      "en": "A 1877 record exists for Tulipa greigii var. typica. Kew marks it as not validly published; it does not replace the species’ first-publication date of 1873."
+    },
+    "source": [
+      "kew",
+      "ipni"
+    ]
+  },
+  {
+    "id": "older-synonym",
+    "category": "history",
+    "status": "verified",
+    "title": {
+      "kz": "Ескі таксономиялық атау",
+      "ru": "Более раннее таксономическое имя",
+      "en": "An earlier taxonomic name"
+    },
+    "value": "1868",
+    "detail": {
+      "kz": "Kew тізімінде Tulipa altaica var. karatavica Regel (1868) кейін Грейг қызғалдағымен байланыстырылған синоним ретінде берілген.",
+      "ru": "Kew приводит Tulipa altaica var. karatavica Regel (1868) среди более поздних синонимических трактовок Грейгова тюльпана.",
+      "en": "Kew lists Tulipa altaica var. karatavica Regel (1868) among names later treated as synonyms of Greig’s tulip."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "native-range",
+    "category": "geography",
+    "status": "verified",
+    "title": {
+      "kz": "Табиғи ареал",
+      "ru": "Природный ареал",
+      "en": "Native range"
+    },
+    "value": {
+      "kz": "Солтүстік-шығыс Ираннан Орталық Азияға дейін",
+      "ru": "От северо-востока Ирана до Центральной Азии",
+      "en": "From north-east Iran to Central Asia"
+    },
+    "detail": {
+      "kz": "Бұл — Kew келтіретін кең ареал сипаттамасы; ол жеке гүлдейтін учаскелердің тізімі емес.",
+      "ru": "Это обобщённое описание ареала по Kew, а не перечень отдельных цветущих участков.",
+      "en": "This is Kew’s broad range statement, not a list of individual flowering sites."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "countries",
+    "category": "geography",
+    "status": "verified",
+    "title": {
+      "kz": "Ареалдағы елдер",
+      "ru": "Страны ареала",
+      "en": "Countries in the range"
+    },
+    "value": {
+      "kz": "Иран · Қазақстан · Қырғызстан · Тәжікстан · Өзбекстан",
+      "ru": "Иран · Казахстан · Кыргызстан · Таджикистан · Узбекистан",
+      "en": "Iran · Kazakhstan · Kyrgyzstan · Tajikistan · Uzbekistan"
+    },
+    "detail": {
+      "kz": "Kew дерекқоры түрдің табиғи таралуына осы бес елді енгізеді.",
+      "ru": "В базе Kew эти пять стран указаны в естественном распространении вида.",
+      "en": "Kew lists these five countries within the species’ native distribution."
+    },
+    "source": [
+      "kew"
+    ]
+  },
+  {
+    "id": "kazakhstan-distribution",
+    "category": "geography",
+    "status": "verified",
+    "title": {
+      "kz": "Қазақстандағы таралуы",
+      "ru": "Распространение в Казахстане",
+      "en": "Distribution in Kazakhstan"
+    },
+    "value": {
+      "kz": "Қаратау мен Батыс Тянь-Шаньды қамтиды",
+      "ru": "Включает Каратау и Западный Тянь-Шань",
+      "en": "Includes Karatau and the Western Tien Shan"
+    },
+    "detail": {
+      "kz": "2024 жылғы ботаникалық мақала Қазақстандағы белгілі өңірлік таралымды бірнеше тау жүйесі мен жазыққа қатысты сипаттайды.",
+      "ru": "Ботаническая статья 2024 года описывает известное распространение в Казахстане по нескольким горным системам и равнинам.",
+      "en": "A 2024 botanical paper describes the known Kazakhstan range across several mountain systems and plains."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "habitat",
+    "category": "geography",
+    "status": "verified",
+    "title": {
+      "kz": "Өсетін орта",
+      "ru": "Местообитание",
+      "en": "Habitat"
+    },
+    "value": {
+      "kz": "Аңғарлар, тау бөктері, тастақты беткейлер",
+      "ru": "Долины, предгорья, каменистые склоны",
+      "en": "Valleys, foothills and rocky slopes"
+    },
+    "detail": {
+      "kz": "Зерттеу дерегі түрдің сазды топырақты аңғарлар мен тау бөктерінен тастақты беткейлерге дейін кездесетінін жазады.",
+      "ru": "В исследовании указаны местообитания от долин и предгорий с глинистой почвой до каменистых склонов.",
+      "en": "The study reports habitats ranging from loamy valleys and foothills to rocky slopes."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "elevation",
+    "category": "geography",
+    "status": "verified",
+    "title": {
+      "kz": "Биіктік белдеуі",
+      "ru": "Высотный диапазон",
+      "en": "Elevation range"
+    },
+    "value": "до 2 400 м",
+    "detail": {
+      "kz": "2024 жылғы зерттеуде кейбір мекендері теңіз деңгейінен 2 400 метрге дейінгі биіктікте көрсетіледі; бұл барлық популяцияға ортақ шек емес.",
+      "ru": "В исследовании 2024 года описаны местообитания до 2 400 м над уровнем моря; это не универсальная граница для каждой популяции.",
+      "en": "A 2024 study reports sites up to 2,400 m above sea level; this is not a universal limit for every population."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "bulb-size",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Пиязшық",
+      "ru": "Луковица",
+      "en": "Bulb"
+    },
+    "value": "2–4 см",
+    "detail": {
+      "kz": "Ботаникалық сипаттамада пиязшықтың жуандығы осы аралықта берілген; нақты өлшемі өсімдікке қарай өзгереді.",
+      "ru": "В ботаническом описании указана такая толщина луковицы; фактический размер меняется у отдельных растений.",
+      "en": "A botanical description gives this bulb thickness range; individual plants vary."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "stem-height",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Сабақ биіктігі",
+      "ru": "Высота стебля",
+      "en": "Stem height"
+    },
+    "value": "10–50 см",
+    "detail": {
+      "kz": "Жарияланған ботаникалық сипаттама әртүрлі үлгілерде 10–50 см аралығын береді; оны әр гүлге бірдей өлшем деп түсінбеу керек.",
+      "ru": "Ботаническое описание приводит диапазон 10–50 см для разных экземпляров; это не фиксированная высота каждого растения.",
+      "en": "A botanical description gives a 10–50 cm range across specimens; it is not a fixed height for every plant."
+    },
+    "source": [
+      "frontiers",
+      "cambridge"
+    ]
+  },
+  {
+    "id": "leaves",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Жапырақ саны",
+      "ru": "Число листьев",
+      "en": "Leaf count"
+    },
+    "value": "көбіне 4",
+    "detail": {
+      "kz": "Зерттеуде әдеттегі саны төртеу деп сипатталады, бірақ үш немесе бес жапырақты өсімдіктер де тіркелген.",
+      "ru": "В исследовании обычно указано четыре листа, но отмечены также растения с тремя или пятью.",
+      "en": "The study describes four leaves as typical, while also noting plants with three or five."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "foliage-pattern",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Жапырақ өрнегі",
+      "ru": "Рисунок листьев",
+      "en": "Leaf markings"
+    },
+    "value": {
+      "kz": "Күлгін сызықтар мен дақтар",
+      "ru": "Фиолетовые штрихи и пятна",
+      "en": "Violet streaks and spots"
+    },
+    "detail": {
+      "kz": "Жапырақтағы күлгін өрнек қарқындылығы әртүрлі болуы мүмкін; бұл сипаттаманы кез келген жеке өсімдікте бірдей деп түсіндірмейміз.",
+      "ru": "Интенсивность фиолетового рисунка на листьях варьирует; описание не означает, что он одинаков у каждого растения.",
+      "en": "The intensity of violet leaf markings varies; the description does not imply every plant looks identical."
+    },
+    "source": [
+      "frontiers",
+      "cambridge"
+    ]
+  },
+  {
+    "id": "flower-count",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Гүл саны",
+      "ru": "Число цветков",
+      "en": "Flower count"
+    },
+    "value": {
+      "kz": "Әдетте бір гүл",
+      "ru": "Обычно один цветок",
+      "en": "Usually one flower"
+    },
+    "detail": {
+      "kz": "Жарияланған сипаттама гүлін көбіне дара деп көрсетеді.",
+      "ru": "В опубликованном описании цветок обычно одиночный.",
+      "en": "The published description characterizes the flower as usually solitary."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "flower-form",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Гүл пішіні",
+      "ru": "Форма цветка",
+      "en": "Flower form"
+    },
+    "value": {
+      "kz": "Тостағанша не шарап бокалы тәрізді",
+      "ru": "Чашевидная или бокаловидная",
+      "en": "Bowl- to wineglass-shaped"
+    },
+    "detail": {
+      "kz": "Ғылыми сипаттамада гүлдің көлемі ірі және пішіні бокал тәрізді деп берілген. Бұл көркем сұлбадағы өлшем емес, жарияланған сипаттама.",
+      "ru": "В научном описании цветок назван крупным и бокаловидным. Это не измерение с проектной иллюстрации, а опубликованная характеристика.",
+      "en": "The scientific description calls the flower large and wineglass-shaped. This is a published description, not a measurement from the project artwork."
+    },
+    "source": [
+      "frontiers",
+      "cambridge"
+    ]
+  },
+  {
+    "id": "flower-colour",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Түс әртүрлілігі",
+      "ru": "Вариативность окраски",
+      "en": "Colour variation"
+    },
+    "value": {
+      "kz": "Қызылдан сары және ашық крем реңктеріне дейін",
+      "ru": "От красного до жёлтого и светло-кремового",
+      "en": "Red through yellow to pale cream"
+    },
+    "detail": {
+      "kz": "Зерттеу қызыл реңктермен бірге сары және ашық крем түсті нұсқаларды да атайды.",
+      "ru": "Исследование упоминает не только красные оттенки, но и жёлтые и светло-кремовые варианты.",
+      "en": "The study notes yellow and pale cream forms as well as red shades."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "flowering",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Гүлдеу мезгілі",
+      "ru": "Срок цветения",
+      "en": "Flowering season"
+    },
+    "value": {
+      "kz": "Сәуірдің басы – маусымның басы",
+      "ru": "От начала апреля до начала июня",
+      "en": "Early April to early June"
+    },
+    "detail": {
+      "kz": "Бұл — зерттеуде келтірілген кең фенологиялық аралық. Нақты уақыт биіктікке, ауа райына және мекенге байланысты өзгереді.",
+      "ru": "Это широкий фенологический интервал из исследования. Фактические сроки меняются с высотой, погодой и местом.",
+      "en": "This is the broad phenology range reported in the study. Local timing changes with elevation, weather and site."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "reproduction",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Көбею жолы",
+      "ru": "Размножение",
+      "en": "Reproduction"
+    },
+    "value": {
+      "kz": "Негізінен тұқым арқылы",
+      "ru": "Преимущественно семенами",
+      "en": "Primarily by seed"
+    },
+    "detail": {
+      "kz": "Зерттеу түрдің негізінен тұқым арқылы көбейетінін, клондық көбею сирек екенін жазады.",
+      "ru": "В исследовании указано преимущественное размножение семенами; клональное размножение редко.",
+      "en": "The study reports seed as the primary mode of reproduction, with clonal reproduction rare."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "type-specimen",
+    "category": "archive",
+    "status": "qualified",
+    "title": {
+      "kz": "Гербарийдегі жазба",
+      "ru": "Гербарная запись",
+      "en": "Herbarium record"
+    },
+    "value": "1872 · Boroldai",
+    "detail": {
+      "kz": "Париждегі Ұлттық табиғат тарихы музейінің карточкасында 1872 жылғы жинау дерегі және «Boroldai» мекені көрсетілген. Карточканың өзі тип мәртебесін анықталмаған деп белгілейді.",
+      "ru": "Карточка Национального музея естественной истории в Париже указывает сбор 1872 года и местность «Boroldai». Статус типа на самой карточке назван неопределённым.",
+      "en": "A record at the National Museum of Natural History in Paris gives an 1872 collection date and “Boroldai” locality. The record itself marks type status as uncertain."
+    },
+    "source": [
+      "mnhn"
+    ]
+  },
+  {
+    "id": "named-for-greig",
+    "category": "history",
+    "status": "verified",
+    "title": {
+      "kz": "Грейг есімі",
+      "ru": "Имя Грейга",
+      "en": "The Greig name"
+    },
+    "value": "Samuel A. Greig",
+    "detail": {
+      "kz": "2024 жылғы ботаникалық мақала түр атауын Samuel A. Greig (1827–1887) есімімен байланыстырады. Жылдар атаудың құрметіне берілген тұлғаның өмірбаянына қатысты; тюльпанның ашылған уақыты емес.",
+      "ru": "Ботаническая статья 2024 года связывает название вида с Samuel A. Greig (1827–1887). Эти годы относятся к биографии человека, а не к открытию тюльпана.",
+      "en": "A 2024 botanical paper links the species name to Samuel A. Greig (1827–1887). Those dates refer to the person’s life, not the discovery of the tulip."
+    },
+    "source": [
+      "frontiers"
+    ]
+  },
+  {
+    "id": "national-red-book",
+    "category": "conservation",
+    "status": "verified",
+    "title": {
+      "kz": "Қазақстандағы қорғау мәртебесі",
+      "ru": "Охранный статус в Казахстане",
+      "en": "Protection in Kazakhstan"
+    },
+    "value": {
+      "kz": "Қызыл кітапқа енгізілген",
+      "ru": "Включён в Красную книгу",
+      "en": "Listed in Kazakhstan’s Red Book"
+    },
+    "detail": {
+      "kz": "2026 жылғы Түркістан облысы әкімдігінің ресми хабарламасы Қазығұрт ауданына қатысты *Tulipa greigii*-ді Қазақстанның Қызыл кітабына енген түр деп атайды.",
+      "ru": "В сообщении акимата Туркестанской области за 2026 год *Tulipa greigii* в районе Казыгурта назван видом, включённым в Красную книгу Казахстана.",
+      "en": "A 2026 Turkistan Region akimat notice describes *Tulipa greigii* in Kazygurt District as listed in Kazakhstan’s Red Book."
+    },
+    "source": [
+      "gov"
+    ]
+  },
+  {
+    "id": "global-status",
+    "category": "conservation",
+    "status": "qualified",
+    "title": {
+      "kz": "Ұлттық және жаһандық тізімдер",
+      "ru": "Национальные и глобальные списки",
+      "en": "National and global listings"
+    },
+    "value": "LC · IUCN 2022",
+    "detail": {
+      "kz": "2024 жылғы мақала 2022 бағалауында жаһандық IUCN санатын Least Concern деп келтіреді. Бұл ұлттық Қызыл кітаптағы мәртебемен бірдей тізім емес; екі бағалау деңгейі бөлек оқылады.",
+      "ru": "Статья 2024 года приводит для глобальной оценки IUCN 2022 категорию Least Concern. Это не та же самая система, что национальная Красная книга; уровни оценки следует различать.",
+      "en": "A 2024 paper reports Least Concern for the 2022 global IUCN assessment. This is a different listing from Kazakhstan’s national Red Book; the assessment levels should be kept distinct."
+    },
+    "source": [
+      "frontiers",
+      "gov"
+    ]
+  },
+  {
+    "id": "silk-roads-context",
+    "category": "heritage",
+    "status": "interpretation",
+    "title": {
+      "kz": "Жібек жолы: контекст пен дәлел",
+      "ru": "Шёлковый путь: контекст и доказательства",
+      "en": "Silk Roads: context and evidence"
+    },
+    "value": {
+      "kz": "Мәдени дәліз — иә; дәлелденген гүл маршруты — жоқ",
+      "ru": "Культурный коридор — да; доказанный маршрут цветка — нет",
+      "en": "Cultural corridor, yes; documented tulip route, no"
+    },
+    "detail": {
+      "kz": "UNESCO материалдары Оңтүстік Қазақстанды кең тарихи дәліздер контекстінде қарастыруға мүмкіндік береді. Олар Грейг қызғалдағының осы жолмен Еуропаға тасымалданғанын дәлелдемейді.",
+      "ru": "Материалы UNESCO помогают рассматривать Южный Казахстан в контексте широких исторических коридоров. Они не доказывают перевозку тюльпана Грейга по этому пути в Европу.",
+      "en": "UNESCO records place southern Kazakhstan in the context of wider historic corridors. They do not document Greig’s tulip travelling to Europe along them."
+    },
+    "source": [
+      "unesco",
+      "unesco-fs"
+    ]
+  },
+  {
+    "id": "heritage-listing",
+    "category": "heritage",
+    "status": "verified",
+    "title": {
+      "kz": "Ферғана–Сырдария дәлізі",
+      "ru": "Фергано-Сырдарьинский коридор",
+      "en": "Fergana–Syr Darya corridor"
+    },
+    "value": "UNESCO Tentative List · 2021",
+    "detail": {
+      "kz": "Алдын ала тізімге ұсынылуы Дүниежүзілік мұра тізіміне енгізілді дегенді білдірмейді. Бұл құжатта Отырар мен Ясы-Түркістан бар.",
+      "ru": "Включение в Предварительный список не означает, что объект уже внесён в Список всемирного наследия. В документе названы Отрар и Яссы-Туркестан.",
+      "en": "Being on the Tentative List does not mean the property is inscribed on the World Heritage List. The record names Otrar and Yassy-Turkestan."
+    },
+    "source": [
+      "unesco-fs"
+    ]
+  },
+  {
+    "id": "shubaykyzyl-distinction",
+    "category": "heritage",
+    "status": "qualified",
+    "title": {
+      "kz": "Шұбайқызыл атауы мен түр атауы",
+      "ru": "Шубайкызыл и научное название",
+      "en": "Shubaykyzyl and the species name"
+    },
+    "value": {
+      "kz": "Мәдени атауды ғылыми сәйкестендірумен шатастырмау",
+      "ru": "Не смешивать местное название и научное определение",
+      "en": "Keep local naming distinct from scientific identification"
+    },
+    "detail": {
+      "kz": "Түлкібастағы фестиваль туралы әкімдік хабарламасы мәдени іс-шараны тіркейді, бірақ гүлді *Tulipa greigii* деп таксономиялық анықтамайды.",
+      "ru": "Сообщение акимата о фестивале в Тюлькубасе описывает культурное событие, но не определяет цветок таксономически как *Tulipa greigii*.",
+      "en": "The akimat’s festival report documents a cultural event in Tulkibas, but does not taxonomically identify the flower as *Tulipa greigii*."
+    },
+    "source": [
+      "tulkibas-gov"
+    ]
+  },
+  {
+    "id": "aksu-reserve",
+    "category": "conservation",
+    "status": "verified",
+    "title": {
+      "kz": "Ақсу-Жабағылының орны",
+      "ru": "Статус Аксу-Жабаглы",
+      "en": "Aksu-Zhabagly designation"
+    },
+    "value": {
+      "kz": "UNESCO биосфералық резерваты",
+      "ru": "Биосферный резерват UNESCO",
+      "en": "UNESCO Biosphere Reserve"
+    },
+    "detail": {
+      "kz": "UNESCO-ның «Адам және биосфера» бағдарламасы қорықты Батыс Тянь-Шаньдағы биосфералық резерват ретінде сипаттайды.",
+      "ru": "Программа UNESCO «Человек и биосфера» описывает заповедник как биосферный резерват Западного Тянь-Шаня.",
+      "en": "UNESCO’s Man and the Biosphere Programme identifies the reserve as a biosphere reserve in the Western Tien-Shan."
+    },
+    "source": [
+      "aksu"
+    ]
+  },
+  {
+    "id": "shymkent-symbol",
+    "category": "heritage",
+    "status": "verified",
+    "title": {
+      "kz": "Шымкенттің қалалық белгісі",
+      "ru": "Городской образ Шымкента",
+      "en": "Shymkent’s civic flower image"
+    },
+    "value": {
+      "kz": "Қызғалдақ — ресми туристік баяндаудағы символ",
+      "ru": "Тюльпан — символ в официальном туристическом рассказе",
+      "en": "Tulips feature in the city’s official tourism narrative"
+    },
+    "detail": {
+      "kz": "Шымкенттің ресми туристік порталы қызғалдақты елтаңбада бейнеленген қалалық символ және көктемгі көгалдандыру бейнесі ретінде атайды. Бұл *Tulipa greigii* жабайы популяциясы туралы дерек емес.",
+      "ru": "Официальный туристический портал Шымкента называет тюльпан городским символом на гербе и частью весеннего озеленения. Это не свидетельство о дикой популяции *Tulipa greigii*.",
+      "en": "Shymkent’s official tourism portal describes the tulip as a city symbol shown on the emblem and as spring planting. This is not evidence of a wild *Tulipa greigii* population."
+    },
+    "source": [
+      "shymkent-tourism"
+    ]
+  }
+]

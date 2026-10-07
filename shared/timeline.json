@@ -1,0 +1,288 @@
+[
+  {
+    "year": 1868,
+    "category": "botany",
+    "date": {
+      "kz": "1868 · тарихи атау",
+      "ru": "1868 · прежнее название",
+      "en": "1868 · earlier name"
+    },
+    "title": {
+      "kz": "Karatavica атауы жарияланды",
+      "ru": "Опубликовано название karatavica",
+      "en": "The name karatavica was published"
+    },
+    "body": {
+      "kz": "Kew қазіргі *Tulipa greigii* синонимдерінің қатарында *Tulipa altaica* var. *karatavica* Regel (1868) атауын көрсетеді. Бұл сол кездегі жіктеу тарихының бір бөлігі.",
+      "ru": "Kew приводит *Tulipa altaica* var. *karatavica* Regel (1868) среди синонимов *Tulipa greigii*. Это часть истории ботанической классификации.",
+      "en": "Kew lists *Tulipa altaica* var. *karatavica* Regel (1868) among synonyms of *Tulipa greigii*. It is part of the taxon’s classification history."
+    },
+    "source": "kew"
+  },
+  {
+    "year": 1872,
+    "category": "archive",
+    "date": {
+      "kz": "1872 · гербарий дерегі",
+      "ru": "1872 · гербарная запись",
+      "en": "1872 · herbarium record"
+    },
+    "title": {
+      "kz": "Boroldai мекенінен жиналған үлгі",
+      "ru": "Сбор образца в местности Boroldai",
+      "en": "A specimen recorded from Boroldai"
+    },
+    "body": {
+      "kz": "Париждегі Ұлттық табиғат тарихы музейінің цифрлық карточкасы жинау күнін 1872 жылғы сәуір деп көрсетеді. Карточкадағы тип мәртебесі анықталмаған деп белгіленген.",
+      "ru": "Цифровая карточка Национального музея естественной истории в Париже датирует сбор апрелем 1872 года. Статус типа в записи помечен как неопределённый.",
+      "en": "A digital record at the National Museum of Natural History in Paris dates the collection to April 1872. The record marks type status as uncertain."
+    },
+    "source": "mhnn"
+  },
+  {
+    "year": 1873,
+    "category": "botany",
+    "date": {
+      "kz": "1873 · алғашқы жарияланым",
+      "ru": "1873 · первая публикация",
+      "en": "1873 · first publication"
+    },
+    "title": {
+      "kz": "Tulipa greigii деген атау жарық көрді",
+      "ru": "Опубликовано название Tulipa greigii",
+      "en": "The name Tulipa greigii was published"
+    },
+    "body": {
+      "kz": "IPNI және Kew алғашқы жарияланымды Gartenflora, 22-том, 290-бет деп келтіреді. Ғылыми атаудың дәлелді жылы — 1873.",
+      "ru": "IPNI и Kew указывают первую публикацию в Gartenflora, том 22, страница 290. Подтверждённый год публикации названия — 1873.",
+      "en": "IPNI and Kew cite Gartenflora, volume 22, page 290, as the first publication. The documented year for the species name is 1873."
+    },
+    "source": [
+      "ipni",
+      "kew"
+    ]
+  },
+  {
+    "year": 1873,
+    "category": "archive",
+    "date": {
+      "kz": "1873 · түпнұсқа басылым",
+      "ru": "1873 · первоисточник",
+      "en": "1873 · primary source"
+    },
+    "title": {
+      "kz": "Gartenflora-дағы 773-тақта",
+      "ru": "Таблица 773 в Gartenflora",
+      "en": "Plate 773 in Gartenflora"
+    },
+    "body": {
+      "kz": "Biodiversity Heritage Library цифрланған 1873 жылғы ботаникалық басылым бетін ұсынады. Сурет Эдуард Регельдің авторлық иллюстрациясы ретінде белгіленген.",
+      "ru": "Biodiversity Heritage Library предоставляет оцифрованную страницу ботанического издания 1873 года. Иллюстрация атрибуирована Эдуарду Регелю.",
+      "en": "The Biodiversity Heritage Library provides a digitized page from the 1873 botanical issue. The illustration is attributed to Eduard Regel."
+    },
+    "source": "bhl"
+  },
+  {
+    "year": 1877,
+    "category": "botany",
+    "date": {
+      "kz": "1877 · атаулар тарихы",
+      "ru": "1877 · история названий",
+      "en": "1877 · nomenclatural history"
+    },
+    "title": {
+      "kz": "Неліктен кей деректе 1877 делінеді?",
+      "ru": "Почему в части источников указано 1877?",
+      "en": "Why do some records say 1877?"
+    },
+    "body": {
+      "kz": "1877 жылғы *Tulipa greigii* var. *typica* жазбасы бар, бірақ Kew оны жарамды жарияланбаған деп белгілейді. Бұл 1873 жылғы түр атауының алғашқы жарияланымын алмастырмайды.",
+      "ru": "Существует запись 1877 года для *Tulipa greigii* var. *typica*, однако Kew помечает её как невалидно опубликованную. Она не заменяет первую публикацию названия вида в 1873 году.",
+      "en": "A 1877 record exists for *Tulipa greigii* var. *typica*, but Kew marks it as not validly published. It does not replace the species name’s first publication in 1873."
+    },
+    "source": [
+      "kew",
+      "ipni"
+    ]
+  },
+  {
+    "year": 1879,
+    "category": "botany",
+    "date": {
+      "kz": "1879 · синоним жазбасы",
+      "ru": "1879 · запись синонима",
+      "en": "1879 · synonym record"
+    },
+    "title": {
+      "kz": "Krauseana кейін синоним ретінде тізілді",
+      "ru": "Krauseana позднее внесено в синонимы",
+      "en": "Krauseana was later listed as a synonym"
+    },
+    "body": {
+      "kz": "Kew *Tulipa krauseana* Regel атауын 1879 жылғы жарияланымға жатқызып, қазіргі жіктеуде синонимдер қатарында береді.",
+      "ru": "Kew связывает название *Tulipa krauseana* Regel с публикацией 1879 года и включает его в современный список синонимов.",
+      "en": "Kew dates *Tulipa krauseana* Regel to an 1879 publication and includes it among current synonyms."
+    },
+    "source": "kew"
+  },
+  {
+    "year": 1896,
+    "category": "botany",
+    "date": {
+      "kz": "1896 · бау-бақша каталогы",
+      "ru": "1896 · садовый каталог",
+      "en": "1896 · nursery catalogue"
+    },
+    "title": {
+      "kz": "Aurea атауы каталогта кездесті",
+      "ru": "Название aurea появилось в каталоге",
+      "en": "The name aurea appeared in a catalogue"
+    },
+    "body": {
+      "kz": "Kew дерегінде *Tulipa greigii aurea* Tubergen атауы 1896 жылғы питомник каталогына сілтеме жасайды.",
+      "ru": "В записи Kew название *Tulipa greigii aurea* Tubergen связано с каталогом питомника за 1896 год.",
+      "en": "Kew’s record links the name *Tulipa greigii aurea* Tubergen to a 1896 nursery catalogue."
+    },
+    "source": "kew"
+  },
+  {
+    "year": 2013,
+    "category": "research",
+    "date": {
+      "kz": "2013 · систематика шолуы",
+      "ru": "2013 · обзор систематики",
+      "en": "2013 · taxonomic review"
+    },
+    "title": {
+      "kz": "Tulipa жіктелуі қайта қаралды",
+      "ru": "Пересмотрена классификация Tulipa",
+      "en": "Tulipa classification was reviewed"
+    },
+    "body": {
+      "kz": "Kew қабылданған атауды негіздеген еңбектердің қатарында *Tulipa* туысының мәдени тарихы мен филогенетикасы туралы 2013 жылғы зерттеуді атайды.",
+      "ru": "Среди работ, на которые опирается Kew при принятии названия, указано исследование 2013 года о культурной истории и филогенетике рода *Tulipa*.",
+      "en": "Among the works informing Kew’s accepted-name treatment is a 2013 study on the cultural history and phylogenetics of *Tulipa*."
+    },
+    "source": "kew"
+  },
+  {
+    "year": 2014,
+    "category": "heritage",
+    "date": {
+      "kz": "2014 · ЮНЕСКО тізімі",
+      "ru": "2014 · список UNESCO",
+      "en": "2014 · UNESCO inscription"
+    },
+    "title": {
+      "kz": "Чанъань–Тянь-Шань дәлізі тізімге енді",
+      "ru": "Коридор Чанъань–Тянь-Шань включён в список",
+      "en": "Chang’an–Tianshan Corridor was inscribed"
+    },
+    "body": {
+      "kz": "UNESCO World Heritage Centre дәліздің Дүниежүзілік мұра тізіміне 2014 жылы енгізілгенін көрсетеді. Бұл өңір тарихының мәдени контексті, өсімдіктің нақты сауда жолы емес.",
+      "ru": "Центр всемирного наследия UNESCO указывает включение коридора в список в 2014 году. Это культурный контекст истории региона, а не маршрут конкретного растения.",
+      "en": "UNESCO’s World Heritage Centre records the corridor’s inscription in 2014. This is regional cultural context, not a documented route for this plant."
+    },
+    "source": "unesco"
+  },
+  {
+    "year": 2021,
+    "category": "heritage",
+    "date": {
+      "kz": "2021 · алдын ала тізім",
+      "ru": "2021 · Предварительный список",
+      "en": "2021 · Tentative List"
+    },
+    "title": {
+      "kz": "Ферғана–Сырдария дәлізі ұсынылды",
+      "ru": "Представлен Фергано-Сырдарьинский коридор",
+      "en": "Fergana–Syr Darya Corridor was proposed"
+    },
+    "body": {
+      "kz": "Қазақстан UNESCO алдын ала тізімінде Ферғана–Сырдария дәлізін ұсынған. Алдын ала тізім толық Дүниежүзілік мұра мәртебесіне тең емес.",
+      "ru": "Казахстан представил Фергано-Сырдарьинский коридор для Предварительного списка UNESCO. Этот список не равнозначен статусу объекта всемирного наследия.",
+      "en": "Kazakhstan submitted the Fergana–Syr Darya Corridor to UNESCO’s Tentative List. Tentative status is not equivalent to World Heritage inscription."
+    },
+    "source": "unesco-fs"
+  },
+  {
+    "year": 2022,
+    "category": "conservation",
+    "date": {
+      "kz": "2022 · жаһандық бағалау",
+      "ru": "2022 · глобальная оценка",
+      "en": "2022 · global assessment"
+    },
+    "title": {
+      "kz": "IUCN санаты мақалада келтірілді",
+      "ru": "Категория IUCN приведена в исследовании",
+      "en": "IUCN category reported in a study"
+    },
+    "body": {
+      "kz": "2024 жылғы зерттеу *Tulipa greigii* үшін 2022 жылғы IUCN жаһандық бағасын Least Concern деп көрсетеді. Бұл ұлттық Қызыл кітаптағы жазбамен бір жүйе емес.",
+      "ru": "Исследование 2024 года приводит для *Tulipa greigii* глобальную категорию IUCN Least Concern по оценке 2022 года. Это не та же система, что национальная Красная книга.",
+      "en": "A 2024 study reports a global IUCN Least Concern assessment for *Tulipa greigii* in 2022. This is separate from a national Red Book listing."
+    },
+    "source": "frontiers"
+  },
+  {
+    "year": 2024,
+    "category": "research",
+    "date": {
+      "kz": "2024 · геномдық зерттеу",
+      "ru": "2024 · геномное исследование",
+      "en": "2024 · genomic research"
+    },
+    "title": {
+      "kz": "Қазақстан қызғалдақтарының геномдары салыстырылды",
+      "ru": "Сопоставлены геномы тюльпанов Казахстана",
+      "en": "Kazakhstan tulip genomes were compared"
+    },
+    "body": {
+      "kz": "Рецензияланған мақала *Tulipa greigii* кіретін төрт жергілікті түрдің хлоропласт геномдарын зерттейді; сонымен бірге таралу мен морфология туралы шолу береді.",
+      "ru": "Рецензируемая статья исследует хлоропластные геномы четырёх местных видов, включая *Tulipa greigii*, и рассматривает распространение и морфологию.",
+      "en": "A peer-reviewed paper studies chloroplast genomes of four local species, including *Tulipa greigii*, and reviews distribution and morphology."
+    },
+    "source": "frontiers"
+  },
+  {
+    "year": 2024,
+    "category": "research",
+    "date": {
+      "kz": "2024 · таксономиялық шолу",
+      "ru": "2024 · таксономический обзор",
+      "en": "2024 · taxonomic review"
+    },
+    "title": {
+      "kz": "Қазақстандағы Tulipa туысы қайта қаралды",
+      "ru": "Род Tulipa в Казахстане пересмотрен",
+      "en": "Tulipa in Kazakhstan was revisited"
+    },
+    "body": {
+      "kz": "Turczaninowia журналындағы шолу Қазақстандағы *Tulipa* атаулары, таралуы және қорғау тізімдерін жинақтайды.",
+      "ru": "Обзор в журнале Turczaninowia сводит данные о названиях, распространении и охранных списках казахстанских *Tulipa*.",
+      "en": "A review in Turczaninowia brings together names, distribution and conservation listings for Kazakhstan’s *Tulipa*."
+    },
+    "source": "paper"
+  },
+  {
+    "year": 2026,
+    "category": "conservation",
+    "date": {
+      "kz": "2026 · өңірлік бақылау",
+      "ru": "2026 · региональное сообщение",
+      "en": "2026 · regional report"
+    },
+    "title": {
+      "kz": "Қазығұрттағы гүлдеу туралы хабарланды",
+      "ru": "Сообщено о цветении в Казыгурте",
+      "en": "Flowering was reported in Kazygurt"
+    },
+    "body": {
+      "kz": "Түркістан облысы әкімдігінің хабарламасы Шанақ ауылдық округінде гүлдеу кезеңін және ұлттық Қызыл кітап мәртебесін тіркейді. Бұл жыл сайынғы мерзімді болжау емес.",
+      "ru": "Сообщение акимата Туркестанской области отмечает период цветения в Шанакском сельском округе и национальный охранный статус. Это не прогноз сроков на каждый год.",
+      "en": "A Turkistan Region akimat notice records flowering in the Shanaq rural district and national protection status. It is not a prediction of annual timing."
+    },
+    "source": "gov"
+  }
+]

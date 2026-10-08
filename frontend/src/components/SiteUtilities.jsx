@@ -9,7 +9,7 @@ import { timeline } from '../data/timeline.js'
 const pageKeys = [
   ['facts', '/malimetter'], ['history', '/history'], ['timeline', '/timeline'], ['map', '/map'],
   ['science', '/science'], ['heritage', '/heritage'], ['media', '/media'],
-  ['shymkent', '/shymkent'], ['silk-road', '/silk-road'], ['sources', '/sources'], ['about', '/about'],
+  ['shymkent', '/shymkent'], ['silk-road', '/silk-road'], ['reviews', '/reviews'], ['sources', '/sources'], ['about', '/about'],
 ]
 
 function SearchDialog({ close }) {

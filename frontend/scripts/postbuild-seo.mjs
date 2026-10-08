@@ -5,7 +5,7 @@ const outputDirectory = resolve('dist')
 const configuredSite = (process.env.VITE_SITE_URL || '').trim()
 const publicRoutes = [
   '/', '/malimetter', '/history', '/timeline', '/map', '/science', '/heritage',
-  '/ecology', '/media', '/shymkent', '/silk-road', '/sources', '/about',
+  '/ecology', '/media', '/shymkent', '/silk-road', '/reviews', '/sources', '/about',
 ]
 
 await writeFile(resolve(outputDirectory, 'robots.txt'), 'User-agent: *\nAllow: /\n', 'utf8')

@@ -1,0 +1,183 @@
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+  padding: clamp(22px, 2.5vw, 34px);
+  border: 1px solid var(--rule);
+  background: #f8f4ec;
+}
+
+.review-card-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  color: #a89370;
+}
+
+.review-card-meta > span {
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.review-card-meta small {
+  max-width: 70%;
+  color: #897d69;
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.review-card h2 {
+  margin: 27px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(23px, 2vw, 30px);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.review-card h3 {
+  margin: 0 0 14px;
+  color: #8a4c3d;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.review-summary {
+  margin: 0 0 18px;
+  color: #72695d;
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.review-attribution {
+  margin: auto 0 12px;
+  padding-top: 13px;
+  border-top: 1px solid var(--rule);
+  color: #9a8768;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.review-source-link {
+  align-items: flex-start;
+  line-height: 1.55;
+}
+
+.curator-note {
+  display: grid;
+  grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr);
+  gap: clamp(28px, 6vw, 86px);
+  padding-top: 42px;
+  padding-bottom: 64px;
+  border-top: 1px solid var(--rule);
+}
+
+.curator-note .eyebrow {
+  color: #987e59;
+}
+
+.curator-note h2 {
+  margin: 12px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.6vw, 43px);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.curator-note > div:last-child > p {
+  margin: 0;
+  color: #70675b;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.curator-note-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 18px;
+  margin-top: 20px;
+}
+
+.timeline-detail {
+  margin: 12px 0 7px;
+  border-top: 1px solid #e2d8c9;
+}
+
+.timeline-detail summary {
+  width: fit-content;
+  padding: 10px 0 3px;
+  color: #8b6344;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.timeline-detail summary:focus-visible,
+.review-source-link:focus-visible {
+  outline: 2px solid #8a4c3d;
+  outline-offset: 3px;
+}
+
+.timeline-detail > p {
+  margin: 10px 0 14px;
+  color: #70675b;
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+@media (max-width: 940px) {
+  .review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  .review-card,
+  .review-card:last-child {
+    grid-column: auto;
+    min-height: 0;
+    padding: 22px 19px;
+  }
+
+  .review-card h2 {
+    margin-top: 20px;
+    font-size: 26px;
+  }
+
+  .review-summary {
+    font-size: 12px;
+  }
+
+  .curator-note {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    padding-top: 30px;
+    padding-bottom: 46px;
+  }
+
+  .curator-note > div:last-child > p {
+    font-size: 12px;
+  }
+}

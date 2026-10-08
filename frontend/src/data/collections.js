@@ -60,6 +60,66 @@ export const sourceRecords = [
     },
   },
   {
+    id: 'greentours-field-report', category: { kz: 'Далалық есеп', ru: 'Полевой отчёт', en: 'Field report' },
+    title: 'Tulips of the Tien Shan · 2015 trip report', author: 'Greentours Natural History Holidays', year: '2015',
+    url: 'https://www.greentours.co.uk/wp-content/uploads/2024/03/Trip-Report-Tulips-of-the-Tien-Shan-2015-edited.pdf',
+    note: {
+      kz: 'Берқара мен Қаратау маңындағы далалық бақылауларды сипаттайтын тур есебі. Бұл — саяхат есебі, популяцияны ғылыми есепке алу емес.',
+      ru: 'Отчёт о полевых наблюдениях в Беркаре и Каратау. Это путевой отчёт, а не научная перепись популяции.',
+      en: 'A tour report describing field observations at Berkara and Karatau. It is a travel account, not a population survey.',
+    },
+  },
+  {
+    id: 'naturetrek-tulips', category: { kz: 'Тур бағдарламасы', ru: 'Программа тура', en: 'Tour itinerary' },
+    title: 'The Tulip Meadows of Kazakhstan’s Steppes & Tien Shan Mountains', author: 'Naturetrek Botanical Tours', year: '2026',
+    url: 'https://naturetrek.co.uk/tours/tulip-meadows-of-kazakhstan-and-the-tien-shan-mountains',
+    note: {
+      kz: 'Оңтүстік және оңтүстік-шығыс Қазақстандағы табиғи орындарға бағытталған ботаникалық тур бағдарламасы; бақылаулар маусым мен ауа райына тәуелді.',
+      ru: 'Маршрут ботанического тура по природным местам юга и юго-востока Казахстана; наблюдения зависят от сезона и погоды.',
+      en: 'A botanical tour itinerary for natural sites in southern and south-eastern Kazakhstan; sightings depend on season and weather.',
+    },
+  },
+  {
+    id: 'gardner-flora-book', category: { kz: 'Ботаникалық еңбек', ru: 'Ботаническое издание', en: 'Botanical book' },
+    title: 'Flora of the Silk Road: An Illustrated Guide', author: 'Basak Gardner & Christopher (Chris) Gardner · Bloomsbury', year: '2014',
+    url: 'https://www.bloomsbury.com/US/author/christopher-gardner/',
+    note: {
+      kz: 'Баспагер дерегі бойынша, Chris және Basak Gardner — Жібек жолы өңірлерінің жабайы флорасына арналған суретті анықтамалықтың авторлары.',
+      ru: 'По данным издателя, Chris и Basak Gardner — авторы иллюстрированного справочника о дикой флоре регионов Шёлкового пути.',
+      en: 'The publisher identifies Chris and Basak Gardner as authors of an illustrated guide to wild plants of Silk Road regions.',
+    },
+  },
+  {
+    id: 'okg-greig-2018', category: { kz: 'Өңірлік баспасөз', ru: 'Региональная пресса', en: 'Regional press' },
+    title: 'Грейг қызғалдағын қорғайық', author: 'Эльмира Жұманова · Оңтүстік Қазақстан', year: '2018',
+    url: 'https://okg.kz/post?id=12456&slug=greig-qyzgaldagyn-qorgaiyq',
+    note: {
+      kz: 'Шұбайқызыл аумағын қорғау туралы үндеу. Мақаладағы кейбір тарихи және географиялық пайымдар тәуелсіз ботаникалық деректермен расталмаған.',
+      ru: 'Призыв защищать урочище Шубайкызыл. Некоторые исторические и географические утверждения статьи не подтверждены независимыми ботаническими источниками.',
+      en: 'An appeal to protect Shubaiqyzyl. Some historical and geographic claims in the article are not corroborated by independent botanical sources.',
+    },
+  },
+  {
+    id: 'otyrar-shanaq-2026', category: { kz: 'Өңірлік жаңалық', ru: 'Региональная новость', en: 'Regional news' },
+    title: 'Қазығұртта «Қызыл кітапқа» енген Грейг қызғалдағы гүлдеді', author: 'OTYRAR · Түркістан облысы әкімдігінің ақпараты', year: '2026',
+    url: 'https://kz.otyrar.kz/2026/04/qazygurtta-qyzyl-kitapqa-engen-grejg-qyzgaldagy-guldedi/',
+    note: {
+      kz: '2026 жылғы 2 сәуірде жарияланған Шанақ ауылдық округіндегі гүлдеу туралы өңірлік хабар. Бір жылдағы бақылауды көпжылдық мониторингпен шатастырмау керек.',
+      ru: 'Региональное сообщение от 2 апреля 2026 года о цветении в Шанакском сельском округе. Наблюдение одного года не заменяет многолетний мониторинг.',
+      en: 'A regional report dated 2 April 2026 on flowering in Shanaq rural district. A single-year observation is not a long-term survey.',
+    },
+  },
+  {
+    id: 'ontustik-tv-2026', category: { kz: 'Телехабар', ru: 'Телесюжет', en: 'TV report' },
+    title: 'Шымкентте Грейг қызғалдағы гүлдеді', author: '«Оңтүстік» телеарнасы', year: '2026',
+    url: 'https://ontustiktv.kz/kz/news/61335',
+    note: {
+      kz: '2026 жылғы 6 сәуірдегі өңірлік репортаж Ордабасы маңындағы жабайы гүлдеу мен қаладағы егілген қызғалдақтарды бөлек баяндайды.',
+      ru: 'Региональный сюжет от 6 апреля 2026 года отдельно описывает дикое цветение у Ордабасы и городские посадки тюльпанов.',
+      en: 'A regional report dated 6 April 2026 distinguishes wild flowering near Ordabasy from tulips planted in the city.',
+    },
+  },
+  {
     id: 'photo-greig', category: { kz: 'Фотография · CC BY-SA 4.0', ru: 'Фотография · CC BY-SA 4.0', en: 'Photography · CC BY-SA 4.0' },
     title: 'Tulipa greigii in Aksu-Zhabagly', author: 'V. A. Kovshar · Wikimedia Commons', year: '2014',
     url: 'https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png',
@@ -322,5 +382,5 @@ export { mediaItems } from './media.js'
 export const navItems = [
   { id: 'history', to: '/history' }, { id: 'encyclopedia', to: '/malimetter' }, { id: 'timeline', to: '/timeline' }, { id: 'map', to: '/map' },
   { id: 'science', to: '/science' }, { id: 'heritage', to: '/heritage' }, { id: 'media', to: '/media' },
-  { id: 'shymkent', to: '/shymkent' }, { id: 'sources', to: '/sources' },
+  { id: 'shymkent', to: '/shymkent' }, { id: 'reviews', to: '/reviews' }, { id: 'sources', to: '/sources' },
 ]

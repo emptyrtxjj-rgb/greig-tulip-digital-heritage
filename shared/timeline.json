@@ -186,6 +186,32 @@
     "source": "unesco"
   },
   {
+    "year": 2018,
+    "sortDate": "2018-04-03",
+    "category": "conservation",
+    "date": {
+      "kz": "2018 · 3 сәуір · өңірлік үндеу",
+      "ru": "2018 · 3 апреля · региональный призыв",
+      "en": "2018 · 3 April · regional appeal"
+    },
+    "title": {
+      "kz": "Шұбайқызыл аумағын қорғау мәселесі көтерілді",
+      "ru": "Поднят вопрос охраны урочища Шубайкызыл",
+      "en": "Protection of Shubaiqyzyl was raised"
+    },
+    "body": {
+      "kz": "Өңірлік газетте Ақсу-Жабағылы қорығының экологиялық ағарту және туризм бөлімінің басшысы Эльмира Жұманованың Шұбайқызылдағы Грейг қызғалдағы мекенін таптаудан қорғау туралы үндеуі жарияланды. Бұл мақала қоғамдық алаңдаушылықтың дерегі; популяцияның ғылыми санағы немесе сол аумаққа берілген ресми қорғаныс мәртебесі емес.",
+      "ru": "Региональная газета опубликовала призыв Эльмиры Жумановой, руководителя отдела экологического просвещения и туризма заповедника Аксу-Жабаглы, защитить место произрастания тюльпана Грейга в Шубайкызыле от вытаптывания. Статья документирует общественную обеспокоенность, но не является научным учётом популяции или свидетельством о присвоении участку официального охранного статуса.",
+      "en": "A regional newspaper published an appeal by Elmira Zhumanova, head of environmental education and tourism at Aksu-Zhabagly Reserve, to protect Greig’s tulip habitat at Shubaiqyzyl from trampling. The article documents public concern; it is not a scientific population census or evidence that the site received formal protected status."
+    },
+    "details": {
+      "kz": "Бұл жазбада өсімдіктің ботаникалық тарихы мен қорғау туралы қоғамдық пікірді ажырату маңызды. Мақала 2018 жылы жарияланған және Шұбайқызыл (Қызылтөбешік) маңындағы көктемгі келушілердің гүлді таптауы мүмкін екеніне назар аударып, аумақты қорғау қажеттігін ұсынады. Сондықтан ол өңірдегі табиғатты қорғау дискурсының уақыт белгісі ретінде пайдалы. Алайда мәтіндегі 1868 жылғы атаулар, 1873 жылғы Қаратаудағы зерттеу, 1887 жылғы көрме дипломы, Жібек жолымен тасымалдану, биіктік пен алаң көлемі туралы тұжырымдардың бәрін өзге дерекпен тексеру керек. IPNI мен Kew атаудың жарияланымын 1873 жылғы Gartenflora-ға байланыстырады; бұл библиографиялық дерек 2018 жылғы мақалада келтірілген барлық оқиғаларды растауға жеткіліксіз. Қорық шекарасынан тыс жатқан нақты алаңға заңды қорғау мәртебесі берілген-берілмегенін де бөлек әкімшілік құжатпен анықтау қажет. Ғылыми мониторинг үшін қай жыл, қай учаске, қандай әдіс және қандай популяция көрсеткіштері қолданылғаны қажет; газеттегі үндеу мұндай деректерді алмастырмайды.",
+      "ru": "Здесь важно разделять ботаническую историю растения и общественную дискуссию об охране. Статья вышла в 2018 году: она обращает внимание на возможное вытаптывание цветущих растений посетителями урочища Шубайкызыл (Кызылтобешик) и предлагает защитить территорию. Поэтому публикация важна как свидетельство природоохранной повестки региона. Однако приведённые в ней сведения о названиях 1868 года, исследованиях Регеля в Каратау в 1873 году, дипломе выставки 1887 года, перевозке по Шёлковому пути, высоте произрастания и площади участка требуют независимой проверки. IPNI и Kew связывают публикацию названия вида с Gartenflora за 1873 год; эта библиографическая запись не подтверждает автоматически все перечисленные в статье эпизоды. Формальный охранный статус конкретного участка за пределами заповедника также нужно проверять по отдельному административному документу. Для научного мониторинга нужны год, точный участок, метод и показатели популяции; газетное обращение не заменяет таких данных.",
+      "en": "This entry separates the plant’s botanical history from public discussion of its protection. Published in 2018, the article raises concern that spring visitors may trample flowering plants at Shubaiqyzyl (Kyzyl-Tobeshik) and calls for the area to be protected. It is therefore useful as a record of regional conservation advocacy. The article also recounts claims about names in 1868, Regel’s work in Karatau in 1873, a 1887 exhibition diploma, movement along the Silk Road, elevation and the size of a flowering area; each needs independent corroboration. IPNI and Kew connect publication of the species name to Gartenflora in 1873, but that bibliographic record does not verify every episode repeated in the 2018 article. The formal protected status of a particular site outside the reserve would also require a separate administrative document. Scientific monitoring needs a year, a defined site, a method and population measures; a newspaper appeal cannot substitute for those data."
+    },
+    "source": "okg-greig-2018"
+  },
+  {
     "year": 2021,
     "category": "heritage",
     "date": {
@@ -267,22 +293,54 @@
   },
   {
     "year": 2026,
+    "sortDate": "2026-04-02",
     "category": "conservation",
     "date": {
-      "kz": "2026 · өңірлік бақылау",
-      "ru": "2026 · региональное сообщение",
-      "en": "2026 · regional report"
+      "kz": "2026 · 2 сәуір · Шанақ",
+      "ru": "2026 · 2 апреля · Шанак",
+      "en": "2026 · 2 April · Shanaq"
     },
     "title": {
-      "kz": "Қазығұрттағы гүлдеу туралы хабарланды",
-      "ru": "Сообщено о цветении в Казыгурте",
-      "en": "Flowering was reported in Kazygurt"
+      "kz": "Шанақ ауылдық округінде гүлдеу тіркелді",
+      "ru": "Сообщение о цветении в Шанакском сельском округе",
+      "en": "Flowering reported in Shanaq rural district"
     },
     "body": {
-      "kz": "Түркістан облысы әкімдігінің хабарламасы Шанақ ауылдық округінде гүлдеу кезеңін және ұлттық Қызыл кітап мәртебесін тіркейді. Бұл жыл сайынғы мерзімді болжау емес.",
-      "ru": "Сообщение акимата Туркестанской области отмечает период цветения в Шанакском сельском округе и национальный охранный статус. Это не прогноз сроков на каждый год.",
-      "en": "A Turkistan Region akimat notice records flowering in the Shanaq rural district and national protection status. It is not a prediction of annual timing."
+      "kz": "2026 жылғы өңірлік хабарлама Қазығұрт ауданындағы Шанақ ауылдық округінде Грейг қызғалдағы гүлдегенін жазады. Бұл — бір маусымның бақылауы; гүлдеу күнтізбесі мен популяция динамикасын анықтайтын ұзақмерзімді зерттеу емес.",
+      "ru": "Региональное сообщение от 2 апреля 2026 года рассказывает о цветении тюльпана Грейга в Шанакском сельском округе Казыгуртского района. Это наблюдение одного сезона, а не многолетнее исследование сроков цветения или динамики популяции.",
+      "en": "A regional report dated 2 April 2026 notes Greig’s tulip flowering in Shanaq rural district, Kazygurt District. It records one season; it is not a long-term study of flowering dates or population trends."
     },
-    "source": "gov"
+    "details": {
+      "kz": "Хабарламаның құндылығы — онда нақты өңір мен ауылдық округ аталады, соның арқасында оны картадағы жалпы таралу дерегінен ажыратуға болады. Мәтінде Қазақстанның Қызыл кітабына енгізілгені де көрсетілген. Қызыл кітаптағы мәртебе ұлттық құқықтық және табиғат қорғау жүйесіне жатады; оны IUCN-ның жаһандық санатымен теңестіруге болмайды. Жаңалықта 10–15 см биіктік пен жергілікті гүлдеу көрінісі айтылады, алайда бұлар осы хабардағы бақылау сипаттамасы ғана. Бір жылы байқалған гүлдеу түрдің әр популяциясы бір күні гүлдейді немесе саны тұрақты дегенді білдірмейді. Ұзақ мерзімді қорытынды үшін бір учаскені бірнеше маусым бойы қайталай бақылап, ауа райы, биіктік, гүлдеген дара саны және мекенге келушілер әсерін бірізді әдіспен тіркеу қажет. Сондықтан бұл дерек хронологияда нақты жергілікті хабар ретінде беріліп, ғылыми мониторинг нәтижесі деп аталмайды.",
+      "ru": "Ценность сообщения в том, что оно называет конкретный район и сельский округ, поэтому его можно отличить от общих сведений об ареале. В тексте также указано включение вида в Красную книгу Казахстана. Национальный охранный статус относится к казахстанской системе природоохранного регулирования и не должен смешиваться с глобальной категорией IUCN. Указанные высота 10–15 см и местная картина цветения являются описанием наблюдения, приведённого в публикации. Цветение, отмеченное в один год, не означает, что все популяции вида цветут одновременно или что их численность стабильна. Для долгосрочных выводов нужно повторно наблюдать одну и ту же площадку на протяжении ряда сезонов и единообразно фиксировать погоду, высоту, число цветущих растений и воздействие посетителей. Поэтому здесь это локальное сообщение, а не результат научного мониторинга.",
+      "en": "The report is useful because it names a district and rural locality, making it distinct from broad range information. It also states that the species is listed in Kazakhstan’s Red Book. National protection status belongs to Kazakhstan’s conservation framework and should not be conflated with a global IUCN category. The reported height of 10–15 cm and the local flowering scene are descriptions in this particular notice. A flowering observation in one year does not mean every population flowers at the same time or that numbers are stable. Long-term conclusions require repeated observations at the same site over multiple seasons, with consistent records of weather, elevation, flowering plants and visitor pressure. The timeline therefore treats this as a dated local report, not as a scientific monitoring result."
+    },
+    "source": "otyrar-shanaq-2026"
+  },
+  {
+    "year": 2026,
+    "sortDate": "2026-04-06",
+    "category": "conservation",
+    "date": {
+      "kz": "2026 · 6 сәуір · телехабар",
+      "ru": "2026 · 6 апреля · телерепортаж",
+      "en": "2026 · 6 April · TV report"
+    },
+    "title": {
+      "kz": "Жабайы гүлдеу мен қалалық отырғызу бөлек көрсетілді",
+      "ru": "Дикое цветение отделено от городских посадок",
+      "en": "Wild flowering distinguished from city plantings"
+    },
+    "body": {
+      "kz": "«Оңтүстік» телеарнасының репортажы Ордабасы маңындағы жабайы Грейг қызғалдағының гүлдеуін және Шымкенттегі сәндік қызғалдақ отырғызуды бөлек баяндайды. Хабардағы 1,6 мың түп саны — қаладағы отырғызуға қатысты; ол жабайы популяцияның есебі емес.",
+      "ru": "Репортаж телеканала «Оңтүстік» отдельно рассказывает о цветении дикого тюльпана Грейга у Ордабасы и о декоративных посадках в Шымкенте. Указанные в сюжете 1,6 тысячи растений относятся к городским посадкам, а не к учёту дикой популяции.",
+      "en": "A report by Ońtústik TV distinguishes wild Greig’s tulip flowering near Ordabasy from ornamental planting in Shymkent. Its figure of 1,600 plants refers to city planting, not a count of a wild population."
+    },
+    "details": {
+      "kz": "2026 жылғы 6 сәуірдегі сюжет көктемгі көрініс туралы жергілікті жаңалық ретінде маңызды. Онда Ордабасы ауданындағы жабайы өсетін Грейг қызғалдағына келген тұрғындар, табиғи алаңды таптамау және гүлді жұлмау туралы ескерту қамтылған. Сюжет сонымен бірге қала ішіндегі отырғызылған қызғалдақтарды атайды. Бұл екі жағдайды ажырату маңызды: қалалық гүлзарлар жабайы түрдің табиғи популяциясы туралы дерек бермейді, ал жабайы алқаптың сиреп бара жатқаны жөніндегі тұрғындардың пікірі арнайы санағы бар ғылыми қорытындыны алмастырмайды. Сюжетте сирек өсімдіктерге қатысты айыппұл мөлшері де аталады, бірақ сайтта ол санды заң нормасы ретінде қайталамаймыз: қолданыстағы жауапкершілікті нақтылау үшін тиісті Кодекстің бабын, есептеу тәртібін және редакция күнін ресми құқықтық базадан тексеру керек. Осылайша жаңалық адамдардың табиғатқа келуін, ақпараттық ағартудың маңызын және деректердің шегін бір мезетте көрсететін заманауи дерек ретінде сақталады.",
+      "ru": "Сюжет от 6 апреля 2026 года важен как местная новость о весеннем цветении. В нём показаны посетители природного участка с диким тюльпаном Грейга возле Ордабасы, а также звучит просьба не вытаптывать место и не срывать цветы. Отдельно сообщается о посадках тюльпанов в городе. Эти два случая нужно различать: городские клумбы не дают сведений о природной популяции вида, а мнение жителей о том, что дикое поле стало реже, не заменяет научного учёта. В репортаже также называется размер штрафа за причинение вреда редкому растению, однако здесь эта цифра не повторяется как правовая норма: актуальную ответственность следует проверять по статье Кодекса, порядку расчёта и действующей редакции официальной базы законодательства. Так сюжет сохраняется как современный источник о посещении природных мест, экологическом просвещении и границах новостных данных.",
+      "en": "The 6 April 2026 item is useful as local reporting on spring flowering. It shows visitors at a wild Greig’s tulip site near Ordabasy and includes appeals not to trample the area or pick flowers. It separately mentions tulips planted in the city. The distinction matters: urban flowerbeds do not provide data on a wild population, while residents’ impressions that a field is becoming less abundant do not replace a scientific count. The broadcast also names a fine for harming a rare plant, but this timeline does not repeat that figure as a statement of law; current liability must be checked against the relevant Code article, calculation method and version in the official legal database. The item is retained as a contemporary source on nature visits, public education and the limits of news reporting."
+    },
+    "source": "ontustik-tv-2026"
   }
 ]

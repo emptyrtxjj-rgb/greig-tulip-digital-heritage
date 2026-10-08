@@ -25,7 +25,9 @@ export function TimelineStrip({ items, compact = false }) {
     return <article className="timeline-entry" id={`timeline-${year}${firstOfYear ? '' : `-${i}`}`} data-reveal key={`${date}-${i}`}>
       <div className="timeline-date"><span>{date}</span><i/></div>
       <div className="timeline-card"><div className="timeline-card-head"><span>0{i + 1}</span>{linkedSources[0] && <a href={linkedSources[0].url} target="_blank" rel="noreferrer" aria-label={`${t.common.open}: ${linkedSources[0].title}`}><ArrowUpRight size={15}/></a>}</div>
-        <h3>{item.title[lang]}</h3><p>{item.body[lang]}</p>{linkedSources.map(source => <a className="citation-link" key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.author.split(' · ')[0]}<ArrowUpRight size={12}/></a>)}
+        <h3>{item.title[lang]}</h3><p>{item.body[lang]}</p>
+        {item.details?.[lang] && <details className="timeline-detail"><summary>{lang === 'kz' ? 'Толығырақ оқу' : lang === 'ru' ? 'Читать подробнее' : 'Read more'}</summary><p>{item.details[lang]}</p></details>}
+        {linkedSources.map(source => <a className="citation-link" key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.author.split(' · ')[0]}<ArrowUpRight size={12}/></a>)}
       </div>
     </article>
   })}</div>

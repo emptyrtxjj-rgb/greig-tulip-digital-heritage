@@ -1,7 +1,7 @@
 export const locales = {
   kz: {
     html: 'kk', label: 'Қазақша', short: 'KZ',
-    nav: { home: 'Басты бет', history: 'Тарих', encyclopedia: 'Мәліметтер', timeline: 'Хронология', map: 'Карта', science: 'Ғылым', heritage: 'Мұра', media: 'Медиа', shymkent: 'Шымкент', sources: 'Дереккөздер', more: 'Тағы' },
+    nav: { home: 'Басты бет', history: 'Тарих', encyclopedia: 'Мәліметтер', timeline: 'Хронология', map: 'Карта', science: 'Ғылым', heritage: 'Мұра', media: 'Медиа', shymkent: 'Шымкент', reviews: 'Пікірлер', sources: 'Дереккөздер', more: 'Тағы' },
     common: { explore: 'Зерттеу', read: 'Оқуды жалғастыру', sources: 'Дереккөздерді қарау', map: 'Картаны ашу', timeline: 'Хронологияны көру', back: 'Басты бетке', next: 'Келесі тарау', year: 'Жыл', place: 'Мекен', citation: 'Дереккөз', open: 'Дереккөзді ашу', viewAll: 'Барлығын көру', curated: 'Цифрлық көрме', illustration: 'Ашық лицензиямен берілген фотоматериал', photoNote: 'Грейг қызғалдағының табиғи фотосы мен басқа фотоматериалдардың авторлары және бастапқы беттері көрсетілген. Әр суреттің орны тек дерек болғанда ғана беріледі.', mapNote: 'Нүктелер өңірді бағдар ретінде көрсетеді. Карта OpenStreetMap деректерін пайдаланады.', menu: 'Мәзірді ашу', close: 'Жабу', search: 'Іздеу', searchPlaceholder: 'Факт, мекен немесе тарау іздеу', noResults: 'Сәйкес материал табылмады', filters: 'Сүзгілер', all: 'Барлығы', clear: 'Тазарту', empty: 'Бұл санатта әзірге тексерілген медиа жоқ.' },
     footer: { title: 'Бұл тарихты сақтау — біздің міндет', body: 'Грейг қызғалдағы — табиғаттың бізге қалдырған аманаты. Оны тану — туған өлкені тану. Оны қорғау — болашақты қорғау.', note: 'Бұл жоба тарихи-танымдық және экологиялық ағартушылық мақсатта жасалды.', restart: 'Шежірені қайта бастау' },
     home: {
@@ -61,6 +61,7 @@ export const locales = {
         ['Картаны зерттеу','Көрсетілген бағыт — өңірді танытатын тарихи бағдар. Ол өсімдіктің дәлелденген көші-қон желісі ретінде берілмейді.'],
       ] },
       sources: { eyebrow: '10 · ДӘЛЕЛ', title: 'Дереккөздер және ашық іздер', lead: 'Маңызды пайымның жанына оны тексеруге болатын ғылыми, ресми немесе архивтік дереккөз қостық. Тарихи контекст пен ботаникалық дәлел бөлек қарастырылады.', cards: [] },
+      reviews: { eyebrow: 'ШЕТЕЛДІК ДАЛАЛЫҚ КӨЗҚАРАСТАР', title: 'Сарапшылар мен саяхатшылар пікірі', lead: 'Тур есептері, ботаникалық басылымдар және маршрут сипаттамалары Оңтүстік Қазақстанның табиғи мұрасын сырт көзбен танытады. Мәтіндер — дереккөзге сүйенген редакциялық мазмұндамалар; түпнұсқа дәйексөз ретінде берілмейді.', cards: [] },
       about: { eyebrow: 'ЖОБА ТУРАЛЫ', title: 'Өлкемнің цифрлық шежіресі', lead: 'Бір гүл арқылы туған өлкенің тарихын, табиғатын және ғылымын байланыстыратын цифрлық музей.', cards: [
         ['Жобаның мақсаты','«Грейг қызғалдағы» экспозициясы Оңтүстік Қазақстанның табиғи мұрасын таныстыруға және оны қорғауға қызығушылық оятуға арналған.'],
         ['Дерекпен жұмыс','Түрдің ғылыми атауы мен жарияланымы ботаникалық дерекқорларға сүйенеді. Жібек жолы хикаясы тарихи контекст ретінде беріліп, өсімдік жолы туралы дәлелденбеген нұсқалар нақты белгіленеді.'],
@@ -71,7 +72,7 @@ export const locales = {
   },
   ru: {
     html: 'ru', label: 'Русский', short: 'RU',
-    nav: { home: 'Главная', history: 'История', encyclopedia: 'Материалы', timeline: 'Хронология', map: 'Карта', science: 'Наука', heritage: 'Наследие', media: 'Медиа', shymkent: 'Шымкент', sources: 'Источники', more: 'Ещё' },
+    nav: { home: 'Главная', history: 'История', encyclopedia: 'Материалы', timeline: 'Хронология', map: 'Карта', science: 'Наука', heritage: 'Наследие', media: 'Медиа', shymkent: 'Шымкент', reviews: 'Отзывы', sources: 'Источники', more: 'Ещё' },
     common: { explore: 'Исследовать', read: 'Читать дальше', sources: 'К источникам', map: 'Открыть карту', timeline: 'Смотреть хронологию', back: 'На главную', next: 'Следующая глава', year: 'Год', place: 'Место', citation: 'Источник', open: 'Открыть источник', viewAll: 'Смотреть все', curated: 'Цифровая экспозиция', illustration: 'Фотоматериал с открытой лицензией', photoNote: 'У природных и архивных фотографий указаны авторы, места съёмки по источнику и лицензии. Фотографии не связываются с неподтверждёнными местами.', mapNote: 'Метки помогают сориентироваться в регионе. Карта использует данные OpenStreetMap.', menu: 'Открыть меню', close: 'Закрыть', search: 'Поиск', searchPlaceholder: 'Ищите факт, место или раздел', noResults: 'Подходящих материалов нет', filters: 'Фильтры', all: 'Все', clear: 'Сбросить', empty: 'В этой категории пока нет проверенных медиаматериалов.' },
     footer: { title: 'Сохранить эту историю — наша общая задача', body: 'Тюльпан Грейга — наследие, доверенное нам природой. Узнать его — значит узнать родной край. Сохранить его — значит позаботиться о будущем.', note: 'Проект создан для исторического просвещения и экологического образования.', restart: 'Начать сначала' },
     home: {
@@ -128,6 +129,7 @@ export const locales = {
         ['Изучите карту','Показанное направление — исторический ориентир для знакомства с регионом, а не доказанный маршрут миграции растения.'],
       ] },
       sources: { eyebrow: '10 · СВИДЕТЕЛЬСТВА', title: 'Источники и открытые следы', lead: 'К важным утверждениям приложены научные, официальные или архивные материалы, по которым их можно проверить. Исторический контекст отделён от ботанических свидетельств.', cards: [] },
+      reviews: { eyebrow: 'ЗАРУБЕЖНЫЙ ВЗГЛЯД', title: 'Мнения специалистов и путешественников', lead: 'Полевые отчёты, ботанические издания и описания маршрутов показывают природное наследие Южного Казахстана со стороны. Это редакционные пересказы источников, а не дословные цитаты.', cards: [] },
       about: { eyebrow: 'О ПРОЕКТЕ', title: 'Цифровая летопись родного края', lead: 'Цифровой музей, который через один цветок связывает историю, природу и науку Южного Казахстана.', cards: [
         ['Цель проекта','Экспозиция «Тюльпан Грейга» знакомит с природным наследием Южного Казахстана и помогает увидеть ценность его охраны.'],
         ['Работа с источниками','Научное название и публикация основаны на ботанических базах. Шёлковый путь включён как исторический контекст, а недоказанные версии о маршруте растения обозначены отдельно.'],
@@ -138,7 +140,7 @@ export const locales = {
   },
   en: {
     html: 'en', label: 'English', short: 'EN',
-    nav: { home: 'Home', history: 'History', encyclopedia: 'Facts', timeline: 'Timeline', map: 'Map', science: 'Science', heritage: 'Heritage', media: 'Media', shymkent: 'Shymkent', sources: 'Sources', more: 'More' },
+    nav: { home: 'Home', history: 'History', encyclopedia: 'Facts', timeline: 'Timeline', map: 'Map', science: 'Science', heritage: 'Heritage', media: 'Media', shymkent: 'Shymkent', reviews: 'Reviews', sources: 'Sources', more: 'More' },
     common: { explore: 'Explore', read: 'Continue reading', sources: 'View sources', map: 'Open map', timeline: 'View timeline', back: 'Back home', next: 'Next chapter', year: 'Year', place: 'Place', citation: 'Source', open: 'Open source', viewAll: 'View all', curated: 'Digital exhibition', illustration: 'Openly licensed documentary photograph', photoNote: 'Nature and archive photographs include photographer credits, verified locations and license details. Images are not assigned unverified places.', mapNote: 'Markers are regional orientation points. Map data © OpenStreetMap contributors.', menu: 'Open menu', close: 'Close', search: 'Search', searchPlaceholder: 'Search facts, places or chapters', noResults: 'No matching material found', filters: 'Filters', all: 'All', clear: 'Clear', empty: 'No verified media is available in this category yet.' },
     footer: { title: 'Preserving this story is our shared responsibility', body: 'Greig’s tulip is a natural legacy entrusted to us. To know it is to know our home region. To protect it is to care for the future.', note: 'This project is for historical learning and environmental education.', restart: 'Begin the chronicle again' },
     home: {
@@ -195,6 +197,7 @@ export const locales = {
         ['Read the map','The route shown is a historical orientation for the region, not a proven migration path for the plant.'],
       ] },
       sources: { eyebrow: '10 · EVIDENCE', title: 'Sources and open trails', lead: 'Important claims link to scientific, official or archival material that readers can verify. Historical context stays distinct from botanical evidence.', cards: [] },
+      reviews: { eyebrow: 'FOREIGN FIELD PERSPECTIVES', title: 'Experts and travellers on the region', lead: 'Tour reports, botanical books and itinerary descriptions offer outside perspectives on Southern Kazakhstan’s natural heritage. The text below is editorial summary, not verbatim quotation.', cards: [] },
       about: { eyebrow: 'ABOUT THE PROJECT', title: 'A digital chronicle of home', lead: 'A digital museum connecting Southern Kazakhstan’s history, nature and science through one flower.', cards: [
         ['Project purpose','The Greig’s tulip exhibition introduces the natural heritage of Southern Kazakhstan and invites people to care for it.'],
         ['Working with sources','The scientific name and publication rely on botanical databases. The Silk Roads appear as historical context, while unverified stories about the plant’s route are clearly marked.'],

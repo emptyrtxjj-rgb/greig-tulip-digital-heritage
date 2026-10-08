@@ -3,11 +3,13 @@ import { Link, NavLink, Navigate, Route, Routes, useLocation, useParams } from '
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X, Flower2, Leaf, BookOpen, MapPinned, Sparkles } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import './reviews.css'
 import { locales, localeOrder } from './locales/index.js'
 import { LocaleContext, useLocale } from './locales/context.js'
 import { navItems, places, sourceRecords, timeline, mediaItems } from './data/collections.js'
 import { facts } from './data/facts.js'
 import { exhibitNarratives } from './data/exhibitNarratives.js'
+import { reviews, curatorNote } from './data/reviews.js'
 import { mediaItems as photoAssets } from './data/media.js'
 import { MapTeaser, TimelineStrip, TimelineExplorer, SourceCards, ImageMosaic } from './components/MuseumModules.jsx'
 import { FactExplorer } from './components/FactExplorer.jsx'
@@ -59,7 +61,7 @@ function Header() {
 
 function Footer() {
   const { lang, t } = useLocale()
-  const footerLinks = ['history', 'timeline', 'map', 'heritage', 'science', 'shymkent', 'media', 'sources']
+  const footerLinks = ['history', 'timeline', 'map', 'heritage', 'science', 'shymkent', 'media', 'reviews', 'sources']
   return <footer className="site-footer">
     <div className="footer-top"><span className="eyebrow">{t.common.curated}</span><h2>{t.footer.title}</h2><p>{t.footer.body}</p>
       <Link className="button button-light" to="/">{t.footer.restart}<ArrowRight size={17}/></Link>
@@ -202,6 +204,32 @@ function TimelinePage() {
   return <main><PageHero pageKey="timeline" index="1873"/><section className="timeline-full page-wrap"><TimelineExplorer items={timeline}/></section><div className="editorial-note page-wrap"><span className="eyebrow">{t.common.citation}</span><p>{t.pages.timeline.lead}</p><Citation id="ipni"/><Citation id="kew"/><Citation id="paper"/><Citation id="frontiers"/><Citation id="unesco"/></div><NextChapter to="/map" label={t.pages.map.title}/></main>
 }
 
+function ReviewsPage() {
+  const { lang, t } = useLocale()
+  const noteHeading = lang === 'kz' ? 'ҒЫЛЫМИ КУРАТОР ТҮСІНІКТЕМЕСІ' : lang === 'ru' ? 'КОММЕНТАРИЙ НАУЧНОГО РЕДАКТОРА' : 'SCIENTIFIC CURATOR’S NOTE'
+  const sourceLabel = lang === 'kz' ? 'Бастапқы дереккөз' : lang === 'ru' ? 'Первоисточник' : 'Open source'
+  return <main className="reviews-page">
+    <PageHero pageKey="reviews" index="03 / VOICES"/>
+    <section className="review-grid page-wrap" aria-label={t.pages.reviews.title}>
+      {reviews.map((review, index) => {
+        const source = sourceRecords.find(record => record.id === review.source)
+        return <article className="review-card" data-reveal key={review.id}>
+          <div className="review-card-meta"><span>{String(index + 1).padStart(2, '0')}</span><small>{review.role[lang]}</small></div>
+          <h2>{review.name}</h2><h3>{review.title[lang]}</h3>
+          <p className="review-summary">{review.summary[lang]}</p>
+          <p className="review-attribution">{review.attribution[lang]}</p>
+          {source && <a className="citation-link review-source-link" href={source.url} target="_blank" rel="noreferrer">{sourceLabel}: {source.title}<ArrowUpRight size={13}/></a>}
+        </article>
+      })}
+    </section>
+    <section className="curator-note page-wrap" data-reveal aria-labelledby="curator-note-title">
+      <div><span className="eyebrow">{noteHeading}</span><h2 id="curator-note-title">{curatorNote.title[lang]}</h2></div>
+      <div><p>{curatorNote.body[lang]}</p><div className="curator-note-sources">{curatorNote.sources.map(id => <Citation key={id} id={id}/>)}</div></div>
+    </section>
+    <NextChapter to="/timeline" label={t.pages.timeline.title}/>
+  </main>
+}
+
 function EncyclopediaPage() {
   const { lang, t } = useLocale()
   const chapters = [
@@ -222,7 +250,12 @@ function MapPage() {
 }
 
 function SourcesPage() {
-  return <main><PageHero pageKey="sources" index="06"/><section className="sources-explainer page-wrap"><p className="eyebrow">01 · {useLocale().lang === 'kz' ? 'ҒЫЛЫМ' : useLocale().lang === 'ru' ? 'НАУКА' : 'SCIENCE'}</p><p>{useLocale().lang === 'kz' ? 'Дереккөз карточкасын ашып, бастапқы материалмен танысыңыз. Сілтемелер жеке бетте ашылады.' : useLocale().lang === 'ru' ? 'Откройте карточку источника и проверьте оригинальный материал. Ссылки откроются отдельно.' : 'Open a source card to review the original material. Links open in a separate tab.'}</p></section><section className="page-wrap"><SourceCards items={sourceRecords}/></section><NextChapter to="/about" label={useLocale().lang === 'kz' ? 'Жоба туралы' : useLocale().lang === 'ru' ? 'О проекте' : 'About this project'}/></main>
+  const { lang, t } = useLocale()
+  const sortedSources = [...sourceRecords].sort((a, b) => {
+    const yearOf = record => Number.parseInt(record.year, 10) || Number.POSITIVE_INFINITY
+    return yearOf(a) - yearOf(b)
+  })
+  return <main><PageHero pageKey="sources" index="06"/><section className="sources-explainer page-wrap"><p className="eyebrow">01 · {lang === 'kz' ? 'ҒЫЛЫМ' : lang === 'ru' ? 'НАУКА' : 'SCIENCE'}</p><p>{lang === 'kz' ? 'Дереккөз карточкасын ашып, бастапқы материалмен танысыңыз. Сілтемелер жеке бетте ашылады.' : lang === 'ru' ? 'Откройте карточку источника и проверьте оригинальный материал. Ссылки откроются отдельно.' : 'Open a source card to review the original material. Links open in a separate tab.'}</p></section><section className="page-wrap"><SourceCards items={sortedSources}/></section><NextChapter to="/about" label={lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About this project'}/></main>
 }
 
 function FieldFilm() {
@@ -344,7 +377,7 @@ function App() {
     <Route path="/history" element={<EditorialPage pageKey="history" index="1873"/>}/>
     <Route path="/tarikh" element={<EditorialPage pageKey="history" index="1873"/>}/>
     <Route path="/malimetter" element={<EncyclopediaPage/>}/>
-    <Route path="/timeline" element={<TimelinePage/>}/><Route path="/map" element={<MapPage/>}/>
+    <Route path="/timeline" element={<TimelinePage/>}/><Route path="/map" element={<MapPage/>}/><Route path="/reviews" element={<ReviewsPage/>}/>
     <Route path="/science" element={<EditorialPage pageKey="science" index="BOTANICA"/>}/>
     <Route path="/heritage" element={<EditorialPage pageKey="heritage" index="01 FLOWER"/>}/>
     <Route path="/ecology" element={<EditorialPage pageKey="heritage" index="01 FLOWER"/>}/>

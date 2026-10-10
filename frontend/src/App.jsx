@@ -47,12 +47,13 @@ function Header() {
       <nav className="desktop-nav" aria-label={lang === 'kz' ? 'Негізгі навигация' : lang === 'ru' ? 'Основная навигация' : 'Main navigation'}>
         <NavLink to="/" end className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav.home}</NavLink>
         {primary.map(item => <NavLink key={item.id} to={item.to} className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav[item.id]}</NavLink>)}
-        <details className="nav-more"><summary>{t.nav.more}<span aria-hidden="true">⌄</span></summary><div className="nav-dropdown">{extra.map(item => <NavLink key={item.id} to={item.to}>{t.nav[item.id]}</NavLink>)}<NavLink to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</NavLink><NavLink to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</NavLink></div></details>
+        <details className="nav-more"><summary>{t.nav.more}<span aria-hidden="true">⌄</span></summary><div className="nav-dropdown">{extra.map(item => <NavLink key={item.id} to={item.to}>{t.nav[item.id]}</NavLink>)}<NavLink to="/places">{lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'}</NavLink><NavLink to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</NavLink><NavLink to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</NavLink></div></details>
       </nav>
       <div className="header-tools"><LanguagePicker/><button className="mobile-menu-button" onClick={() => setMobileOpen(v => !v)} aria-label={mobileOpen ? t.common.close : t.common.menu} aria-expanded={mobileOpen}>{mobileOpen ? <X/> : <Menu/>}</button></div>
     </div>
     {mobileOpen && <nav className="mobile-nav" aria-label={lang === 'kz' ? 'Мобильді навигация' : lang === 'ru' ? 'Мобильная навигация' : 'Mobile navigation'}>
       <NavLink to="/" end>{t.nav.home}</NavLink>{navItems.map(item => <NavLink key={item.id} to={item.to}>{t.nav[item.id]}</NavLink>)}
+      <NavLink to="/places">{lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'}</NavLink>
       <NavLink to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</NavLink><NavLink to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</NavLink>
       <LanguagePicker small/>
     </nav>}
@@ -68,7 +69,7 @@ function Footer() {
       <a className="footer-photo-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Сурет: В. А. Ковшар · CC BY-SA 4.0 ашық лицензиясы · сайтқа лайықталып ықшамдалған' : lang === 'ru' ? 'Фото: В. А. Ковшар · CC BY-SA 4.0 · формат и размер адаптированы для сайта' : 'Photo: V. A. Kovshar · CC BY-SA 4.0 · resized and converted to WebP'}</a>
     </div>
     <div className="footer-bottom"><Link to="/" className="footer-brand"><Flower2 size={21}/><span>{lang === 'kz' ? 'ГРЕЙГ' : lang === 'ru' ? 'ГРЕЙГ' : 'GREIG'}<br/><small>{lang === 'kz' ? 'ӨЛКЕМНІҢ ЦИФРЛЫҚ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЦИФРОВАЯ ЛЕТОПИСЬ КРАЯ' : 'DIGITAL REGIONAL CHRONICLE'}</small></span></Link>
-      <div className="footer-links">{footerLinks.map(id => <Link key={id} to={navItems.find(item => item.id === id)?.to ?? `/${id}`}>{t.nav[id]}</Link>)}<Link to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</Link><Link to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</Link></div>
+      <div className="footer-links">{footerLinks.map(id => <Link key={id} to={navItems.find(item => item.id === id)?.to ?? `/${id}`}>{t.nav[id]}</Link>)}<Link to="/places">{lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'}</Link><Link to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</Link><Link to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</Link></div>
       <LanguagePicker small/>
       <p className="copyright">© 2026 · {t.footer.note}</p>
     </div>
@@ -104,7 +105,7 @@ function HomePage() {
 
       <section className="specimen-band" data-reveal>
         <div className="specimen-art"><img src="/images/solo-greig-photo.jpeg" srcSet={greigPhoto.srcSet} sizes="(max-width: 700px) 100vw, 50vw" alt={lang === 'kz' ? 'Грейг қызғалдағының макро тостағаны' : lang === 'ru' ? 'Макросъёмка цветка тюльпана Грейга' : 'Macro bloom of Greig’s tulip'} loading="lazy" decoding="async"/><a className="art-index" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">SOLO-GREIG-PHOTO · FREE LICENSE</a></div>
-        <div className="specimen-copy"><span className="eyebrow"><i>Tulipa greigii</i> Regel</span><h2>{h.specimen}</h2><p>{h.specimenBody}</p><div className="specimen-facts"><div><span>01</span><b>{lang === 'kz' ? 'Ғылыми атауы' : lang === 'ru' ? 'Название вида' : 'Species name'}</b><i>{lang === 'kz' ? 'Грейг қызғалдағы' : 'Tulipa greigii'}</i></div><div><span>02</span><b>{lang === 'kz' ? 'Таралу аймағы' : lang === 'ru' ? 'Ареал' : 'Native range'}</b><i>{lang === 'kz' ? 'Орталық Азия' : lang === 'ru' ? 'Центральная Азия' : 'Central Asia'}</i></div><div><span>03</span><b>{lang === 'kz' ? 'Алғаш жарияланған жылы' : lang === 'ru' ? 'Первая публикация' : 'First published'}</b><i>1873</i></div></div><Link className="button button-outline" to="/science">{t.common.explore}<ArrowRight size={17}/></Link></div>
+        <div className="specimen-copy"><span className="eyebrow"><i>Tulipa greigii</i> Regel</span><h2>{h.specimen}</h2><p>{h.specimenBody}</p><div className="specimen-facts"><div><span>01</span><b>{lang === 'kz' ? 'Ғылыми атауы' : lang === 'ru' ? 'Название вида' : 'Species name'}</b><i>{lang === 'kz' ? 'Грейг қызғалдағы' : 'Tulipa greigii'}</i></div><div><span>02</span><b>{lang === 'kz' ? 'Таралу аймағы' : lang === 'ru' ? 'Ареал' : 'Native range'}</b><i>{lang === 'kz' ? 'Орталық Азия' : lang === 'ru' ? 'Центральная Азия' : 'Central Asia'}</i></div><div><span>03</span><b>{lang === 'kz' ? 'Алғаш жарияланған жылы' : lang === 'ru' ? 'Первая публикация' : 'First published'}</b><i>1873</i></div></div><Link className="button button-primary specimen-btn" to="/science">{t.common.explore}<ArrowRight size={17}/></Link></div>
       </section>
 
       <section className="home-facts page-wrap" data-reveal><div className="block-heading"><div><span className="eyebrow">01 · {lang === 'kz' ? 'ДӘЛЕЛДІ ДЕРЕКТЕР' : lang === 'ru' ? 'ФАКТЫ С ИСТОЧНИКАМИ' : 'FACTS WITH SOURCES'}</span><h2>{lang === 'kz' ? 'Грейг қызғалдағы туралы деректер' : lang === 'ru' ? 'Почему этот цветок важен?' : 'Why does this flower matter?'}</h2><p>{t.pages.facts.lead}</p></div><Link className="text-link" to="/malimetter">{t.nav.encyclopedia}<ArrowRight size={17}/></Link></div><FactExplorer limit={3}/></section>
@@ -287,8 +288,48 @@ function MediaPage() {
   </main>
 }
 
-function PlacePage() {
-  const { slug } = useParams()
+function PlacesIndexPage() {
+  const { lang, t } = useLocale()
+  const placePhotos = {
+    'aqsu-zhabagly': { image: '/images/aksu-canyon-panorama.jpeg', srcSet: photoAssets.find(item => item.id === 'aksu-canyon-panorama')?.srcSet || photoAssets[0].srcSet },
+    kazygurt: { image: '/images/tulip-steppe-sunset.jpeg', srcSet: photoAssets.find(item => item.id === 'tulip-steppe-sunset')?.srcSet || photoAssets[0].srcSet },
+    shymkent: { image: '/images/shymkent-downtown.webp', srcSet: photoAssets.find(item => item.id === 'shymkent-downtown')?.srcSet },
+    turkistan: { image: '/images/turkistan-mausoleum.webp', srcSet: photoAssets.find(item => item.id === 'turkistan-mausoleum')?.srcSet },
+    karatau: { image: '/images/karatau-ridge.webp', srcSet: photoAssets.find(item => item.id === 'karatau-ridge')?.srcSet },
+    shubaykyzyl: { image: '/images/shubaykyzyl-steppe.jpeg', srcSet: photoAssets.find(item => item.id === 'shubaykyzyl-steppe')?.srcSet },
+    tulkibas: { image: '/images/koktem.jpeg', srcSet: photoAssets.find(item => item.id === 'koktem')?.srcSet },
+    berkara: { image: '/images/berkara-gorge.jpeg', srcSet: photoAssets.find(item => item.id === 'berkara-gorge')?.srcSet },
+  }
+  return <main className="places-page">
+    <PageHero pageKey="places" index="08"/>
+    <section className="page-wrap places-grid" data-reveal>
+      {places.map((place, index) => {
+        const photo = placePhotos[place.slug] ?? placePhotos['aqsu-zhabagly']
+        return <article className="places-summary-card" key={place.slug}>
+          <figure className="places-summary-figure">
+            <img src={photo.image} srcSet={photo.srcSet} sizes="(max-width: 768px) 100vw, 50vw" alt={place.name[lang]} loading="lazy" decoding="async"/>
+            <span className="places-summary-badge">{String(index + 1).padStart(2, '0')} · {place.region[lang]}</span>
+            <span className="places-summary-coords">{place.coordsLabel}</span>
+          </figure>
+          <div className="places-summary-body">
+            <span className="eyebrow">{place.region[lang]}</span>
+            <h3>{place.name[lang]}</h3>
+            <p>{place.summary[lang]}</p>
+            <Link className="places-summary-cta" to={`/places/${place.slug}`}>
+              <span>{t.common.explore}</span>
+              <ArrowRight size={16}/>
+            </Link>
+          </div>
+        </article>
+      })}
+    </section>
+    <NextChapter to="/map" label={t.pages.map.title}/>
+  </main>
+}
+
+function PlacePage({ slug: propSlug }) {
+  const params = useParams()
+  const slug = propSlug || params.slug
   const { lang, t } = useLocale()
   const place = places.find(item => item.slug === slug)
   if (!place) return <NotFound/>
@@ -309,7 +350,7 @@ function PlacePage() {
     ru: [['01 · ОРИЕНТИР', 'Координата на карте — ориентир для знакомства с местом, а не точка популяции редкого растения.'], ['02 · РЕГИОН', place.region[lang]], ['03 · ЗАПИСЬ', place.detail[lang]], ['04 · ИСТОЧНИК', 'Откройте ссылку и сверьте сведения об этом месте с первичным материалом.']],
     en: [['01 · ORIENTATION', 'The map coordinate is an orientation point for visitors, not a rare-plant population coordinate.'], ['02 · REGION', place.region[lang]], ['03 · RECORD', place.detail[lang]], ['04 · SOURCE', 'Open the linked record and check its place information against the source.']],
   }[lang]
-  return <main><section className="place-detail-hero page-wrap"><Link className="back-link" to="/map">← {t.nav.map}</Link><span className="eyebrow">{place.region[lang]}</span><h1>{place.name[lang]}</h1><p>{place.summary[lang]}</p><span className="place-coordinates">{place.coordsLabel}</span></section><section className="place-detail-body page-wrap"><figure className="place-illustration"><img src={photo.image} srcSet={photo.srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={photoAlt} loading="lazy" decoding="async"/><figcaption><a href={photo.url} target="_blank" rel="noreferrer">{photo.credit}</a></figcaption></figure><div className="place-facts"><span className="eyebrow">{lang==='kz'?'МЕКЕН ТУРАЛЫ':lang==='ru'?'О МЕСТЕ':'ABOUT THIS PLACE'}</span><h2>{place.name[lang]}</h2><p>{place.detail[lang]}</p><div className="place-meta"><span>{t.common.place}</span><b>{place.region[lang]}</b></div><div className="place-meta"><span>{lang==='kz'?'Картадағы бағдар':lang==='ru'?'Ориентир на карте':'Map orientation'}</span><b>{place.coordsLabel}</b></div><Citation id={place.source}/><Link className="button button-outline" to="/map">{t.common.map}<ArrowRight size={17}/></Link></div></section><section className="place-tour page-wrap"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХҚА САЯХАТ' : lang === 'ru' ? 'ВИРТУАЛЬНАЯ ЭКСКУРСИЯ' : 'A VIRTUAL FIELD VISIT'}</span><h2>{lang === 'kz' ? 'Мекенді дерекпен зерттеу' : lang === 'ru' ? 'Изучаем место через источники' : 'Explore this place through records'}</h2><div className="place-tour-steps">{tour.map(([title, description], index) => <article key={title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{description}</p>{index === 3 && <Citation id={place.source}/>}</div></article>)}</div></section><NextChapter to="/heritage" label={t.pages.heritage.title}/></main>
+  return <main><section className="place-detail-hero page-wrap"><div style={{ display: 'flex', gap: '16px', marginBottom: 'auto' }}><Link className="back-link" to="/places">← {lang === 'kz' ? 'Мекендер тізімі' : lang === 'ru' ? 'Все места' : 'All habitats'}</Link><Link className="back-link" to="/map">{t.nav.map}</Link></div><span className="eyebrow">{place.region[lang]}</span><h1>{place.name[lang]}</h1><p>{place.summary[lang]}</p><span className="place-coordinates">{place.coordsLabel}</span></section><section className="place-detail-body page-wrap"><figure className="place-illustration"><img src={photo.image} srcSet={photo.srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={photoAlt} loading="lazy" decoding="async"/><figcaption><a href={photo.url} target="_blank" rel="noreferrer">{photo.credit}</a></figcaption></figure><div className="place-facts"><span className="eyebrow">{lang==='kz'?'МЕКЕН ТУРАЛЫ':lang==='ru'?'О МЕСТЕ':'ABOUT THIS PLACE'}</span><h2>{place.name[lang]}</h2><p>{place.detail[lang]}</p><div className="place-meta"><span>{t.common.place}</span><b>{place.region[lang]}</b></div><div className="place-meta"><span>{lang==='kz'?'Картадағы бағдар':lang==='ru'?'Ориентир на карте':'Map orientation'}</span><b>{place.coordsLabel}</b></div><Citation id={place.source}/><Link className="button button-outline" to="/map">{t.common.map}<ArrowRight size={17}/></Link></div></section><section className="place-tour page-wrap"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХҚА САЯХАТ' : lang === 'ru' ? 'ВИРТУАЛЬНАЯ ЭКСКУРСИЯ' : 'A VIRTUAL FIELD VISIT'}</span><h2>{lang === 'kz' ? 'Мекенді дерекпен зерттеу' : lang === 'ru' ? 'Изучаем место через источники' : 'Explore this place through records'}</h2><div className="place-tour-steps">{tour.map(([title, description], index) => <article key={title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{description}</p>{index === 3 && <Citation id={place.source}/>}</div></article>)}</div></section><NextChapter to="/heritage" label={t.pages.heritage.title}/></main>
 }
 
 function ArticlePage() {
@@ -389,7 +430,18 @@ function App() {
     <Route path="/3d" element={<Navigate to="/heritage" replace/>}/><Route path="/shymkent" element={<EditorialPage pageKey="shymkent" index="42° N"/>}/>
     <Route path="/silk-road" element={<EditorialPage pageKey="silk-road" index="EURASIA"/>}/>
     <Route path="/sources" element={<SourcesPage/>}/><Route path="/about" element={<EditorialPage pageKey="about" index="2026"/>}/>
-    <Route path="/places/:slug" element={<PlacePage/>}/><Route path="/articles/:slug" element={<ArticlePage/>}/><Route path="*" element={<NotFound/>}/>
+    <Route path="/places" element={<PlacesIndexPage/>}/>
+    <Route path="/places/:slug" element={<PlacePage/>}/>
+    <Route path="/places/kazygurt" element={<PlacePage slug="kazygurt"/>}/>
+    <Route path="/places/aqsu-zhabagly" element={<PlacePage slug="aqsu-zhabagly"/>}/>
+    <Route path="/places/berkara" element={<PlacePage slug="berkara"/>}/>
+    <Route path="/places/karatau" element={<PlacePage slug="karatau"/>}/>
+    <Route path="/places/shubaykyzyl" element={<PlacePage slug="shubaykyzyl"/>}/>
+    <Route path="/places/tulkibas" element={<PlacePage slug="tulkibas"/>}/>
+    <Route path="/places/turkistan" element={<PlacePage slug="turkistan"/>}/>
+    <Route path="/places/shymkent" element={<PlacePage slug="shymkent"/>}/>
+    <Route path="/articles/:slug" element={<ArticlePage/>}/>
+    <Route path="*" element={<NotFound/>}/>
   </Routes></div><Footer/><SiteUtilities/></LocaleContext.Provider>
 }
 

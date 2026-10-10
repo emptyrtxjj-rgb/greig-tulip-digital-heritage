@@ -74,10 +74,17 @@ export function RouteBreadcrumbs() {
   const { lang, t } = useLocale()
   const { pathname } = useLocation()
   if (pathname === '/') return null
+  const isPlacesIndex = pathname === '/places'
   const place = pathname.startsWith('/places/') ? places.find(item => item.slug === pathname.split('/').at(-1)) : null
   const route = pageKeys.find(([, path]) => path === pathname)
   const key = pathname === '/tarikh' ? 'history' : pathname === '/ecology' ? 'heritage' : pathname === '/gallery' ? 'media' : route?.[0]
-  const current = place?.name[lang] ?? (pathname.startsWith('/articles/') ? (lang === 'kz' ? 'Мақала' : lang === 'ru' ? 'Материал' : 'Article') : t.pages[key]?.title)
+  const current = isPlacesIndex ? (lang === 'kz' ? 'Табиғи мекендер' : lang === 'ru' ? 'Природные памятники' : 'Natural Habitats') : place?.name[lang] ?? (pathname.startsWith('/articles/') ? (lang === 'kz' ? 'Мақала' : lang === 'ru' ? 'Материал' : 'Article') : t.pages[key]?.title)
   if (!current) return null
-  return <nav className="route-breadcrumb page-wrap" aria-label={lang === 'kz' ? 'Навигация жолы' : lang === 'ru' ? 'Навигационная цепочка' : 'Breadcrumb'}><Link to="/">{t.nav.home}</Link><span aria-hidden="true">/</span><span aria-current="page">{current}</span></nav>
+  const placesLabel = lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'
+  return <nav className="route-breadcrumb page-wrap" aria-label={lang === 'kz' ? 'Навигация жолы' : lang === 'ru' ? 'Навигационная цепочка' : 'Breadcrumb'}>
+    <Link to="/">{t.nav.home}</Link>
+    <span aria-hidden="true">/</span>
+    {place && <><Link to="/places">{placesLabel}</Link><span aria-hidden="true">/</span></>}
+    <span aria-current="page">{current}</span>
+  </nav>
 }

@@ -68,6 +68,7 @@ export const locales = {
         ['Суреттер туралы','Суреттер ашық лицензиямен жарияланған қорлардан алынды. Авторлары мен түпнұсқа сілтемелері көрсетілген.'],
         ['Жобаның жалғасы','Көрмеге жаңа мекендер, мақалалар, фотоматериалдар мен зерттеулерді еркін толықтыруға болады.'],
       ] },
+      places: { eyebrow: '03 · МЕКЕНДЕР', title: 'Оңтүстік Қазақстанның табиғи мекендері мен қорықтары', lead: 'Грейг және Кауфман қызғалдақтарының жабайы популяциялары сақталған табиғи қорықтар мен тарихи шатқалдар.', cards: [] },
     },
   },
   ru: {
@@ -139,6 +140,7 @@ export const locales = {
         ['Медиаматериалы и лицензии','Все фотографии собраны из открытых фондов и фотостоков с указанием авторов, мест съёмки и свободных лицензий.'],
         ['Развитие проекта','Архитектура проекта открыта для добавления новых локаций, архивных документов и научных публикаций.'],
       ] },
+      places: { eyebrow: '03 · МЕСТА', title: 'Природные памятники и заповедники Южного Казахстана', lead: 'Заповедники, урочища и горные долины, где сохраняются дикие популяции тюльпанов Грейга и Кауфмана.', cards: [] },
     },
   },
   en: {
@@ -210,6 +212,7 @@ export const locales = {
         ['Media and licensing','All images are sourced from open repositories and free photo libraries with verified creator credits and open licenses.'],
         ['Future expansion','The platform is structured to welcome additional field locations, archival documents, and ongoing botanical research.'],
       ] },
+      places: { eyebrow: '03 · HABITATS', title: 'Natural Sanctuaries and Habitats of Southern Kazakhstan', lead: 'Biosphere reserves, gorges, and mountain valleys preserving wild Greig and Kaufmann tulip populations.', cards: [] },
     },
   },
 }

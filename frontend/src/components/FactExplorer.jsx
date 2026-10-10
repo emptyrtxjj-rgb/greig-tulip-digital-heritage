@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react'
 import { ArrowUpRight, ChevronDown, Search } from 'lucide-react'
 import { facts, factCategories } from '../data/facts.js'
-import { sourceRecords } from '../data/collections.js'
+import { sourceRecords, sourceAuthor } from '../data/collections.js'
 import { useLocale } from '../locales/context.js'
 
 const labels = {
-  kz: { all: 'Барлығы', science: 'Биология', history: 'Тарих', geography: 'Ареал', conservation: 'Қорғау', heritage: 'Мәдени контекст', archive: 'Архив', verified: 'Дерекпен расталған', qualified: 'Нақтылаумен берілген', interpretation: 'Тарихи түсіндірме', read: 'Толығырақ', count: 'дерек', empty: 'Бұл сүзгіге сай дерек жоқ.' },
+  kz: { all: 'Барлығы', science: 'Биология', history: 'Тарих', geography: 'Таралу аймағы', conservation: 'Қорғау', heritage: 'Мәдени мұра', archive: 'Мұрағат', verified: 'Дереккөзбен расталған', qualified: 'Нақтылауды қажет етеді', interpretation: 'Тарихи пайым', read: 'Толығырақ', count: 'дерек', empty: 'Бұл іріктеуге сай дерек табылмады.' },
   ru: { all: 'Все темы', science: 'Биология', history: 'История', geography: 'Ареал', conservation: 'Охрана', heritage: 'Культурный контекст', archive: 'Архив', verified: 'Подтверждено источником', qualified: 'С оговоркой', interpretation: 'Историческая интерпретация', read: 'Подробнее', count: 'фактов', empty: 'По этому фильтру ничего не найдено.' },
   en: { all: 'All topics', science: 'Botany', history: 'History', geography: 'Range', conservation: 'Conservation', heritage: 'Cultural context', archive: 'Archive', verified: 'Source verified', qualified: 'Qualified claim', interpretation: 'Historical interpretation', read: 'Read more', count: 'facts', empty: 'No records match this filter.' },
 }
@@ -37,7 +37,7 @@ export function FactExplorer({ limit = null }) {
           <h2>{fact.title[lang]}</h2>
           <p className="fact-value">{typeof fact.value === 'string' ? fact.value : fact.value[lang]}</p>
           <button type="button" className="fact-expand" aria-expanded={isOpen} onClick={() => setExpanded(isOpen ? null : fact.id)}>{copy.read}<ChevronDown size={15}/></button>
-          {isOpen && <div className="fact-detail"><p>{fact.detail[lang]}</p><div className="fact-citations">{sources.map(source => <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{t.common.citation}: {source.author.split(' · ')[0]}<ArrowUpRight size={12}/></a>)}</div></div>}
+          {isOpen && <div className="fact-detail"><p>{fact.detail[lang]}</p><div className="fact-citations">{sources.map(source => <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{t.common.citation}: {sourceAuthor(source, lang).split(' · ')[0]}<ArrowUpRight size={12}/></a>)}</div></div>}
         </article>
       })}
     </div>

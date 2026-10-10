@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './reviews.css'
 import { locales, localeOrder } from './locales/index.js'
 import { LocaleContext, useLocale } from './locales/context.js'
-import { navItems, places, sourceRecords, timeline, mediaItems } from './data/collections.js'
+import { navItems, places, sourceRecords, sourceTitle, sourceAuthor, timeline, mediaItems } from './data/collections.js'
 import { facts } from './data/facts.js'
 import { exhibitNarratives } from './data/exhibitNarratives.js'
 import { reviews, curatorNote } from './data/reviews.js'
@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger)
 function LanguagePicker({ small = false }) {
   const { lang, setLang } = useLocale()
   return <div className={`language-picker ${small ? 'language-picker-small' : ''}`} role="group" aria-label={lang === 'kz' ? 'Тіл' : lang === 'ru' ? 'Язык' : 'Language'}>
-    {localeOrder.map(code => <button key={code} type="button" onClick={() => setLang(code)} aria-pressed={lang === code}>{locales[code].short}</button>)}
+    {localeOrder.map(code => <button key={code} type="button" onClick={() => setLang(code)} aria-pressed={lang === code}>{lang === 'kz' ? ({ kz: 'ҚАЗ', ru: 'ОРЫС', en: 'АҒЫЛШЫН' })[code] : locales[code].short}</button>)}
   </div>
 }
 
@@ -42,7 +42,7 @@ function Header() {
     <div className="header-inner">
       <Link className="brand" to="/" aria-label={lang === 'kz' ? 'Грейг қызғалдағы цифрлық шежіресі · басты бет' : lang === 'ru' ? 'Цифровая летопись тюльпана Грейга · главная' : 'Greig tulip digital chronicle home'}>
         <span className="brand-symbol"><Flower2 size={25} strokeWidth={1.55}/></span>
-        <span className="brand-copy"><strong>GREIGII</strong><small>ЦИФРЛЫҚ ШЕЖІРЕ</small></span>
+        <span className="brand-copy"><strong>{lang === 'kz' ? 'ГРЕЙГ' : lang === 'ru' ? 'ГРЕЙГ' : 'GREIG'}</strong><small>{lang === 'kz' ? 'ӨЛКЕНІҢ ЦИФРЛЫҚ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЦИФРОВАЯ ЛЕТОПИСЬ КРАЯ' : 'DIGITAL REGIONAL CHRONICLE'}</small></span>
       </Link>
       <nav className="desktop-nav" aria-label={lang === 'kz' ? 'Негізгі навигация' : lang === 'ru' ? 'Основная навигация' : 'Main navigation'}>
         <NavLink to="/" end className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav.home}</NavLink>
@@ -65,10 +65,10 @@ function Footer() {
   return <footer className="site-footer">
     <div className="footer-top"><span className="eyebrow">{t.common.curated}</span><h2>{t.footer.title}</h2><p>{t.footer.body}</p>
       <Link className="button button-light" to="/">{t.footer.restart}<ArrowRight size={17}/></Link>
-      <a className="footer-photo-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Фото: В. А. Ковшар · CC BY-SA 4.0 · WebP пішіміне өзгертіліп, оңтайландырылды' : lang === 'ru' ? 'Фото: В. А. Ковшар · CC BY-SA 4.0 · формат и размер адаптированы для сайта' : 'Photo: V. A. Kovshar · CC BY-SA 4.0 · resized and converted to WebP'}</a>
+      <a className="footer-photo-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Сурет: В. А. Ковшар · CC BY-SA 4.0 ашық лицензиясы · сайтқа лайықталып ықшамдалған' : lang === 'ru' ? 'Фото: В. А. Ковшар · CC BY-SA 4.0 · формат и размер адаптированы для сайта' : 'Photo: V. A. Kovshar · CC BY-SA 4.0 · resized and converted to WebP'}</a>
     </div>
-    <div className="footer-bottom"><Link to="/" className="footer-brand"><Flower2 size={21}/><span>GREIGII<br/><small>ӨЛКЕМНІҢ ЦИФРЛЫҚ ШЕЖІРЕСІ</small></span></Link>
-      <div className="footer-links">{footerLinks.map(id => <Link key={id} to={navItems.find(item => item.id === id)?.to ?? `/${id}`}>{t.nav[id]}</Link>)}{lang === 'en' && <Link to="/silk-road">Silk Roads</Link>}</div>
+    <div className="footer-bottom"><Link to="/" className="footer-brand"><Flower2 size={21}/><span>{lang === 'kz' ? 'ГРЕЙГ' : lang === 'ru' ? 'ГРЕЙГ' : 'GREIG'}<br/><small>{lang === 'kz' ? 'ӨЛКЕМНІҢ ЦИФРЛЫҚ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЦИФРОВАЯ ЛЕТОПИСЬ КРАЯ' : 'DIGITAL REGIONAL CHRONICLE'}</small></span></Link>
+      <div className="footer-links">{footerLinks.map(id => <Link key={id} to={navItems.find(item => item.id === id)?.to ?? `/${id}`}>{t.nav[id]}</Link>)}<Link to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</Link><Link to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</Link></div>
       <LanguagePicker small/>
       <p className="copyright">© 2026 · {t.footer.note}</p>
     </div>
@@ -91,20 +91,20 @@ function HomePage() {
           <div className="hero-actions"><Link className="button button-primary" to="/history">{h.discover}<ArrowUpRight size={17}/></Link><Link className="button button-ghost" to="/heritage"><span className="button-orbit">✳</span>{h.seeNature}</Link></div>
         </div>
         <div className="hero-note"><span>{lang === 'kz' ? 'ТАРИХИ МҰРА' : lang === 'ru' ? 'ИСТОРИЧЕСКОЕ НАСЛЕДИЕ' : 'HISTORY LEGACY'}</span></div>
-        <a className="hero-photo-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Фото: В. А. Ковшар · Wikimedia Commons · CC BY-SA 4.0' : lang === 'ru' ? 'Фото: В. А. Ковшар · Wikimedia Commons · CC BY-SA 4.0' : 'Photo: V. A. Kovshar · Wikimedia Commons · CC BY-SA 4.0'}</a>
+        <a className="hero-photo-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Сурет: В. А. Ковшар · Уикимедиа ашық қоры · CC BY-SA 4.0' : lang === 'ru' ? 'Фото: В. А. Ковшар · Wikimedia Commons · CC BY-SA 4.0' : 'Photo: V. A. Kovshar · Wikimedia Commons · CC BY-SA 4.0'}</a>
         <a className="hero-scroll" href="#introduction" aria-label={lang === 'kz' ? 'Кіріспеге өту' : lang === 'ru' ? 'Перейти к введению' : 'Scroll to introduction'}><ArrowDownRight size={18}/></a>
         <span className="hero-number" aria-hidden="true">01</span>
       </section>
 
       <section className="intro-section page-wrap" id="introduction" data-reveal>
-        <div className="section-index"><span>ӨЛКЕМНІҢ ШЕЖІРЕСІ</span><b>01 — 05</b></div>
+        <div className="section-index"><span>{lang === 'kz' ? 'ӨЛКЕМНІҢ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЛЕТОПИСЬ КРАЯ' : 'REGIONAL CHRONICLE'}</span><b>01 — 05</b></div>
         <div className="intro-content"><span className="eyebrow">{h.journey}</span><h2>{h.quote}</h2><p>{h.journeyBody}</p><Link className="text-link" to="/timeline">{t.common.timeline}<ArrowRight size={17}/></Link></div>
         <div className="journey-line" aria-label={h.steps.join(' to ')}>{h.steps.map((step, i) => <div key={step} className={`journey-step ${i === 0 ? 'step-active' : ''}`}><span className="journey-node">{String(i + 1).padStart(2, '0')}</span><span>{step}</span>{i < h.steps.length - 1 && <i/>}</div>)}</div>
       </section>
 
       <section className="specimen-band" data-reveal>
         <div className="specimen-art"><img src="/images/tulipa-greigii-wild.webp" srcSet={greigPhoto.srcSet} sizes="(max-width: 700px) 100vw, 50vw" alt={lang === 'kz' ? 'Ақсу-Жабағылы қорығындағы жабайы Грейг қызғалдағы' : lang === 'ru' ? 'Дикий тюльпан Грейга в заповеднике Аксу-Жабаглы' : 'Wild Greig’s tulip in Aksu-Zhabagly Nature Reserve'} loading="lazy" decoding="async"/><a className="art-index" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">V. A. KOVSHAR · CC BY-SA 4.0</a></div>
-        <div className="specimen-copy"><span className="eyebrow">TULIPA GREIGII REGEL</span><h2>{h.specimen}</h2><p>{h.specimenBody}</p><div className="specimen-facts"><div><span>01</span><b>{lang === 'kz' ? 'Қызғалдақ түрі' : lang === 'ru' ? 'Название вида' : 'Species name'}</b><i>Грейг қызғалдағы</i></div><div><span>02</span><b>{lang === 'kz' ? 'Өсетін өңірі' : lang === 'ru' ? 'Ареал' : 'Native range'}</b><i>{lang === 'kz' ? 'Орталық Азия' : lang === 'ru' ? 'Центральная Азия' : 'Central Asia'}</i></div><div><span>03</span><b>{lang === 'kz' ? 'Ғылыми зерттелуі' : lang === 'ru' ? 'Публикация' : 'First published'}</b><i>1873 жылдан бастап</i></div></div><Link className="button button-outline" to="/science">{t.common.explore}<ArrowRight size={17}/></Link></div>
+        <div className="specimen-copy"><span className="eyebrow"><i>Tulipa greigii</i> Regel</span><h2>{h.specimen}</h2><p>{h.specimenBody}</p><div className="specimen-facts"><div><span>01</span><b>{lang === 'kz' ? 'Ғылыми атауы' : lang === 'ru' ? 'Название вида' : 'Species name'}</b><i>{lang === 'kz' ? 'Грейг қызғалдағы' : 'Tulipa greigii'}</i></div><div><span>02</span><b>{lang === 'kz' ? 'Таралу аймағы' : lang === 'ru' ? 'Ареал' : 'Native range'}</b><i>{lang === 'kz' ? 'Орталық Азия' : lang === 'ru' ? 'Центральная Азия' : 'Central Asia'}</i></div><div><span>03</span><b>{lang === 'kz' ? 'Алғаш жарияланған жылы' : lang === 'ru' ? 'Первая публикация' : 'First published'}</b><i>1873</i></div></div><Link className="button button-outline" to="/science">{t.common.explore}<ArrowRight size={17}/></Link></div>
       </section>
 
       <section className="home-facts page-wrap" data-reveal><div className="block-heading"><div><span className="eyebrow">01 · {lang === 'kz' ? 'ДӘЛЕЛДІ ДЕРЕКТЕР' : lang === 'ru' ? 'ФАКТЫ С ИСТОЧНИКАМИ' : 'FACTS WITH SOURCES'}</span><h2>{lang === 'kz' ? 'Грейг қызғалдағы туралы деректер' : lang === 'ru' ? 'Почему этот цветок важен?' : 'Why does this flower matter?'}</h2><p>{t.pages.facts.lead}</p></div><Link className="text-link" to="/malimetter">{t.nav.encyclopedia}<ArrowRight size={17}/></Link></div><FactExplorer limit={3}/></section>
@@ -113,10 +113,10 @@ function HomePage() {
 
       <section className="story-section page-wrap" data-reveal>
         <div className="story-copy"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ МҰРА' : lang === 'ru' ? 'СЛЕД РАСТЕНИЯ' : 'A PLANT’S TRACE'}</span><h2>{h.story}</h2><p>{h.storyBody}</p><Link className="text-link" to="/history">{t.common.read}<ArrowRight size={17}/></Link></div>
-        <div className="story-quote"><div className="quote-mark">“</div><p>{lang === 'kz' ? 'Дерекке сүйенген тарих — туған өлкені танудың сенімді жолы.' : lang === 'ru' ? 'История, основанная на источниках, помогает надёжно узнавать родной край.' : 'History grounded in evidence is a sure way to know a place.'}</p><div className="quote-flower"><Flower2 size={118} strokeWidth={0.7}/></div></div>
+        <div className="story-quote"><div className="quote-mark">“</div><p>{lang === 'kz' ? 'Туған жердің тарихы дерекке үңілгенде тереңдей түседі.' : lang === 'ru' ? 'История, основанная на источниках, помогает надёжно узнавать родной край.' : 'History grounded in evidence is a sure way to know a place.'}</p><div className="quote-flower"><Flower2 size={118} strokeWidth={0.7}/></div></div>
       </section>
 
-      <section className="silk-section" data-reveal><div className="silk-art"><div className="silk-route-map"><span className="route-pin pin-1">ОҢТҮСТІК ҚАЗАҚСТАН</span><span className="route-pin pin-2">САЙРАМ</span><span className="route-pin pin-3">ОТЫРАР</span><span className="route-pin pin-4">ТҮРКІСТАН</span><span className="route-line"/><small></small></div></div><div className="silk-copy"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ ДЕРЕК' : lang === 'ru' ? 'ИСТОРИЧЕСКИЙ КОНТЕКСТ' : 'HISTORICAL CONTEXT'}</span><h2>{h.route}</h2><p>{h.routeBody}</p><Link className="text-link" to="/silk-road">{lang === 'kz' ? 'Тарихи жолды зерттеу' : lang === 'ru' ? 'Исследовать исторический путь' : 'Explore the historical route'}<ArrowRight size={17}/></Link></div></section>
+      <section className="silk-section" data-reveal><div className="silk-art"><div className="silk-route-map"><span className="route-pin pin-1">{lang === 'kz' ? 'ОҢТҮСТІК ҚАЗАҚСТАН' : lang === 'ru' ? 'ЮЖНЫЙ КАЗАХСТАН' : 'SOUTHERN KAZAKHSTAN'}</span><span className="route-pin pin-2">{lang === 'kz' ? 'ҚАРАТАУ' : lang === 'ru' ? 'КАРАТАУ' : 'KARATAU'}</span><span className="route-pin pin-3">{lang === 'kz' ? 'ТҮЛКІБАС' : lang === 'ru' ? 'ТЮЛЬКУБАС' : 'TYULKUBAS'}</span><span className="route-pin pin-4">{lang === 'kz' ? 'ТҮРКІСТАН' : lang === 'ru' ? 'ТУРКЕСТАН' : 'TURKISTAN'}</span><span className="route-line"/><small></small></div></div><div className="silk-copy"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ ДЕРЕК' : lang === 'ru' ? 'ИСТОРИЧЕСКИЙ КОНТЕКСТ' : 'HISTORICAL CONTEXT'}</span><h2>{h.route}</h2><p>{h.routeBody}</p><Link className="text-link" to="/silk-road">{lang === 'kz' ? 'Тарихи жолды зерттеу' : lang === 'ru' ? 'Исследовать исторический путь' : 'Explore the historical route'}<ArrowRight size={17}/></Link></div></section>
 
       <section className="map-teaser page-wrap" data-reveal><div className="map-teaser-heading"><div><span className="eyebrow">{lang === 'kz' ? 'ӨҢІРГЕ САЯХАТ' : lang === 'ru' ? 'ПУТЕШЕСТВИЕ ПО РЕГИОНУ' : 'EXPLORE THE REGION'}</span><h2>{h.map}</h2><p>{h.mapBody}</p></div><Link className="round-link" to="/map" aria-label={t.common.map}><ArrowUpRight/></Link></div><MapTeaser/></section>
 
@@ -125,7 +125,7 @@ function HomePage() {
       <section className="feature-grid page-wrap" data-reveal>
         <Link className="feature-card feature-science" to="/science"><span className="feature-card-icon"><Sparkles/></span><span className="eyebrow">06 · {t.nav.science.toUpperCase()}</span><h3>{h.science}</h3><p>{h.scienceBody}</p><span className="feature-arrow"><ArrowUpRight/></span></Link>
         <Link className="feature-card feature-care" to="/heritage"><span className="feature-card-icon"><Leaf/></span><span className="eyebrow">07 · {t.nav.heritage.toUpperCase()}</span><h3>{h.care}</h3><p>{h.careBody}</p><span className="feature-arrow"><ArrowUpRight/></span></Link>
-        <Link className="feature-card feature-city" to="/shymkent"><span className="feature-card-icon"><MapPinned/></span><span className="eyebrow">08 · ШЫМКЕНТ</span><h3>{h.city}</h3><p>{h.cityBody}</p><span className="feature-arrow"><ArrowUpRight/></span></Link>
+        <Link className="feature-card feature-city" to="/shymkent"><span className="feature-card-icon"><MapPinned/></span><span className="eyebrow">08 · {t.nav.shymkent.toUpperCase()}</span><h3>{h.city}</h3><p>{h.cityBody}</p><span className="feature-arrow"><ArrowUpRight/></span></Link>
       </section>
 
       <section className="gallery-teaser page-wrap" data-reveal><div className="block-heading"><div><span className="eyebrow">09 · {lang === 'kz' ? 'ВИЗУАЛДЫ ҚОР' : lang === 'ru' ? 'ВИЗУАЛЬНАЯ КОЛЛЕКЦИЯ' : 'VISUAL COLLECTION'}</span><h2>{h.gallery}</h2><p>{t.common.photoNote}</p></div><Link className="text-link" to="/gallery">{t.common.viewAll}<ArrowRight size={17}/></Link></div><ImageMosaic items={mediaItems.slice(0,3)}/></section>
@@ -140,19 +140,19 @@ function HomePage() {
 function NaturePhotoPreview() {
   const { lang, t } = useLocale()
   const copy = {
-    kz: { eyebrow: 'ТАБИҒАТ · АҚСУ-ЖАБАҒЫЛЫ', title: 'Өлке тарихынан сыр шерткен қызғалдақ', body: 'Ғасырлар қойнауынан жеткен Грейг қызғалдағы — Оңтүстік Қазақстанның табиғи мұрасының айғағы. Ақсу-Жабағылының бай табиғаты мен тарихын осы бір гүл арқылы таныңыз.', alt: 'Ақсу-Жабағылы қорығындағы қызыл және сары Грейг қызғалдағы', credit: 'Фото: В. А. Ковшар · CC BY-SA 4.0', action: 'Табиғи мұраны зерттеу' },
+    kz: { eyebrow: 'ТАБИҒАТ · АҚСУ-ЖАБАҒЫЛЫ', title: 'Қызғалдақтың табиғи мекені', body: 'Суретте Ақсу-Жабағылы қорығында өскен қызыл-сары Грейг қызғалдағы көрінеді. Нақты өскен жері көрсетілмейді: сирек гүлдердің мекенін жарияламау маңызды.', alt: 'Ақсу-Жабағылы қорығындағы қызыл және сары Грейг қызғалдағы', credit: 'Сурет: В. А. Ковшар · CC BY-SA 4.0', action: 'Қорғау жайын оқу' },
     ru: { eyebrow: 'ПРИРОДА · АКСУ-ЖАБАГЛЫ', title: 'Увидеть цветок в его природной среде', body: 'На фотографии — красная и жёлтая формы Tulipa greigii в заповеднике Аксу-Жабаглы. Снимок сделан на территории заповедника, но не указывает точное местоположение отдельных популяций.', alt: 'Красные и жёлтые тюльпаны Грейга в заповеднике Аксу-Жабаглы', credit: 'Фото: В. А. Ковшар · CC BY-SA 4.0', action: 'Читать о природном наследии' },
     en: { eyebrow: 'NATURE · AKSU-ZHABAGLY', title: 'Meet the flower in its habitat', body: 'This photograph shows red and yellow forms of Tulipa greigii in Aksu-Zhabagly Nature Reserve. It was made within the reserve and does not identify the precise location of individual populations.', alt: 'Red and yellow Greig’s tulips in Aksu-Zhabagly Nature Reserve', credit: 'Photo: V. A. Kovshar · CC BY-SA 4.0', action: 'Read about natural heritage' },
   }[lang]
   return <section className="botanical-feature page-wrap" data-reveal aria-label={copy.eyebrow}>
-    <figure className="botanical-feature-image"><img src="/images/tulipa-greigii-wild.webp" srcSet={mediaItems[0].srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={copy.alt} loading="lazy" decoding="async"/><figcaption><span>AKSU-ZHABAGLY · MAY 2014</span><a href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{copy.credit}</a></figcaption></figure>
+    <figure className="botanical-feature-image"><img src="/images/tulipa-greigii-wild.webp" srcSet={mediaItems[0].srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={copy.alt} loading="lazy" decoding="async"/><figcaption><span>{lang === 'kz' ? 'АҚСУ-ЖАБАҒЫЛЫ · 2014 ЖЫЛҒЫ МАМЫР' : lang === 'ru' ? 'АКСУ-ЖАБАГЛЫ · МАЙ 2014' : 'AKSU-ZHABAGLY · MAY 2014'}</span><a href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{copy.credit}</a></figcaption></figure>
     <div className="botanical-feature-copy"><span className="eyebrow">{copy.eyebrow}</span><h2>{copy.title}</h2><p>{copy.body}</p><Link className="text-link" to="/heritage">{copy.action}<ArrowRight size={17}/></Link></div>
   </section>
 }
 function PageHero({ pageKey, index = '' }) {
   const { lang, t } = useLocale()
   const page = t.pages[pageKey]
-  return <section className="page-hero page-wrap" data-reveal><div className="page-hero-copy"><span className="eyebrow">{page.eyebrow}</span><h1>{page.title}</h1><p>{page.lead}</p></div><span className="page-hero-number">{index}</span><span className="page-hero-ornament" aria-hidden="true"><Flower2 size={196} strokeWidth={0.45}/></span><a className="page-hero-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">V. A. Kovshar · CC BY-SA 4.0 · {lang === 'kz' ? 'WebP-ке түрлендіріліп, оңтайландырылған фото' : lang === 'ru' ? 'Фото оптимизировано и преобразовано в WebP' : 'Image resized and converted to WebP'}</a></section>
+  return <section className="page-hero page-wrap" data-reveal><div className="page-hero-copy"><span className="eyebrow">{page.eyebrow}</span><h1>{page.title}</h1><p>{page.lead}</p></div><span className="page-hero-number">{index}</span><span className="page-hero-ornament" aria-hidden="true"><Flower2 size={196} strokeWidth={0.45}/></span><a className="page-hero-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Сурет: В. А. Ковшар · CC BY-SA 4.0 · сайтқа лайықталып ықшамдалған' : lang === 'ru' ? 'Фото: В. А. Ковшар · CC BY-SA 4.0 · фото оптимизировано и преобразовано в WebP' : 'Photo: V. A. Kovshar · CC BY-SA 4.0 · image resized and converted to WebP'}</a></section>
 }
 
 function Citation({ id }) {
@@ -160,7 +160,7 @@ function Citation({ id }) {
   const ids = Array.isArray(id) ? id : [id]
   const records = ids.map(sourceId => sourceRecords.find(item => item.id === sourceId)).filter(Boolean)
   if (!records.length) return null
-  return <>{records.map(record => <a className="citation-link" key={record.id} href={record.url} target="_blank" rel="noreferrer">{t.common.citation}: {record.author.split(' · ')[0]}<ArrowUpRight size={12}/></a>)}</>
+  return <>{records.map(record => <a className="citation-link" key={record.id} href={record.url} target="_blank" rel="noreferrer">{t.common.citation}: {sourceAuthor(record, lang).split(' · ')[0]}<ArrowUpRight size={12}/></a>)}</>
 }
 
 function ExhibitNarrative({ pageKey }) {
@@ -170,7 +170,7 @@ function ExhibitNarrative({ pageKey }) {
   return <article className="longform-story page-wrap" aria-label={story.title[lang]} data-reveal>
     <header className="longform-story-heading"><span className="eyebrow">{story.eyebrow[lang]}</span><h2>{story.title[lang]}</h2></header>
     <div className="longform-story-body">{story.paragraphs[lang].map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-      <div className="longform-story-sources"><span className="eyebrow">{lang === 'kz' ? 'ТЕКСЕРУГЕ АРНАЛҒАН ДЕРЕККӨЗДЕР' : lang === 'ru' ? 'ИСТОЧНИКИ ДЛЯ ПРОВЕРКИ' : 'SOURCES TO CHECK'}</span><div>{story.sources.map(id => <Citation id={id} key={id}/>)}</div></div>
+      <div className="longform-story-sources"><span className="eyebrow">{lang === 'kz' ? 'ДЕРЕККӨЗДЕР' : lang === 'ru' ? 'ИСТОЧНИКИ ДЛЯ ПРОВЕРКИ' : 'SOURCES TO CHECK'}</span><div>{story.sources.map(id => <Citation id={id} key={id}/>)}</div></div>
     </div>
   </article>
 }
@@ -189,7 +189,7 @@ function EditorialPage({ pageKey, index }) {
   }
   return <main className="editorial-page"><PageHero pageKey={pageKey} index={index}/><section className="editorial-cards page-wrap">{page.cards.map(([title, body], i) => <article className="editorial-card" data-reveal key={title} style={{ '--card-index': i, '--card-offset': `${i * 11}px` }}><div className="editorial-card-number">{String(i + 1).padStart(2, '0')}</div><div><span className="eyebrow">{page.eyebrow}</span><h2>{title}</h2><p>{body}</p><div className="editorial-source"><Citation id={citations(i)}/></div></div><span className="editorial-card-mark">✳</span></article>)}</section><ExhibitNarrative pageKey={pageKey}/>
     {pageKey === 'shymkent' && <div className="page-wrap editorial-note"><span className="eyebrow">{t.common.citation}</span><p>{lang === 'kz' ? 'Қаланың қызғалдақ белгісі мен көктемгі гүл егіні туралы туристік басқарманың ресми жазбасы.' : lang === 'ru' ? 'Официальная запись туристического управления о тюльпане в символике города и весенних посадках.' : 'Official tourism-office record of the tulip in city symbolism and spring planting.'}</p><Citation id="shymkent-tourism"/></div>}
-    {pageKey === 'history' && <section className="history-archive page-wrap" data-reveal><div className="archive-image"><img src="/images/gartenflora-1873.webp" srcSet={mediaItems.find(item => item.id === 'gartenflora-plate-773').srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={lang === 'kz' ? 'Gartenflora журналының 1873 жылғы 773-тақтасы' : lang === 'ru' ? 'Таблица 773 журнала Gartenflora за 1873 год' : 'Plate 773 from the 1873 volume of Gartenflora'} loading="lazy" decoding="async"/><a className="archive-photo-credit" href="https://www.biodiversitylibrary.org/page/47574892" target="_blank" rel="noreferrer">Biodiversity Heritage Library · Public Domain Mark 1.0</a></div><div><span className="eyebrow">1873 · GARTENFLORA 22</span><h2>{lang === 'kz' ? 'Түпнұсқа архив ізі' : lang === 'ru' ? 'След в первоисточнике' : 'The original archival trace'}</h2><p>{lang === 'kz' ? 'Сандық көшірме 1873 жылғы басылымның ашық цифрланған беті негізінде берілді. Ғылыми атаудың жарияланым дерегін түпнұсқа бетпен салыстырып тексеруге болады.' : lang === 'ru' ? 'Локальная копия открытой оцифрованной страницы издания 1873 года. Библиографические данные публикации научного названия можно сверить с первоисточником.' : 'Local copy of an openly digitized page from the 1873 volume. The publication details for the scientific name can be checked against the original record.'}</p><Citation id="bhl"/></div></section>}
+    {pageKey === 'history' && <section className="history-archive page-wrap" data-reveal><div className="archive-image"><img src="/images/gartenflora-1873.webp" srcSet={mediaItems.find(item => item.id === 'gartenflora-plate-773').srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={lang === 'kz' ? '«Гартенфлора» журналының 1873 жылғы 773-тақтасы' : lang === 'ru' ? 'Таблица 773 журнала Gartenflora за 1873 год' : 'Plate 773 from the 1873 volume of Gartenflora'} loading="lazy" decoding="async"/><a className="archive-photo-credit" href="https://www.biodiversitylibrary.org/page/47574892" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Биоалуандық мұрағаты · ашық мұра' : lang === 'ru' ? 'Библиотека наследия биоразнообразия · Общественное достояние' : 'Biodiversity Heritage Library · Public Domain Mark 1.0'}</a></div><div><span className="eyebrow">{lang === 'kz' ? '1873 · «ГАРТЕНФЛОРА» 22-ТОМ' : lang === 'ru' ? '1873 · «ГАРТЕНФЛОРА», ТОМ 22' : '1873 · GARTENFLORA 22'}</span><h2>{lang === 'kz' ? 'Түпнұсқа мұрағат ізі' : lang === 'ru' ? 'След в первоисточнике' : 'The original archival trace'}</h2><p>{lang === 'kz' ? 'Мұнда 1873 жылғы ботаникалық басылымның цифрланған беті берілген. Ғылыми атаудың жарияланған дерегін түпнұсқамен салыстырып көріңіз.' : lang === 'ru' ? 'Локальная копия открытой оцифрованной страницы издания 1873 года. Библиографические данные публикации научного названия можно сверить с первоисточником.' : 'Local copy of an openly digitized page from the 1873 volume. The publication details for the scientific name can be checked against the original record.'}</p><Citation id="bhl"/></div></section>}
     <NextChapter to={pageKey === 'history' ? '/silk-road' : pageKey === 'science' ? '/heritage' : pageKey === 'heritage' ? '/map' : pageKey === 'silk-road' ? '/map' : '/sources'} label={pageKey === 'history' ? t.home.route : pageKey === 'science' ? t.home.care : pageKey === 'heritage' ? t.home.map : pageKey === 'silk-road' ? t.pages.map.title : t.nav.sources}/>
   </main>
 }
@@ -206,19 +206,19 @@ function TimelinePage() {
 
 function ReviewsPage() {
   const { lang, t } = useLocale()
-  const noteHeading = lang === 'kz' ? 'ҒЫЛЫМИ КУРАТОР ТҮСІНІКТЕМЕСІ' : lang === 'ru' ? 'КОММЕНТАРИЙ НАУЧНОГО РЕДАКТОРА' : 'SCIENTIFIC CURATOR’S NOTE'
+  const noteHeading = lang === 'kz' ? 'ҒЫЛЫМИ ТҮСІНІКТЕМЕ' : lang === 'ru' ? 'КОММЕНТАРИЙ НАУЧНОГО РЕДАКТОРА' : 'SCIENTIFIC CURATOR’S NOTE'
   const sourceLabel = lang === 'kz' ? 'Бастапқы дереккөз' : lang === 'ru' ? 'Первоисточник' : 'Open source'
   return <main className="reviews-page">
-    <PageHero pageKey="reviews" index="03 / VOICES"/>
+    <PageHero pageKey="reviews" index={lang === 'kz' ? '03 · ПІКІРЛЕР' : lang === 'ru' ? '03 · МНЕНИЯ' : '03 / VOICES'}/>
     <section className="review-grid page-wrap" aria-label={t.pages.reviews.title}>
       {reviews.map((review, index) => {
         const source = sourceRecords.find(record => record.id === review.source)
         return <article className="review-card" data-reveal key={review.id}>
           <div className="review-card-meta"><span>{String(index + 1).padStart(2, '0')}</span><small>{review.role[lang]}</small></div>
-          <h2>{review.name}</h2><h3>{review.title[lang]}</h3>
+          <h2>{typeof review.name === 'string' ? review.name : review.name[lang]}</h2><h3>{review.title[lang]}</h3>
           <p className="review-summary">{review.summary[lang]}</p>
           <p className="review-attribution">{review.attribution[lang]}</p>
-          {source && <a className="citation-link review-source-link" href={source.url} target="_blank" rel="noreferrer">{sourceLabel}: {source.title}<ArrowUpRight size={13}/></a>}
+          {source && <a className="citation-link review-source-link" href={source.url} target="_blank" rel="noreferrer">{sourceLabel}: {sourceTitle(source, lang)}<ArrowUpRight size={13}/></a>}
         </article>
       })}
     </section>
@@ -294,16 +294,16 @@ function PlacePage() {
   if (!place) return <NotFound/>
   const placePhotos = {
     'aqsu-zhabagly': { image: '/images/tulipa-greigii-wild.webp', srcSet: photoAssets[0].srcSet, credit: 'V. A. Kovshar · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png' },
-    kazygurt: { image: '/images/aksu-zhabagly-mountains.webp', srcSet: photoAssets[1].srcSet, credit: 'Regional context · Jack Bartovsky · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Aksu_Zhabagly_mountains.jpg' },
-    shymkent: { image: '/images/shymkent-downtown.webp', srcSet: photoAssets.find(item => item.id === 'shymkent-downtown').srcSet, credit: 'Rassim · CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg' },
-    turkistan: { image: '/images/turkistan-mausoleum.webp', srcSet: photoAssets.find(item => item.id === 'turkistan-mausoleum').srcSet, credit: 'Petar Milošević · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg' },
-    otrar: { image: '/images/otrar-aerial.webp', srcSet: photoAssets.find(item => item.id === 'otrar-aerial').srcSet, credit: 'GaiJorayev · CC BY 4.0', url: 'https://commons.wikimedia.org/wiki/File:Otrar-aerial-view-May-2016-2.jpg' },
-    sayram: { image: '/images/aksu-zhabagly-mountains.webp', srcSet: photoAssets[1].srcSet, credit: 'Regional context · Jack Bartovsky · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Aksu_Zhabagly_mountains.jpg' },
-    tulkibas: { image: '/images/aksu-zhabagly-mountains.webp', srcSet: photoAssets[1].srcSet, credit: 'Regional context · Jack Bartovsky · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Aksu_Zhabagly_mountains.jpg' },
-    berkara: { image: '/images/aksu-zhabagly-mountains.webp', srcSet: photoAssets[1].srcSet, credit: 'Regional context · Jack Bartovsky · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Aksu_Zhabagly_mountains.jpg' },
+    kazygurt: { image: '/images/aksu-zhabagly-mountains.webp', srcSet: photoAssets.find(item => item.id === 'aksu-zhabagly-mountains')?.srcSet || photoAssets[0].srcSet, credit: 'Regional context · Jack Bartovsky · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Aksu_Zhabagly_mountains.jpg' },
+    shymkent: { image: '/images/shymkent-downtown.webp', srcSet: photoAssets.find(item => item.id === 'shymkent-downtown')?.srcSet, credit: 'Rassim · CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg' },
+    turkistan: { image: '/images/turkistan-mausoleum.webp', srcSet: photoAssets.find(item => item.id === 'turkistan-mausoleum')?.srcSet, credit: 'Petar Milošević · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg' },
+    karatau: { image: '/images/karatau-ridge.webp', srcSet: photoAssets.find(item => item.id === 'karatau-ridge')?.srcSet, credit: 'Unsplash Library · Free License', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b' },
+    shubaykyzyl: { image: '/images/steppe-blooming-field.webp', srcSet: photoAssets.find(item => item.id === 'steppe-blooming-field')?.srcSet, credit: 'Unsplash Library · Free License', url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23' },
+    tulkibas: { image: '/images/steppe-blooming-field.webp', srcSet: photoAssets.find(item => item.id === 'steppe-blooming-field')?.srcSet, credit: 'Unsplash Library · Free License', url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23' },
+    berkara: { image: '/images/aksu-canyon.webp', srcSet: photoAssets.find(item => item.id === 'aksu-canyon')?.srcSet, credit: 'Unsplash Library · Free License', url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb' },
   }
   const photo = placePhotos[slug] ?? placePhotos['aqsu-zhabagly']
-  const photoAlt = slug === 'shymkent' ? (lang === 'kz' ? 'Шымкент қаласының орталығы' : lang === 'ru' ? 'Центр Шымкента' : 'Downtown Shymkent') : slug === 'turkistan' ? (lang === 'kz' ? 'Түркістандағы Қожа Ахмет Ясауи кесенесі' : lang === 'ru' ? 'Мавзолей Ходжи Ахмеда Ясави в Туркестане' : 'Mausoleum of Khoja Ahmed Yasawi in Turkistan') : slug === 'otrar' ? (lang === 'kz' ? 'Отырар археологиялық орнының әуеден көрінісі' : lang === 'ru' ? 'Вид с воздуха на археологический памятник Отрар' : 'Aerial view of Otrar archaeological site') : slug === 'aqsu-zhabagly' ? (lang === 'kz' ? 'Ақсу-Жабағылы қорығындағы Грейг қызғалдағы' : lang === 'ru' ? 'Тюльпан Грейга в заповеднике Аксу-Жабаглы' : 'Greig’s tulip in Aksu-Zhabagly Nature Reserve') : (lang === 'kz' ? 'Аймақтық контекст: Ақсу-Жабағылы қорығының таулары' : lang === 'ru' ? 'Региональный контекст: горы заповедника Аксу-Жабаглы' : 'Regional context: mountains in Aksu-Zhabagly Nature Reserve')
+  const photoAlt = slug === 'shymkent' ? (lang === 'kz' ? 'Шымкент қаласының орталығы' : lang === 'ru' ? 'Центр Шымкента' : 'Downtown Shymkent') : slug === 'turkistan' ? (lang === 'kz' ? 'Түркістандағы Қожа Ахмет Ясауи кесенесі' : lang === 'ru' ? 'Мавзолей Ходжи Ахмеда Ясави в Туркестане' : 'Mausoleum of Khoja Ahmed Yasawi in Turkistan') : slug === 'karatau' ? (lang === 'kz' ? 'Қаратау жотасының жартасты сілемдері' : lang === 'ru' ? 'Каменистые хребты Каратау' : 'Rocky ridges of Karatau Range') : (slug === 'shubaykyzyl' || slug === 'tulkibas') ? (lang === 'kz' ? 'Шұбайқызыл мен Түлкібас аңғарындағы қызғалдақтар' : lang === 'ru' ? 'Цветущие тюльпаны Шубайкызыла и Тюлькубаса' : 'Blooming tulips of Shubaykyzyl and Tyulkubas') : slug === 'berkara' ? (lang === 'kz' ? 'Берікқара және тау шатқалдарының көрінісі' : lang === 'ru' ? 'Пейзаж урочища Беркара' : 'Landscape of Berkara Gorge') : slug === 'aqsu-zhabagly' ? (lang === 'kz' ? 'Ақсу-Жабағылы қорығындағы Грейг қызғалдағы' : lang === 'ru' ? 'Тюльпан Грейга в заповеднике Аксу-Жабаглы' : 'Greig’s tulip in Aksu-Zhabagly Nature Reserve') : (lang === 'kz' ? 'Өңір көрінісі: Ақсу-Жабағылы қорығының таулары' : lang === 'ru' ? 'Региональный пейзаж: горы заповедника Аксу-Жабаглы' : 'Regional landscape: mountains in Aksu-Zhabagly Nature Reserve')
   const tour = {
     kz: [['01 · БАҒДАР', 'Картадағы координата — мекенді бағдарлау үшін берілген нүкте, сирек өсімдіктің нақты популяция координатасы емес.'], ['02 · ӨҢІР', place.region[lang]], ['03 · ЖАЗБА', place.detail[lang]], ['04 · ДЕРЕККӨЗ', 'Сілтемені ашып, осы орынға қатысты мәліметті бастапқы материалдан тексеріңіз.']],
     ru: [['01 · ОРИЕНТИР', 'Координата на карте — ориентир для знакомства с местом, а не точка популяции редкого растения.'], ['02 · РЕГИОН', place.region[lang]], ['03 · ЗАПИСЬ', place.detail[lang]], ['04 · ИСТОЧНИК', 'Откройте ссылку и сверьте сведения об этом месте с первичным материалом.']],
@@ -338,6 +338,9 @@ function App() {
   const t = locales[lang]
   const location = useLocation()
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+  }, [location.pathname])
+  useEffect(() => {
     document.documentElement.lang = t.html
     const titles = { kz: 'Грейг қызғалдағы — Өлкемнің цифрлық шежіресі', ru: 'Тюльпан Грейга — цифровая летопись края', en: 'Greig’s Tulip — A Digital Chronicle of the Region' }
     const routeKey = ({ '/malimetter': 'facts', '/tarikh': 'history', '/ecology': 'heritage' })[location.pathname] ?? location.pathname.replace(/^\//, '')
@@ -360,18 +363,19 @@ function App() {
     let structuredData = document.getElementById('site-structured-data')
     if (!structuredData) { structuredData = document.createElement('script'); structuredData.id = 'site-structured-data'; structuredData.type = 'application/ld+json'; document.head.appendChild(structuredData) }
     structuredData.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Museum', name: titles[lang], description: pageDescription, inLanguage: t.html, url: canonical.href })
-    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    ScrollTrigger.refresh()
+  }, [lang, location.pathname, t])
+  useEffect(() => {
     const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (!noMotion) {
-      const ctx = gsap.context(() => {
-        gsap.utils.toArray('[data-reveal]').forEach(node => gsap.fromTo(node,
-          { autoAlpha: 0, y: 24 },
-          { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'transform', scrollTrigger: { trigger: node, start: 'top 90%', once: true } },
-        ))
-      })
-      return () => ctx.revert()
-    }
-  }, [lang, location.pathname, t.html])
+    if (noMotion) return
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray('[data-reveal]').forEach(node => gsap.fromTo(node,
+        { autoAlpha: 0, y: 24 },
+        { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'transform', scrollTrigger: { trigger: node, start: 'top 90%', once: true } },
+      ))
+    })
+    return () => ctx.revert()
+  }, [location.pathname])
   return <LocaleContext.Provider value={{ lang, setLang, t }}><Header/><RouteBreadcrumbs/><div id="site-content"><Routes>
     <Route path="/" element={<HomePage/>}/>
     <Route path="/history" element={<EditorialPage pageKey="history" index="1873"/>}/>

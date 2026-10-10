@@ -9,7 +9,15 @@ class AppErrorBoundary extends Component {
   static getDerivedStateFromError() { return { failed: true } }
   componentDidCatch(error) { this.setState({ diagnostic: error?.stack || error?.message || String(error) }) }
   render() {
-    if (this.state.failed) return <main className="app-error"><p className="eyebrow">GREIGII · DIGITAL CHRONICLE</p><h1>Бұл бетті жүктеу мүмкін болмады</h1><p>Парақты қайта ашып көріңіз. The page could not be rendered. Reload to try again.</p>{import.meta.env.DEV && <pre>{this.state.diagnostic}</pre>}<button className="button button-outline" onClick={() => window.location.reload()}>Қайта жүктеу · Reload</button></main>
+    if (this.state.failed) {
+      const currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('greig-locale')) || (typeof document !== 'undefined' && document.documentElement.lang) || 'kz'
+      const err = {
+        kz: { eyebrow: 'ГРЕЙГ · ЦИФРЛЫҚ ШЕЖІРЕ', title: 'Бұл бетті жүктеу мүмкін болмады', desc: 'Парақты қайта ашып көріңіз.', reload: 'Қайта жүктеу' },
+        ru: { eyebrow: 'ГРЕЙГ · ЦИФРОВАЯ ЛЕТОПИСЬ', title: 'Не удалось загрузить страницу', desc: 'Пожалуйста, перезагрузите страницу.', reload: 'Перезагрузить' },
+        en: { eyebrow: 'GREIGII · DIGITAL CHRONICLE', title: 'The page could not be rendered', desc: 'Please reload the page to try again.', reload: 'Reload' },
+      }[currentLang.startsWith('ru') ? 'ru' : currentLang.startsWith('en') ? 'en' : 'kz']
+      return <main className="app-error"><p className="eyebrow">{err.eyebrow}</p><h1>{err.title}</h1><p>{err.desc}</p>{import.meta.env.DEV && <pre>{this.state.diagnostic}</pre>}<button className="button button-outline" onClick={() => window.location.reload()}>{err.reload}</button></main>
+    }
     return this.props.children
   }
 }

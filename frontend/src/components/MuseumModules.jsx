@@ -2,14 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, ArrowRight, BookOpen, X, ChevronLeft, ChevronRight, Maximize2, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useLocale } from '../locales/context.js'
-import { sourceRecords, places } from '../data/collections.js'
+import { sourceRecords, sourceTitle, sourceAuthor, places } from '../data/collections.js'
+import { mediaAuthor, mediaLicense, mediaProcessing } from '../data/media.js'
 import { timelineCategories } from '../data/timeline.js'
 
 export function SourceCards({ items = sourceRecords }) {
   const { lang, t } = useLocale()
   return <div className="source-grid">{items.map((item, i) => <article className="source-card" id={`source-${item.id}`} key={item.id} data-reveal>
     <div className="source-card-top"><span className="source-number">{String(i + 1).padStart(2, '0')}</span><span className="source-kind">{item.category[lang]}</span></div>
-    <div><h2>{item.title}</h2><p className="source-author">{item.author}</p><p className="source-note">{item.note[lang]}</p></div>
+    <div><h2>{sourceTitle(item, lang)}</h2><p className="source-author">{sourceAuthor(item, lang)}</p><p className="source-note">{item.note[lang]}</p></div>
     <div className="source-card-bottom"><span>{item.year}</span><a href={item.url} target="_blank" rel="noreferrer">{t.common.open}<ArrowUpRight size={15}/></a></div>
   </article>)}</div>
 }
@@ -24,10 +25,10 @@ export function TimelineStrip({ items, compact = false }) {
     const firstOfYear = items.findIndex(record => record.year === item.year) === i
     return <article className="timeline-entry" id={`timeline-${year}${firstOfYear ? '' : `-${i}`}`} data-reveal key={`${date}-${i}`}>
       <div className="timeline-date"><span>{date}</span><i/></div>
-      <div className="timeline-card"><div className="timeline-card-head"><span>0{i + 1}</span>{linkedSources[0] && <a href={linkedSources[0].url} target="_blank" rel="noreferrer" aria-label={`${t.common.open}: ${linkedSources[0].title}`}><ArrowUpRight size={15}/></a>}</div>
+      <div className="timeline-card"><div className="timeline-card-head"><span>0{i + 1}</span>{linkedSources[0] && <a href={linkedSources[0].url} target="_blank" rel="noreferrer" aria-label={`${t.common.open}: ${sourceTitle(linkedSources[0], lang)}`}><ArrowUpRight size={15}/></a>}</div>
         <h3>{item.title[lang]}</h3><p>{item.body[lang]}</p>
         {item.details?.[lang] && <details className="timeline-detail"><summary>{lang === 'kz' ? 'Толығырақ оқу' : lang === 'ru' ? 'Читать подробнее' : 'Read more'}</summary><p>{item.details[lang]}</p></details>}
-        {linkedSources.map(source => <a className="citation-link" key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.author.split(' · ')[0]}<ArrowUpRight size={12}/></a>)}
+        {linkedSources.map(source => <a className="citation-link" key={source.id} href={source.url} target="_blank" rel="noreferrer">{sourceAuthor(source, lang).split(' · ')[0]}<ArrowUpRight size={12}/></a>)}
       </div>
     </article>
   })}</div>
@@ -73,14 +74,14 @@ export function ImageMosaic({ items, large = false }) {
     <div className={`image-mosaic ${large ? 'image-mosaic-large' : ''}`}>{items.map((item, i) => {
       const source = item.sourceId ? sourceRecords.find(record => record.id === item.sourceId) : null
       return <button className={`mosaic-card mosaic-${item.kind}`} key={item.id} onClick={() => item.image ? setActive(i) : source && window.open(source.url, '_blank', 'noopener,noreferrer')} aria-label={`${item.title[lang]} — ${item.location[lang]}`}>
-        {item.image ? <><img src={item.image} srcSet={item.srcSet} sizes={large ? '(max-width: 700px) 100vw, 50vw' : '(max-width: 700px) 100vw, 40vw'} alt={item.alt?.[lang] ?? `${item.title[lang]} · ${item.author}`} loading="lazy" decoding="async" onError={event => { event.currentTarget.hidden = true; event.currentTarget.nextElementSibling.hidden = false }}/><span className="mosaic-fallback" hidden>{lang === 'kz' ? 'ФОТО ҚОЛЖЕТІМСІЗ' : lang === 'ru' ? 'ФОТО НЕДОСТУПНО' : 'IMAGE UNAVAILABLE'}</span></> : <div className="archive-card-art"><BookOpen size={42}/><span>GARTENFLORA<br/>1873 · PLATE 773</span><small>{lang==='kz'?'Түпнұсқаға өту':lang==='ru'?'К оригиналу':'Open original record'} ↗</small></div>}
+        {item.image ? <><img src={item.image} srcSet={item.srcSet} sizes={large ? '(max-width: 700px) 100vw, 50vw' : '(max-width: 700px) 100vw, 40vw'} alt={item.alt?.[lang] ?? `${item.title[lang]} · ${mediaAuthor(item, lang)}`} loading="lazy" decoding="async" onError={event => { event.currentTarget.hidden = true; event.currentTarget.nextElementSibling.hidden = false }}/><span className="mosaic-fallback" hidden>{lang === 'kz' ? 'СУРЕТ ЖҮКТЕЛМЕДІ' : lang === 'ru' ? 'ФОТО НЕДОСТУПНО' : 'IMAGE UNAVAILABLE'}</span></> : <div className="archive-card-art"><BookOpen size={42}/><span>{lang === 'kz' ? '«ГАРТЕНФЛОРА»' : lang === 'ru' ? '«ГАРТЕНФЛОРА»' : 'GARTENFLORA'}<br/>{lang === 'kz' ? '1873 · 773-ТАҚТА' : lang === 'ru' ? '1873 · ТАБЛИЦА 773' : '1873 · PLATE 773'}</span><small>{lang==='kz'?'Түпнұсқаны ашу':lang==='ru'?'К оригиналу':'Open original record'} ↗</small></div>}
         <span className="mosaic-number">0{i + 1}</span><span className="mosaic-open">{item.image ? <Maximize2 size={18}/> : <ArrowUpRight size={19}/>}</span>
         <span className="mosaic-caption"><b>{item.title[lang]}</b><small>{item.location[lang]} · {item.year}</small></span>
       </button>
     })}</div>
     {active >= 0 && <div className="lightbox" role="dialog" aria-modal="true" aria-label={items[active].title[lang]} onMouseDown={event => { if (event.target === event.currentTarget) close() }} onTouchStart={event => { startX.current = event.touches[0].clientX }} onTouchEnd={event => { const diff = event.changedTouches[0].clientX - startX.current; if (Math.abs(diff) > 65) move(diff < 0 ? 1 : -1) }}>
       <button className="lightbox-close" onClick={close} aria-label={t.common.close}><X/></button><button className="lightbox-prev" onClick={() => move(-1)} aria-label={lang==='kz'?'Алдыңғы сурет':lang==='ru'?'Предыдущее изображение':'Previous image'}><ChevronLeft/></button>
-      <figure><img src={items[active].image} alt={items[active].alt?.[lang] ?? `${items[active].title[lang]} · ${items[active].author}`} /><figcaption><b>{items[active].title[lang]}</b><span>{items[active].location[lang]} · {items[active].year}</span><small>{items[active].author} · {items[active].license}{items[active].processing ? ` · ${items[active].processing}` : ''}{items[active].sourceUrl ? <> · <a href={items[active].sourceUrl} target="_blank" rel="noreferrer">{t.common.open}<ArrowUpRight size={11}/></a></> : null}</small></figcaption></figure>
+      <figure><img src={items[active].image} alt={items[active].alt?.[lang] ?? `${items[active].title[lang]} · ${mediaAuthor(items[active], lang)}`} /><figcaption><b>{items[active].title[lang]}</b><span>{items[active].location[lang]} · {items[active].year}</span><small>{mediaAuthor(items[active], lang)} · {mediaLicense(items[active], lang)}{mediaProcessing(items[active], lang) ? ` · ${mediaProcessing(items[active], lang)}` : ''}{items[active].sourceUrl ? <> · <a href={items[active].sourceUrl} target="_blank" rel="noreferrer">{t.common.open}<ArrowUpRight size={11}/></a></> : null}</small></figcaption></figure>
       <button className="lightbox-next" onClick={() => move(1)} aria-label={lang==='kz'?'Келесі сурет':lang==='ru'?'Следующее изображение':'Next image'}><ChevronRight/></button><div className="lightbox-count">{String(active+1).padStart(2,'0')} / {String(items.length).padStart(2,'0')}</div>
     </div>}
   </>
@@ -92,7 +93,7 @@ export function MapTeaser() {
   const points = [places[0], places[2], places[3], places[1]]
   return <div className="map-teaser-art">
     <svg className="map-contours" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="topo" width="170" height="135" patternUnits="userSpaceOnUse"><path d="M-30 70c30-44 91-50 140-24s75 14 85-13M-29 91c43-37 91-33 127-10s69 17 93-9M-30 113c43-30 83-18 116 0s70 19 104-3M-23 37C8 4 70-3 106 21s73 20 92 0" fill="none" stroke="#c4ad85" strokeWidth="1" opacity=".45"/></pattern><linearGradient id="mapbg" x2="0" y2="1"><stop stopColor="#ddd0b5"/><stop offset="1" stopColor="#f0e8d8"/></linearGradient></defs><rect width="1200" height="450" fill="url(#mapbg)"/><rect width="1200" height="450" fill="url(#topo)"/><path d="M-20 314c194-69 291 16 435-21s207-123 364-81 233 96 452 48" fill="none" stroke="#b06c4d" strokeWidth="2" strokeDasharray="5 8" opacity=".8"/><path d="M-20 376c171-38 236-101 401-81s274 108 427 34 250-120 414-75" fill="none" stroke="#728069" strokeWidth="1" strokeDasharray="2 9" opacity=".6"/></svg>
-    <div className="teaser-map-label">SOUTHERN KAZAKHSTAN <span>·</span> FIELD GUIDE</div>
+    <div className="teaser-map-label">{lang === 'kz' ? 'ОҢТҮСТІК ҚАЗАҚСТАН · ӨҢІР БАҒДАРЫ' : lang === 'ru' ? 'ЮЖНЫЙ КАЗАХСТАН · ПУТЕВОДИТЕЛЬ' : 'SOUTHERN KAZAKHSTAN · FIELD GUIDE'}</div>
     {points.map((place, i) => <Link to={`/places/${place.slug}`} className={`teaser-pin teaser-pin-${i+1}`} key={place.slug}><span className="teaser-pin-dot"><MapPin size={17}/></span><span>{labels[lang][i]}</span></Link>)}
     <Link to="/map" className="map-teaser-cta">{lang==='kz'?'Картаға өту':lang==='ru'?'Перейти к карте':'Explore the map'}<ArrowRight size={15}/></Link>
   </div>

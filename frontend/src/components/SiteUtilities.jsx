@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUp, Search, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { useLocale } from '../locales/context.js'
 import { facts } from '../data/facts.js'
-import { places, sourceRecords } from '../data/collections.js'
+import { places, sourceRecords, sourceTitle } from '../data/collections.js'
 import { timeline } from '../data/timeline.js'
 
 const pageKeys = [
@@ -21,7 +21,7 @@ function SearchDialog({ close }) {
     const pages = pageKeys.map(([key, href]) => ({ type: lang === 'kz' ? 'ТАРАУ' : lang === 'ru' ? 'РАЗДЕЛ' : 'CHAPTER', title: t.pages[key]?.title ?? key, summary: t.pages[key]?.lead ?? '', href }))
     const placeRecords = places.map(item => ({ type: lang === 'kz' ? 'МЕКЕН' : lang === 'ru' ? 'МЕСТО' : 'PLACE', title: item.name[lang], summary: item.summary[lang], href: `/places/${item.slug}` }))
     const factRecords = facts.map(item => ({ type: lang === 'kz' ? 'ДЕРЕК' : lang === 'ru' ? 'ФАКТ' : 'FACT', title: item.title[lang], summary: `${typeof item.value === 'string' ? item.value : item.value[lang]} · ${item.detail[lang]}`, href: `/malimetter#fact-${item.id}` }))
-    const sourceItems = sourceRecords.map(item => ({ type: lang === 'kz' ? 'ДЕРЕККӨЗ' : lang === 'ru' ? 'ИСТОЧНИК' : 'SOURCE', title: item.title, summary: item.note[lang], href: `/sources#source-${item.id}` }))
+    const sourceItems = sourceRecords.map(item => ({ type: lang === 'kz' ? 'ДЕРЕККӨЗ' : lang === 'ru' ? 'ИСТОЧНИК' : 'SOURCE', title: sourceTitle(item, lang), summary: item.note[lang], href: `/sources#source-${item.id}` }))
     const timelineItems = timeline.map(item => ({ type: lang === 'kz' ? 'ХРОНОЛОГИЯ' : lang === 'ru' ? 'ХРОНОЛОГИЯ' : 'TIMELINE', title: item.title[lang], summary: `${item.year} · ${item.body[lang]}`, href: `/timeline#timeline-${item.year}` }))
     return [...pages, ...placeRecords, ...factRecords, ...timelineItems, ...sourceItems]
   }, [lang, t])

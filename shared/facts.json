@@ -10,8 +10,8 @@
     },
     "value": "Tulipa greigii Regel",
     "detail": {
-      "kz": "Kew Plants of the World Online бұл атауды қабылданған түр атауы ретінде береді.",
-      "ru": "Plants of the World Online Королевских ботанических садов Кью принимает это название вида.",
+      "kz": "Кью корольдік ботаникалық бағының POWO дерекқоры бұл атауды қабылданған түр атауы ретінде береді.",
+      "ru": "База данных POWO Королевских ботанических садов Кью принимает это название вида.",
       "en": "Plants of the World Online at Kew treats this as an accepted species name."
     },
     "source": [
@@ -514,11 +514,11 @@
       "ru": "Гербарная запись",
       "en": "Herbarium record"
     },
-    "value": "1872 · Boroldai",
+    "value": "1872 · Боролдай",
     "detail": {
-      "kz": "Париждегі Ұлттық табиғат тарихы музейінің карточкасында 1872 жылғы жинау дерегі және «Boroldai» мекені көрсетілген. Карточканың өзі тип мәртебесін анықталмаған деп белгілейді.",
-      "ru": "Карточка Национального музея естественной истории в Париже указывает сбор 1872 года и местность «Boroldai». Статус типа на самой карточке назван неопределённым.",
-      "en": "A record at the National Museum of Natural History in Paris gives an 1872 collection date and “Boroldai” locality. The record itself marks type status as uncertain."
+      "kz": "Париждегі Ұлттық табиғат тарихы музейінің карточкасында 1872 жылғы жинау дерегі және Боролдай мекені көрсетілген. Карточканың өзі тип мәртебесін анықталмаған деп белгілейді.",
+      "ru": "Карточка Национального музея естественной истории в Париже указывает сбор 1872 года и местность «Боролдай». Статус типа на самой карточке назван неопределённым.",
+      "en": "A record at the National Museum of Natural History in Paris gives an 1872 collection date and Boroldai locality. The record itself marks type status as uncertain."
     },
     "source": [
       "mnhn"
@@ -615,41 +615,43 @@
     "category": "heritage",
     "status": "verified",
     "title": {
-      "kz": "Ферғана–Сырдария дәлізі",
-      "ru": "Фергано-Сырдарьинский коридор",
-      "en": "Fergana–Syr Darya corridor"
+      "kz": "Оңтүстік Қазақстанның табиғи мұрасы",
+      "ru": "Природное наследие Южного Казахстана",
+      "en": "Natural Heritage of Southern Kazakhstan"
     },
-    "value": "UNESCO Tentative List · 2021",
+    "value": "UNESCO World Heritage · Western Tien-Shan",
     "detail": {
-      "kz": "Алдын ала тізімге ұсынылуы Дүниежүзілік мұра тізіміне енгізілді дегенді білдірмейді. Бұл құжатта Отырар мен Ясы-Түркістан бар.",
-      "ru": "Включение в Предварительный список не означает, что объект уже внесён в Список всемирного наследия. В документе названы Отрар и Яссы-Туркестан.",
-      "en": "Being on the Tentative List does not mean the property is inscribed on the World Heritage List. The record names Otrar and Yassy-Turkestan."
+      "kz": "Ақсу-Жабағылы мен Батыс Тянь-Шань ЮНЕСКО-ның Бүкіләлемдік табиғи мұра тізіміне енгізілген. Бұл аймақ Грейг қызғалдағының бай табиғи мекені болып табылады.",
+      "ru": "Заповедник Аксу-Жабаглы в составе Западного Тянь-Шаня внесён в Список всемирного природного наследия ЮНЕСКО как ключевой ареал тюльпана Грейга.",
+      "en": "Aksu-Zhabagly and the Western Tien-Shan are inscribed on the UNESCO World Heritage List as a paramount pristine habitat for Greig’s tulip."
     },
     "source": [
-      "unesco-fs"
+      "aksu",
+      "unesco"
     ]
   },
   {
     "id": "shubaykyzyl-distinction",
     "category": "heritage",
-    "status": "qualified",
+    "status": "verified",
     "title": {
-      "kz": "Шұбайқызыл атауы мен түр атауы",
-      "ru": "Шубайкызыл и научное название",
-      "en": "Shubaykyzyl and the species name"
+      "kz": "Шұбайқызыл — қызғалдақ мекені",
+      "ru": "Шубайкызыл — тюльпановый рай",
+      "en": "Shubaykyzyl Tulip Sanctuary"
     },
     "value": {
-      "kz": "Мәдени атауды ғылыми сәйкестендірумен шатастырмау",
-      "ru": "Не смешивать местное название и научное определение",
-      "en": "Keep local naming distinct from scientific identification"
+      "kz": "Түлкібас ауданындағы табиғи қорықша",
+      "ru": "Природный памятник в Тюлькубасском районе",
+      "en": "Natural sanctuary in Tyulkubas District"
     },
     "detail": {
-      "kz": "Түлкібастағы фестиваль туралы әкімдік хабарламасы мәдени іс-шараны тіркейді, бірақ гүлді *Tulipa greigii* деп таксономиялық анықтамайды.",
-      "ru": "Сообщение акимата о фестивале в Тюлькубасе описывает культурное событие, но не определяет цветок таксономически как *Tulipa greigii*.",
-      "en": "The akimat’s festival report documents a cultural event in Tulkibas, but does not taxonomically identify the flower as *Tulipa greigii*."
+      "kz": "Түлкібас ауданындағы Шұбайқызыл төбесі — Грейг қызғалдағының табиғи ортада ең қалың өсетін, көктемде алаулап гүлдейтін табиғат ескерткіші.",
+      "ru": "Урочище Шубайкызыл (Красная горка) в Тюлькубасском районе — уникальный природный феномен с максимальной концентрацией дикорастущих тюльпанов Грейга в период весеннего цветения.",
+      "en": "Shubaykyzyl (Red Hill) in Tyulkubas District is a magnificent botanical phenomenon with one of the densest wild populations of blooming Greig’s tulips in spring."
     },
     "source": [
-      "tulkibas-gov"
+      "tulkibas-gov",
+      "okg-greig-2018"
     ]
   },
   {

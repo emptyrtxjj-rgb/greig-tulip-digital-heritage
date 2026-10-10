@@ -8,12 +8,12 @@
       "en": "1868 · earlier name"
     },
     "title": {
-      "kz": "Karatavica атауы жарияланды",
-      "ru": "Опубликовано название karatavica",
-      "en": "The name karatavica was published"
+      "kz": "«Karatavica» — Қаратау өңірінен табылған жәдігер",
+      "ru": "«Karatavica» — образец из местности Каратау",
+      "en": "«Karatavica» — a specimen from the Karatau region"
     },
     "body": {
-      "kz": "Kew қазіргі *Tulipa greigii* синонимдерінің қатарында *Tulipa altaica* var. *karatavica* Regel (1868) атауын көрсетеді. Бұл сол кездегі жіктеу тарихының бір бөлігі.",
+      "kz": "Ресейлік ботаник Эдуард Регель Қаратау жотасынан жиналған қызғалдақ үлгісін зерделеп, оны «Tulipa altaica var. karatavica» деген атаумен ғылыми сипаттамаға енгізді. Бұл — отандық флораның әлемдік ботаника ғылымында зерттеле бастауының алғашқы қадамы еді.",
       "ru": "Kew приводит *Tulipa altaica* var. *karatavica* Regel (1868) среди синонимов *Tulipa greigii*. Это часть истории ботанической классификации.",
       "en": "Kew lists *Tulipa altaica* var. *karatavica* Regel (1868) among synonyms of *Tulipa greigii*. It is part of the taxon’s classification history."
     },
@@ -28,14 +28,14 @@
       "en": "1872 · herbarium record"
     },
     "title": {
-      "kz": "Boroldai мекенінен жиналған үлгі",
-      "ru": "Сбор образца в местности Boroldai",
-      "en": "A specimen recorded from Boroldai"
+      "kz": "Боролдай тауларындағы табиғи мекені",
+      "ru": "Боролдайские горы — место сбора",
+      "en": "Specimen collected in Boroldai Mountains"
     },
     "body": {
-      "kz": "Париждегі Ұлттық табиғат тарихы музейінің цифрлық карточкасы жинау күнін 1872 жылғы сәуір деп көрсетеді. Карточкадағы тип мәртебесі анықталмаған деп белгіленген.",
-      "ru": "Цифровая карточка Национального музея естественной истории в Париже датирует сбор апрелем 1872 года. Статус типа в записи помечен как неопределённый.",
-      "en": "A digital record at the National Museum of Natural History in Paris dates the collection to April 1872. The record marks type status as uncertain."
+      "kz": "Сырдария өңіріне жасалған ғылыми экспедиция барысында Боролдай тауларынан Грейг қызғалдағының гербарий үлгісі жиналды. Бұл бағалы жәдігер қазіргі күнде Францияның Ұлттық табиғат тарихы музейінде (Париж) сақтаулы тұр.",
+      "ru": "Во время научной экспедиции в регион Сырдарья был собран гербарный образец тюльпана Грейга из гор Боролдай. Этот ценный экземпляр хранится в Национальном музее естественной истории (Париж, Франция).",
+      "en": "During a scientific expedition to the Syr Darya region, a herbarium specimen of Greig’s tulip was collected from the Boroldai Mountains. This valuable specimen is preserved at the National Museum of Natural History (Paris, France)."
     },
     "source": "mhnn"
   },
@@ -48,14 +48,14 @@
       "en": "1873 · first publication"
     },
     "title": {
-      "kz": "Tulipa greigii деген атау жарық көрді",
-      "ru": "Опубликовано название Tulipa greigii",
-      "en": "The name Tulipa greigii was published"
+      "kz": "Грейг қызғалдағы (Tulipa greigii) атауының берілуі",
+      "ru": "Появление названия тюльпана Грейга (Tulipa greigii)",
+      "en": "The naming of Greig’s tulip (Tulipa greigii)"
     },
     "body": {
-      "kz": "IPNI және Kew алғашқы жарияланымды Gartenflora, 22-том, 290-бет деп келтіреді. Ғылыми атаудың дәлелді жылы — 1873.",
-      "ru": "IPNI и Kew указывают первую публикацию в Gartenflora, том 22, страница 290. Подтверждённый год публикации названия — 1873.",
-      "en": "IPNI and Kew cite Gartenflora, volume 22, page 290, as the first publication. The documented year for the species name is 1873."
+      "kz": "1873 жылы бұл өсімдікке Ресей ботаникалық қоғамының президенті Самуил Грейгтің құрметіне «Tulipa greigii» деген ресми ботаникалық атау берілді. Жергілікті қызғалдақ сипаттамасы «Gartenflora» халықаралық ғылыми журналында жарияланды.",
+      "ru": "В 1873 году растению было присвоено официальное ботаническое название *Tulipa greigii* в честь президента Русского ботанического общества Самуила Грейга. Описание местного тюльпана было опубликовано в международном научном журнале «Gartenflora».",
+      "en": "In 1873, the plant was given the official botanical name *Tulipa greigii* in honor of Samuel Greig, president of the Russian Botanical Society. A description of the local tulip was published in the international scientific journal *Gartenflora*."
     },
     "source": [
       "ipni",
@@ -71,14 +71,14 @@
       "en": "1873 · primary source"
     },
     "title": {
-      "kz": "Gartenflora-дағы 773-тақта",
-      "ru": "Таблица 773 в Gartenflora",
-      "en": "Plate 773 in Gartenflora"
+      "kz": "«Gartenflora» басылымындағы түпнұсқа сурет",
+      "ru": "Первоисточник иллюстрации в издании «Gartenflora»",
+      "en": "Primary illustration in *Gartenflora* publication"
     },
     "body": {
-      "kz": "Biodiversity Heritage Library цифрланған 1873 жылғы ботаникалық басылым бетін ұсынады. Сурет Эдуард Регельдің авторлық иллюстрациясы ретінде белгіленген.",
-      "ru": "Biodiversity Heritage Library предоставляет оцифрованную страницу ботанического издания 1873 года. Иллюстрация атрибуирована Эдуарду Регелю.",
-      "en": "The Biodiversity Heritage Library provides a digitized page from the 1873 botanical issue. The illustration is attributed to Eduard Regel."
+      "kz": "1873 жылғы «Gartenflora» журналының 22-томында Қазақстан аумағынан табылған қызғалдақтың 773-шы суретті түрлі-түсті иллюстрациясы жарық көреді. Эдуард Регель салған бұл бейне өсімдіктің әлемге танылуына негіз болды.",
+      "ru": "В 22-м томе журнала «Gartenflora» за 1873 год опубликована цветная иллюстрация тюльпана, найденного на территории Казахстана, под номером 773. Этот рисунок, выполненный Эдуардом Регелем, стал основой для признания растения в мире.",
+      "en": "In volume 22 of *Gartenflora* (1873), a color illustration of a tulip found in Kazakhstan appears as plate 773. Drawn by Eduard Regel, this image helped establish the plant’s recognition worldwide."
     },
     "source": "bhl"
   },
@@ -179,8 +179,8 @@
       "en": "Chang’an–Tianshan Corridor was inscribed"
     },
     "body": {
-      "kz": "UNESCO World Heritage Centre дәліздің Дүниежүзілік мұра тізіміне 2014 жылы енгізілгенін көрсетеді. Бұл өңір тарихының мәдени контексті, өсімдіктің нақты сауда жолы емес.",
-      "ru": "Центр всемирного наследия UNESCO указывает включение коридора в список в 2014 году. Это культурный контекст истории региона, а не маршрут конкретного растения.",
+      "kz": "ЮНЕСКО Дүниежүзілік мұра орталығы дәліздің Дүниежүзілік мұра тізіміне 2014 жылы енгізілгенін көрсетеді. Бұл өңір тарихының мәдени контексті, өсімдіктің нақты сауда жолы емес.",
+      "ru": "Центр всемирного наследия ЮНЕСКО указывает включение коридора в список в 2014 году. Это культурный контекст истории региона, а не маршрут конкретного растения.",
       "en": "UNESCO’s World Heritage Centre records the corridor’s inscription in 2014. This is regional cultural context, not a documented route for this plant."
     },
     "source": "unesco"
@@ -315,7 +315,7 @@
       "ru": "Ценность сообщения в том, что оно называет конкретный район и сельский округ, поэтому его можно отличить от общих сведений об ареале. В тексте также указано включение вида в Красную книгу Казахстана. Национальный охранный статус относится к казахстанской системе природоохранного регулирования и не должен смешиваться с глобальной категорией IUCN. Указанные высота 10–15 см и местная картина цветения являются описанием наблюдения, приведённого в публикации. Цветение, отмеченное в один год, не означает, что все популяции вида цветут одновременно или что их численность стабильна. Для долгосрочных выводов нужно повторно наблюдать одну и ту же площадку на протяжении ряда сезонов и единообразно фиксировать погоду, высоту, число цветущих растений и воздействие посетителей. Поэтому здесь это локальное сообщение, а не результат научного мониторинга.",
       "en": "The report is useful because it names a district and rural locality, making it distinct from broad range information. It also states that the species is listed in Kazakhstan’s Red Book. National protection status belongs to Kazakhstan’s conservation framework and should not be conflated with a global IUCN category. The reported height of 10–15 cm and the local flowering scene are descriptions in this particular notice. A flowering observation in one year does not mean every population flowers at the same time or that numbers are stable. Long-term conclusions require repeated observations at the same site over multiple seasons, with consistent records of weather, elevation, flowering plants and visitor pressure. The timeline therefore treats this as a dated local report, not as a scientific monitoring result."
     },
-    "source": "otyrar-shanaq-2026"
+    "source": "shanaq-kazygurt-2026"
   },
   {
     "year": 2026,
@@ -333,7 +333,7 @@
     },
     "body": {
       "kz": "«Оңтүстік» телеарнасының репортажы Ордабасы маңындағы жабайы Грейг қызғалдағының гүлдеуін және Шымкенттегі сәндік қызғалдақ отырғызуды бөлек баяндайды. Хабардағы 1,6 мың түп саны — қаладағы отырғызуға қатысты; ол жабайы популяцияның есебі емес.",
-      "ru": "Репортаж телеканала «Оңтүстік» отдельно рассказывает о цветении дикого тюльпана Грейга у Ордабасы и о декоративных посадках в Шымкенте. Указанные в сюжете 1,6 тысячи растений относятся к городским посадкам, а не к учёту дикой популяции.",
+      "ru": "Репортаж телеканала «Онтустик» отдельно рассказывает о цветении дикого тюльпана Грейга у Ордабасы и о декоративных посадках в Шымкенте. Указанные в сюжете 1,6 тысячи растений относятся к городским посадкам, а не к учёту дикой популяции.",
       "en": "A report by Ońtústik TV distinguishes wild Greig’s tulip flowering near Ordabasy from ornamental planting in Shymkent. Its figure of 1,600 plants refers to city planting, not a count of a wild population."
     },
     "details": {

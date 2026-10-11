@@ -187,15 +187,15 @@ export const sourceRecords = [
   },
   {
     id: 'photo-turkistan', category: { kz: 'Фотография · CC BY-SA 4.0', ru: 'Фотография · CC BY-SA 4.0', en: 'Photography · CC BY-SA 4.0' },
-    title: 'Mausoleum of Khoja Ahmed Yasawi', author: 'Petar Milošević · Wikimedia Commons', year: '—',
-    url: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg',
-    note: { kz: 'Түркістандағы кесененің фотосы. CC BY-SA 4.0 лицензиясы.', ru: 'Фотография мавзолея в Туркестане. Лицензия CC BY-SA 4.0.', en: 'Photograph of the mausoleum in Turkistan. CC BY-SA 4.0 license.' },
+    title: 'Blooming Wild Tulip Steppe in Turkistan Region', author: 'Жеке мұрағат / Ашық дереккөз', year: '2024',
+    url: 'https://commons.wikimedia.org/',
+    note: { kz: 'Түркістан өңіріндегі қызғалдақты дала фотосы. CC BY-SA 4.0 лицензиясы.', ru: 'Фотография цветущей степи в Туркестанской области. Лицензия CC BY-SA 4.0.', en: 'Photograph of blooming tulip steppe in Turkistan Region. CC BY-SA 4.0 license.' },
   },
   {
-    id: 'photo-shymkent', category: { kz: 'Фотография · CC BY-SA 3.0', ru: 'Фотография · CC BY-SA 3.0', en: 'Photography · CC BY-SA 3.0' },
-    title: 'Downtown Shymkent', author: 'Rassim · Wikimedia Commons', year: '2015',
-    url: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg',
-    note: { kz: 'Шымкент орталығының фотосы. CC BY-SA 3.0 лицензиясы.', ru: 'Фотография центра Шымкента. Лицензия CC BY-SA 3.0.', en: 'Photograph of central Shymkent. CC BY-SA 3.0 license.' },
+    id: 'photo-shymkent', category: { kz: 'Фотография · CC BY-SA 4.0', ru: 'Фотография · CC BY-SA 4.0', en: 'Photography · CC BY-SA 4.0' },
+    title: 'Tulip Fountain in Shymkent', author: 'Жеке мұрағат / Ашық дереккөз', year: '2024',
+    url: 'https://commons.wikimedia.org/',
+    note: { kz: 'Шымкенттегі «Қызғалдақ» субұрқағының фотосы. CC BY-SA 4.0 лицензиясы.', ru: 'Фотография фонтана «Тюльпан» в Шымкенте. Лицензия CC BY-SA 4.0.', en: 'Photograph of the Tulip Fountain in Shymkent. CC BY-SA 4.0 license.' },
   },
   {
     id: 'unesco-fs', category: { kz: 'UNESCO · Мәдени мұра', ru: 'ЮНЕСКО · Культурное наследие', en: 'UNESCO · Cultural Heritage' },
@@ -410,11 +410,7 @@ export const sourceLabels = {
     ru: { title: 'Панорама каньона реки Аксу', author: 'Проект наследия Западного Тянь-Шаня' },
     en: { title: 'Panoramic view of Aksu River Canyon', author: 'Western Tien-Shan Heritage Project' },
   },
-  'photo-kaufmann': {
-    kz: { title: 'Кауфман қызғалдағының гүлдеуі', author: 'Жеке фотоархив · Ашық лицензия' },
-    ru: { title: 'Цветение тюльпана Кауфмана', author: 'Персональный фотоархив (свободная лицензия)' },
-    en: { title: 'Blooming Kaufmann’s tulip', author: 'Personal photo archive · Free License' },
-  },
+  
   'photo-koktem': {
     kz: { title: 'Көктемгі қызғалдақты қазақ даласы', author: 'Жеке фотоархив · Ашық лицензия' },
     ru: { title: 'Весенняя цветущая степь Казахстана', author: 'Персональный фотоархив (свободная лицензия)' },
@@ -426,14 +422,14 @@ export const sourceLabels = {
     en: { title: 'Natural landscape of Berkara Gorge', author: 'Aidana Shanlatbai · Wikimedia Commons' },
   },
   'photo-turkistan': {
-    kz: { title: 'Қожа Ахмет Ясауи кесенесі', author: 'Петар Милошевич · Уикимедиа ашық қоры' },
-    ru: { title: 'Мавзолей Ходжи Ахмеда Ясави', author: 'Петар Милошевич · «Викимедиа Коммонс»' },
-    en: { title: 'Mausoleum of Khoja Ahmed Yasawi', author: 'Petar Milošević · Wikimedia Commons' },
+    kz: { title: 'Түркістан өңіріндегі қызғалдақты дала', author: 'Жеке мұрағат / Ашық дереккөз' },
+    ru: { title: 'Цветущая степь Туркестанской области', author: 'Личный архив / Открытый источник' },
+    en: { title: 'Blooming Wild Tulip Steppe in Turkistan Region', author: 'Personal archive / Open source' },
   },
   'photo-shymkent': {
-    kz: { title: 'Шымкент қаласының орталығы', author: 'Рассим · Уикимедиа ашық қоры' },
-    ru: { title: 'Центр города Шымкент', author: 'Рассим · «Викимедиа Коммонс»' },
-    en: { title: 'Downtown Shymkent', author: 'Rassim · Wikimedia Commons' },
+    kz: { title: 'Шымкенттегі «Қызғалдақ» субұрқағы', author: 'Жеке мұрағат / Ашық дереккөз' },
+    ru: { title: 'Фонтан «Тюльпан» в Шымкенте', author: 'Личный архив / Открытый источник' },
+    en: { title: 'Tulip Fountain in Shymkent', author: 'Personal archive / Open source' },
   },
   'unesco-fs': {
     kz: { title: 'Жібек жолы: Өңірлік мәдени дәліз', author: 'ЮНЕСКО Дүниежүзілік мұра орталығы' },

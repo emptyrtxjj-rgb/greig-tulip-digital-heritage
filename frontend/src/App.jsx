@@ -1,6 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react'
 import { Link, NavLink, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X, Flower2, Leaf, BookOpen, MapPinned, Sparkles } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X, Flower2, Leaf, BookOpen, MapPinned, Sparkles, FileText, Play } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './reviews.css'
@@ -191,6 +191,56 @@ function EditorialPage({ pageKey, index }) {
   return <main className="editorial-page"><PageHero pageKey={pageKey} index={index}/><section className="editorial-cards page-wrap">{page.cards.map(([title, body], i) => <article className="editorial-card" data-reveal key={title} style={{ '--card-index': i, '--card-offset': `${i * 11}px` }}><div className="editorial-card-number">{String(i + 1).padStart(2, '0')}</div><div><span className="eyebrow">{page.eyebrow}</span><h2>{title}</h2><p>{body}</p><div className="editorial-source"><Citation id={citations(i)}/></div></div><span className="editorial-card-mark">✳</span></article>)}</section><ExhibitNarrative pageKey={pageKey}/>
     {pageKey === 'shymkent' && <div className="page-wrap editorial-note"><span className="eyebrow">{t.common.citation}</span><p>{lang === 'kz' ? 'Қаланың қызғалдақ белгісі мен көктемгі гүл егіні туралы туристік басқарманың ресми жазбасы.' : lang === 'ru' ? 'Официальная запись туристического управления о тюльпане в символике города и весенних посадках.' : 'Official tourism-office record of the tulip in city symbolism and spring planting.'}</p><Citation id="shymkent-tourism"/></div>}
     {pageKey === 'history' && <section className="history-archive page-wrap" data-reveal><div className="archive-image"><img src="/images/gartenflora-1873.webp" srcSet={mediaItems.find(item => item.id === 'gartenflora-plate-773').srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={lang === 'kz' ? '«Гартенфлора» журналының 1873 жылғы 773-тақтасы' : lang === 'ru' ? 'Таблица 773 журнала Gartenflora за 1873 год' : 'Plate 773 from the 1873 volume of Gartenflora'} loading="lazy" decoding="async"/><a className="archive-photo-credit" href="https://www.biodiversitylibrary.org/page/47574892" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Биоалуандық мұрағаты · ашық мұра' : lang === 'ru' ? 'Библиотека наследия биоразнообразия · Общественное достояние' : 'Biodiversity Heritage Library · Public Domain Mark 1.0'}</a></div><div><span className="eyebrow">{lang === 'kz' ? '1873 · «ГАРТЕНФЛОРА» 22-ТОМ' : lang === 'ru' ? '1873 · «ГАРТЕНФЛОРА», ТОМ 22' : '1873 · GARTENFLORA 22'}</span><h2>{lang === 'kz' ? 'Түпнұсқа мұрағат ізі' : lang === 'ru' ? 'След в первоисточнике' : 'The original archival trace'}</h2><p>{lang === 'kz' ? 'Мұнда 1873 жылғы ботаникалық басылымның цифрланған беті берілген. Ғылыми атаудың жарияланған дерегін түпнұсқамен салыстырып көріңіз.' : lang === 'ru' ? 'Локальная копия открытой оцифрованной страницы издания 1873 года. Библиографические данные публикации научного названия можно сверить с первоисточником.' : 'Local copy of an openly digitized page from the 1873 volume. The publication details for the scientific name can be checked against the original record.'}</p><Citation id="bhl"/></div></section>}
+    {pageKey === 'about' && <>
+      <section className="about-media-section page-wrap" data-reveal>
+        <div className="block-heading">
+          <div>
+            <span className="eyebrow">{lang === 'kz' ? 'ВИЗУАЛДЫ ИНФОГРАФИКА' : lang === 'ru' ? 'ВИЗУАЛЬНАЯ ИНФОГРАФИКА' : 'VISUAL INFOGRAPHIC'}</span>
+            <h2>{lang === 'kz' ? 'Грейг қызғалдағы — Тарихы мен мәңгілік сұлулығы' : lang === 'ru' ? 'Тюльпан Грейга — История и вечная красота' : 'Greig’s Tulip — History and Eternal Beauty'}</h2>
+            <p>{lang === 'kz' ? 'Қазақстанның оңтүстігінің табиғи мұрасы, түрдің ашылуы, зерттелуі мен бүгінгі маңызын көрсететін шолу плакаты.' : lang === 'ru' ? 'Сводный плакат-инфографика о природном наследии Южного Казахстана, истории открытия и современном значении вида.' : 'Comprehensive overview infographic illustrating the natural heritage, historical discovery, and current conservation value.'}</p>
+          </div>
+        </div>
+        <figure className="about-infographic-card">
+          <img src="/images/greig-infographic.jpeg" srcSet="/images/greig-infographic-480w.jpeg 480w, /images/greig-infographic-960w.jpeg 960w, /images/greig-infographic-1440w.jpeg 1440w, /images/greig-infographic.jpeg 1920w" sizes="(max-width: 900px) 100vw, 1240px" alt={lang === 'kz' ? 'Грейг қызғалдағы туралы толық инфографика' : lang === 'ru' ? 'Инфографика: история и особенности тюльпана Грейга' : 'Greig’s tulip comprehensive infographic'} loading="lazy" decoding="async"/>
+          <figcaption>
+            <span>{lang === 'kz' ? 'Авторлық ғылыми-танымдық инфографика' : lang === 'ru' ? 'Авторская научно-популярная инфографика' : 'Educational infographic poster'}</span>
+            <a href="/images/greig-infographic.jpeg" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Түпнұсқаны толық көру' : lang === 'ru' ? 'Открыть в полном размере' : 'View full size'}<ArrowUpRight size={13}/></a>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="about-media-section page-wrap" data-reveal>
+        <div className="block-heading">
+          <div>
+            <span className="eyebrow">{lang === 'kz' ? 'ВИДЕО МАТЕРИАЛ' : lang === 'ru' ? 'ВИДЕОМАТЕРИАЛ' : 'VIDEO RECORD'}</span>
+            <h2>{lang === 'kz' ? 'Өлке мен қызғалдақтың бейнебаян дерегі' : lang === 'ru' ? 'Видеохроника цветка и родного края' : 'Video Footage of the Wild Habitat'}</h2>
+            <p>{lang === 'kz' ? 'Табиғи мекенінен түсірілген бейнежазбаны тамашалаңыз.' : lang === 'ru' ? 'Видеозапись дикого тюльпана в естественной среде обитания.' : 'Watch video footage of Greig’s tulips in their native environment.'}</p>
+          </div>
+        </div>
+        <div className="about-video-card">
+          <video controls playsInline preload="metadata" poster="/images/tulipa-greigii-wild.webp">
+            <source src="/videos/video-1.mp4" type="video/mp4"/>
+            {lang === 'kz' ? 'Браузеріңіз видеоны ойнатуды қолдамайды.' : lang === 'ru' ? 'Ваш браузер не поддерживает встроенное видео.' : 'Your browser does not support HTML5 video.'}
+          </video>
+        </div>
+      </section>
+
+      <section className="about-media-section page-wrap" data-reveal>
+        <div className="block-heading">
+          <div>
+            <span className="eyebrow">{lang === 'kz' ? 'ҒЫЛЫМИ ЖОБА ҚҰЖАТЫ (PDF)' : lang === 'ru' ? 'ДОКУМЕНТ НАУЧНОГО ПРОЕКТА (PDF)' : 'RESEARCH DOCUMENTATION (PDF)'}</span>
+            <h2>{lang === 'kz' ? '«ДАЛА МҰРАСЫ» ғылыми жоба мәтіні' : lang === 'ru' ? 'Текст исследовательского проекта «Дала мұрасы»' : '“Steppe Heritage” Research Paper'}</h2>
+            <p>{lang === 'kz' ? 'Таубұзар Ерасыл Серікұлының зерттеу жұмысының ресми басылымы (Шымкент – 2026). Интерактивті оқу құралы арқылы толық таныса аласыз немесе жеке терезеде аша аласыз.' : lang === 'ru' ? 'Полный текст исследовательской работы Таубұзара Ерасыла (Шымкент – 2026). Документ можно просмотреть прямо в плеере ниже или открыть отдельно.' : 'Full scientific paper by Erasyl Taubuzar (Shymkent – 2026). Browse the original report in the document viewer below or download directly.'}</p>
+          </div>
+          <a className="button button-primary" href="/docs/Greig_qyzgaldagy.pdf" target="_blank" rel="noreferrer" style={{ marginTop: '8px' }}>
+            <FileText size={16}/>{lang === 'kz' ? 'PDF файлды ашу / Жүктеу' : lang === 'ru' ? 'Открыть / Скачать PDF' : 'Open / Download PDF'}
+          </a>
+        </div>
+        <div className="about-pdf-card">
+          <iframe src="/docs/Greig_qyzgaldagy.pdf#toolbar=1&navpanes=0" title={lang === 'kz' ? 'Грейг қызғалдағы ғылыми жобасы' : lang === 'ru' ? 'Научный проект Тюльпан Грейга' : 'Greig Tulip Research Project'} width="100%" height="720px"/>
+        </div>
+      </section>
+    </>}
     <NextChapter to={pageKey === 'history' ? '/silk-road' : pageKey === 'science' ? '/heritage' : pageKey === 'heritage' ? '/map' : pageKey === 'silk-road' ? '/map' : '/sources'} label={pageKey === 'history' ? t.home.route : pageKey === 'science' ? t.home.care : pageKey === 'heritage' ? t.home.map : pageKey === 'silk-road' ? t.pages.map.title : t.nav.sources}/>
   </main>
 }

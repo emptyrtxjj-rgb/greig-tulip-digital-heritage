@@ -16,11 +16,20 @@ import { createServer } from 'vite'
 const latinAllowList = [
   'Tulipa', 'greigii', 'Regel', 'L', 'Liliaceae', 'Gartenflora', 'CC', 'BY', 'SA', 'BY-SA', 'WebP', 'IPNI', 'POWO', 'Kew', 'IUCN',
   'Public', 'Domain', 'Mark', 'OpenStreetMap', 'OSM', 'Wikimedia', 'Commons', 'BHL', 'UNESCO', 'Greentours', 'Naturetrek',
-  'Flora', 'of', 'the', 'Silk', 'Road', 'Basak', 'Chris', 'Gardner', 'Turczaninowia', 'PubMed', 'Central', 'Frontiers', 'Plant',
-  'Science', 'P', 'N', 'E', 'API', 'Laravel', 'kosaraju', 'gov', 'kz', 'MNHN', 'PMC', 'TV', 'D', 'A', 'S', 'greigii×', 'GBIF',
-  'iNaturalist', 'Plantarium', 'kaufmanniana', 'fosteriana', 'albertii', 'kolpakowskiana', 'ostrowskiana', 'regelii', 'tarda',
-  'sp', 'subsp', 'var', 'cv', 'et', 'al', 'ex', 'nom', 'nud', 'syn', 'Herb', 'LE', 'K', 'Botanic', 'Garden', 'Royal', 'Gardens',
+  'Flora', 'of', 'the', 'Silk', 'Road', 'Basak', 'Başak', 'Chris', 'Christopher', 'Gardner', 'Turczaninowia', 'PhytoKeys', 'Genes',
+  'PubMed', 'Central', 'Frontiers', 'Plant', 'Science', 'American', 'Journal', 'Botany', 'MDPI', 'RHS', 'WFO', 'CoL', 'NCSU',
+  'P', 'N', 'E', 'API', 'Laravel', 'kosaraju', 'gov', 'kz', 'MNHN', 'PMC', 'PMCID', 'PMID', 'DOI', 'ISBN', 'LSID', 'GenBank',
+  'TV', 'D', 'A', 'S', 'V', 'F', 'M', 'J', 'Sh', 'greigii×', 'GBIF', 'iNaturalist', 'Plantarium',
+  'kaufmanniana', 'fosteriana', 'albertii', 'alberti', 'kolpakowskiana', 'ostrowskiana', 'regelii', 'tarda', 'lanata', 'biflora', 'heterophylla',
+  'Vinistriatae', 'Eduardoregelia', 'Spiranthera', 'Lanatae', 'Tulipanum', 'Orithyia', 'Eriostemones', 'Clusianae',
+  'sp', 'subsp', 'ssp', 'var', 'cv', 'et', 'al', 'ex', 'nom', 'nud', 'syn', 'sect', 'subg', 'Herb', 'LE', 'K', 'Botanic', 'Garden', 'Royal', 'Gardens',
   'karatavica', 'altaica', 'typica', 'krauseana', 'aurea', 'Tubergen', 'Boroldai', 'Turkestan', 'Samuel', 'Greig', 'XIX', 'Least', 'Concern', 'in', 'Unsplash',
+  'Kubentayev', 'Wilson', 'Christenhusz', 'Brockington', 'Almerekova', 'Turuspekov', 'Tussipkan', 'Ivashchenko', 'Botschantzeva',
+  'Division', 'Greigii', 'KAZ04', 'Mya', 'My', 'bp', 'PP335814', 'PMC11686166', 'PMC13496073', 'PMC11593697', 'P00730913', 'P00730963', 'P060001034',
+  'Triticum', 'asiaticum', 'muticorigidum', 'Casa', 'Grande', 'Ońtústik', 'Qazaqstan', 'Adilet', 'I', 'B', 'Tauris', 'Bloomsbury',
+  'III', 'II', 'IV', 'LC', 'ID', 'PP', 'T', 't', 'Catalogue', 'Life', 'NC', 'State', 'Extension', 'MAB', 'wfo', 'Online', 'World',
+  'Research', 'Grade', 'citizen', 'science', 'Tentative', 'List', 'okg', 'okg.kz', 'ontustiktv', 'qazaqstan', 'tv', 'ru', 'en',
+  'Group', 'URL', 'Rassim', 'Milo', 'evi',
 ]
 const allowed = new Set(latinAllowList.map(word => word.toLowerCase()))
 const kazakhLetters = /[ӘәҒғҚқҢңӨөҰұҮүҺһІі]/

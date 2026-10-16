@@ -8,10 +8,24 @@ import { timelineCategories } from '../data/timeline.js'
 
 export function SourceCards({ items = sourceRecords }) {
   const { lang, t } = useLocale()
+  const statusLabels = {
+    kz: { verified: 'Расталған біріншілік дерек', qualified: 'Контекстік / қосымша дерек' },
+    ru: { verified: 'Подтверждённый первоисточник', qualified: 'Контекстный / дополнительный источник' },
+    en: { verified: 'Verified primary record', qualified: 'Contextual / secondary record' },
+  }[lang]
+  const claimHeading = lang === 'kz' ? 'Растайтын дерегі:' : lang === 'ru' ? 'Что подтверждает:' : 'Substantiates:'
+  const limitHeading = lang === 'kz' ? 'Дерек шегі:' : lang === 'ru' ? 'Границы источника:' : 'Scope & limitations:'
   return <div className="source-grid">{items.map((item, i) => <article className="source-card" id={`source-${item.id}`} key={item.id} data-reveal>
     <div className="source-card-top"><span className="source-number">{String(i + 1).padStart(2, '0')}</span><span className="source-kind">{item.category[lang]}</span></div>
-    <div><h2>{sourceTitle(item, lang)}</h2><p className="source-author">{sourceAuthor(item, lang)}</p><p className="source-note">{item.note[lang]}</p></div>
-    <div className="source-card-bottom"><span>{item.year}</span><a href={item.url} target="_blank" rel="noreferrer">{t.common.open}<ArrowUpRight size={15}/></a></div>
+    <div>
+      <h2>{sourceTitle(item, lang)}</h2>
+      <p className="source-author">{sourceAuthor(item, lang)}</p>
+      {item.identifier && <p className="source-identifier" style={{ fontSize: '0.82rem', opacity: 0.78, marginTop: '4px', fontFamily: 'monospace' }}>{item.identifier}</p>}
+      <p className="source-note">{item.note[lang]}</p>
+      {item.claims?.[lang] && <p className="source-claims" style={{ fontSize: '0.86rem', marginTop: '8px' }}><b>{claimHeading}</b> {item.claims[lang]}</p>}
+      {item.limitations?.[lang] && <p className="source-limitations" style={{ fontSize: '0.82rem', opacity: 0.82, marginTop: '4px' }}><b>{limitHeading}</b> {item.limitations[lang]}</p>}
+    </div>
+    <div className="source-card-bottom"><span>{item.year}{item.status && statusLabels?.[item.status] ? ` · ${statusLabels[item.status]}` : ''}</span><a href={item.url} target="_blank" rel="noreferrer">{t.common.open}<ArrowUpRight size={15}/></a></div>
   </article>)}</div>
 }
 

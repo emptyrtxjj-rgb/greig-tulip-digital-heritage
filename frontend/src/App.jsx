@@ -104,7 +104,7 @@ function HomePage() {
       </section>
 
       <section className="specimen-band" data-reveal>
-        <div className="specimen-art"><img src="/images/solo-greig-photo.jpeg" srcSet={greigPhoto.srcSet} sizes="(max-width: 700px) 100vw, 50vw" alt={lang === 'kz' ? 'Грейг қызғалдағының макро тостағаны' : lang === 'ru' ? 'Макросъёмка цветка тюльпана Грейга' : 'Macro bloom of Greig’s tulip'} loading="lazy" decoding="async"/><a className="art-index" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">SOLO-GREIG-PHOTO · FREE LICENSE</a></div>
+        <div className="specimen-art"><img src="/images/solo-greig-photo.jpeg" srcSet={greigPhoto.srcSet} sizes="(max-width: 700px) 100vw, 50vw" alt={lang === 'kz' ? 'Грейг қызғалдағының макро тостағаны' : lang === 'ru' ? 'Макросъёмка цветка тюльпана Грейга' : 'Macro bloom of Greig’s tulip'} loading="lazy" decoding="async"/><a className="art-index" href="/images/solo-greig-photo.jpeg" target="_blank" rel="noreferrer">SOLO-GREIG-PHOTO · FREE LICENSE</a></div>
         <div className="specimen-copy"><span className="eyebrow"><i>Tulipa greigii</i> Regel</span><h2>{h.specimen}</h2><p>{h.specimenBody}</p><div className="specimen-facts"><div><span>01</span><b>{lang === 'kz' ? 'Ғылыми атауы' : lang === 'ru' ? 'Название вида' : 'Species name'}</b><i>{lang === 'kz' ? 'Грейг қызғалдағы' : 'Tulipa greigii'}</i></div><div><span>02</span><b>{lang === 'kz' ? 'Таралу аймағы' : lang === 'ru' ? 'Ареал' : 'Native range'}</b><i>{lang === 'kz' ? 'Орталық Азия' : lang === 'ru' ? 'Центральная Азия' : 'Central Asia'}</i></div><div><span>03</span><b>{lang === 'kz' ? 'Алғаш жарияланған жылы' : lang === 'ru' ? 'Первая публикация' : 'First published'}</b><i>1873</i></div></div><Link className="button button-primary specimen-btn" to="/science">{t.common.explore}<ArrowRight size={17}/></Link></div>
       </section>
 
@@ -180,12 +180,12 @@ function EditorialPage({ pageKey, index }) {
   const { lang, t } = useLocale()
   const page = t.pages[pageKey]
   const citations = i => {
-    if (pageKey === 'history') return i === 0 ? ['ipni', 'kew'] : i === 1 ? 'ipni' : i === 2 ? 'frontiers' : i === 3 ? ['kew', 'frontiers'] : i === 4 ? 'unesco-fs' : null
-    if (pageKey === 'science') return i === 0 ? ['ipni', 'kew'] : i === 1 ? ['kew', 'frontiers'] : i < 4 ? 'frontiers' : null
-    if (pageKey === 'heritage') return 'gov'
-    if (pageKey === 'shymkent') return 'shymkent-tourism'
-    if (pageKey === 'silk-road') return i === 0 ? ['unesco', 'unesco-fs'] : i === 1 ? 'unesco' : i === 2 ? 'ipni' : 'unesco-fs'
-    if (pageKey === 'about' && i === 1) return ['kew', 'ipni']
+    if (pageKey === 'history') return i === 0 ? ['ipni', 'kew'] : i === 1 ? ['ipni', 'bhl'] : i === 2 ? ['ipni', 'paper', 'frontiers'] : i === 3 ? ['kew', 'paper', 'frontiers'] : i === 4 ? ['unesco', 'unesco-fs'] : ['rhs', 'cambridge']
+    if (pageKey === 'science') return i === 0 ? ['ipni', 'kew'] : i === 1 ? ['kew', 'paper', 'frontiers'] : i === 2 ? ['kew', 'frontiers'] : i === 3 ? 'frontiers' : i === 4 ? ['rhs', 'cambridge'] : ['adilet-redbook', 'paper', 'gov']
+    if (pageKey === 'heritage') return ['adilet-redbook', 'gov', 'paper']
+    if (pageKey === 'shymkent') return ['shymkent-tourism', 'ontustik-tv-2026']
+    if (pageKey === 'silk-road') return i === 0 ? ['unesco', 'unesco-fs'] : i === 1 ? 'unesco' : i === 2 ? ['kew', 'gardner-flora-book'] : ['unesco-fs', 'gardner-flora-book']
+    if (pageKey === 'about' && i === 1) return ['kew', 'ipni', 'paper', 'wilson-2026']
     return null
   }
   return <main className="editorial-page"><PageHero pageKey={pageKey} index={index}/><section className="editorial-cards page-wrap">{page.cards.map(([title, body], i) => <article className="editorial-card" data-reveal key={title} style={{ '--card-index': i, '--card-offset': `${i * 11}px` }}><div className="editorial-card-number">{String(i + 1).padStart(2, '0')}</div><div><span className="eyebrow">{page.eyebrow}</span><h2>{title}</h2><p>{body}</p><div className="editorial-source"><Citation id={citations(i)}/></div></div><span className="editorial-card-mark">✳</span></article>)}</section><ExhibitNarrative pageKey={pageKey}/>
@@ -386,8 +386,8 @@ function PlacePage({ slug: propSlug }) {
   const placePhotos = {
     'aqsu-zhabagly': { image: '/images/aksu-canyon-panorama.jpeg', srcSet: photoAssets.find(item => item.id === 'aksu-canyon-panorama')?.srcSet || photoAssets[0].srcSet, credit: 'A. F. Kovshar · Aksu-Zhabagly Nature Reserve · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Aksu_river_canyon_(Aksu-Zhabagly_Nature_Reserve,_Kazakhstan).png' },
     kazygurt: { image: '/images/tulip-steppe-sunset.jpeg', srcSet: photoAssets.find(item => item.id === 'tulip-steppe-sunset')?.srcSet || photoAssets[0].srcSet, credit: 'Regional Nature Archive · Free License', url: 'https://www.gov.kz/memleket/entities/ontustik' },
-    shymkent: { image: '/images/shymkent-downtown.webp', srcSet: photoAssets.find(item => item.id === 'shymkent-downtown')?.srcSet, credit: 'Rassim · CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg' },
-    turkistan: { image: '/images/turkistan-mausoleum.webp', srcSet: photoAssets.find(item => item.id === 'turkistan-mausoleum')?.srcSet, credit: 'Petar Milošević · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg' },
+    shymkent: { image: '/images/shymkent-downtown.webp', srcSet: photoAssets.find(item => item.id === 'shymkent-downtown')?.srcSet, credit: 'Personal photo archive · Free License', url: '/images/shymkent-downtown.webp' },
+    turkistan: { image: '/images/turkistan-mausoleum.webp', srcSet: photoAssets.find(item => item.id === 'turkistan-mausoleum')?.srcSet, credit: 'Personal photo archive · Free License', url: '/images/turkistan-mausoleum.webp' },
     karatau: { image: '/images/karatau-ridge.webp', srcSet: photoAssets.find(item => item.id === 'karatau-ridge')?.srcSet, credit: 'Andrey Shishkalov · Karatau Nature Reserve · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Горы_Каратау_3.png' },
     shubaykyzyl: { image: '/images/shubaykyzyl-steppe.jpeg', srcSet: photoAssets.find(item => item.id === 'shubaykyzyl-steppe')?.srcSet, credit: 'Shubaykyzyl Nature Sanctuary · Photo Archive', url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1204055' },
     tulkibas: { image: '/images/koktem.jpeg', srcSet: photoAssets.find(item => item.id === 'koktem')?.srcSet, credit: 'Personal photo archive · Free License', url: 'https://www.gov.kz/memleket/entities/ontustik' },

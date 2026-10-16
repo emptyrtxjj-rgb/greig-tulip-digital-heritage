@@ -2,7 +2,7 @@ export const sourceRecords = [
   {
     id: 'kew', category: { kz: 'Ғылыми деректер', ru: 'Научные данные', en: 'Scientific data' },
     title: 'Tulipa greigii Regel', author: 'Royal Botanic Gardens, Kew · Plants of the World Online', year: '2026',
-    url: 'https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542931-1/general-information',
+    url: 'https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542931-1',
     note: {
       kz: 'Қабылданған атауы, тіршілік пішіні және табиғи ареалы туралы халықаралық дерек.',
       ru: 'Принятое название, жизненная форма и сведения о природном ареале.',
@@ -62,7 +62,7 @@ export const sourceRecords = [
   {
     id: 'greentours-field-report', category: { kz: 'Далалық есеп', ru: 'Полевой отчёт', en: 'Field report' },
     title: 'Tulips of the Tien Shan · 2015 trip report', author: 'Greentours Natural History Holidays', year: '2015',
-    url: 'https://www.greentours.co.uk/wp-content/uploads/2019/08/Tulips-of-the-Tien-Shan-Report-2015.pdf',
+    url: 'https://www.greentours.co.uk/tours/tulips-in-the-tien-shan/',
     note: {
       kz: 'Ақсу-Жабағылы мен Берқара шатқалына саяхат жасаған табиғаттанушылардың ботаникалық есебі.',
       ru: 'Ботанический отчёт натуралистов об экспедициях в Аксу-Жабаглы и ущелье Беркара.',
@@ -72,7 +72,7 @@ export const sourceRecords = [
   {
     id: 'naturetrek-tulips', category: { kz: 'Маршрут сипаттамасы', ru: 'Описание маршрута', en: 'Tour description' },
     title: 'The Tulip Meadows of Kazakhstan’s Steppes & Tien Shan Mountains', author: 'Naturetrek', year: '2026',
-    url: 'https://www.naturetrek.co.uk/tours/the-tulip-meadows-of-kazakhstans-steppes-and-tien-shan-mountains',
+    url: 'https://www.naturetrek.co.uk/tours/kaz04-the-tulip-meadows-of-kazakhstans-steppes-tien-shan-mountains',
     note: {
       kz: 'Оңтүстік Қазақстанның көктемгі жабайы қызғалдақтарына арналған халықаралық бақылау сапары.',
       ru: 'Международный маршрут наблюдения весеннего цветения диких тюльпанов в Южном Казахстане.',
@@ -82,7 +82,7 @@ export const sourceRecords = [
   {
     id: 'gardner-flora-book', category: { kz: 'Кітап', ru: 'Книга', en: 'Book' },
     title: 'Flora of the Silk Road: An Illustrated Guide', author: 'Basak Gardner & Chris Gardner · Bloomsbury', year: '2014',
-    url: 'https://www.bloomsbury.com/uk/flora-of-the-silk-road-9781784424367/',
+    url: 'https://www.bloomsbury.com/uk/author/christopher-gardner/',
     note: {
       kz: 'Жібек жолы бойындағы жабайы қызғалдақтар мен өсімдіктердің табиғи таралуын баяндайтын беделді басылым.',
       ru: 'Иллюстрированная книга о диких тюльпанах и флоре на исторических маршрутах Шёлкового пути.',
@@ -92,7 +92,7 @@ export const sourceRecords = [
   {
     id: 'okg-greig-2018', category: { kz: 'Өңірлік баспасөз', ru: 'Региональная пресса', en: 'Regional press' },
     title: 'Грейг қызғалдағын қорғайық', author: 'Эльмира Жұманова · Оңтүстік Қазақстан', year: '2018',
-    url: 'https://okg.kz/post?id=12456&slug=greig-qyzgaldagyn-qorgaiyq',
+    url: 'https://okg.kz/',
     note: {
       kz: 'Шұбайқызыл аумағы мен Түлкібас өңіріндегі қызғалдақтарды қорғау туралы жанашыр мақала.',
       ru: 'Статья в защиту тюльпанов урочища Шубайкызыл и Тюлькубасского района.',
@@ -102,7 +102,7 @@ export const sourceRecords = [
   {
     id: 'shanaq-kazygurt-2026', category: { kz: 'Өңірлік жаңалық', ru: 'Региональная новость', en: 'Regional news' },
     title: 'Қазығұртта «Қызыл кітапқа» енген Грейг қызғалдағы гүлдеді', author: 'Түркістан облысының ақпараттық хабарламасы', year: '2026',
-    url: 'https://www.gov.kz/memleket/entities/ontustik',
+    url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1192637',
     note: {
       kz: '2026 жылғы сәуірде Шанақ ауылдық округінде жабайы Грейг қызғалдағының гүлдеуі туралы өңірлік хабар.',
       ru: 'Региональное сообщение о весеннем цветении дикого тюльпана Грейга в Шанакском округе Казыгуртского района.',
@@ -146,7 +146,7 @@ export const sourceRecords = [
   {
     id: 'photo-shubaykyzyl-steppe', category: { kz: 'Фотография · Ашық лицензия', ru: 'Фотография · Свободная лицензия', en: 'Photography · Free License' },
     title: 'Wild tulip field at Shubaykyzyl (Red Hill)', author: 'Shubaykyzyl Nature Sanctuary', year: '2024',
-    url: 'https://oq.gov.kz/ru/abai/shubaykyzyl-tulips',
+    url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1204055',
     note: { kz: 'Шұбайқызыл төбесінде жабайы Грейг қызғалдағының жаппай гүлдеуі.', ru: 'Массовое цветение диких тюльпанов Грейга в урочище Шубайкызыл.', en: 'Mass flowering of wild Greig’s tulips in Shubaykyzyl tract.' },
   },
   {
@@ -158,7 +158,7 @@ export const sourceRecords = [
   {
     id: 'photo-tulip-cluster', category: { kz: 'Фотография · Ашық лицензия', ru: 'Фотография · Свободная лицензия', en: 'Photography · Free License' },
     title: 'Wild cluster of Greig’s tulips', author: 'Field Botanical Survey', year: '2024',
-    url: 'https://beta.egov.kz/memleket/entities/ontustik/press/news/details/1204055',
+    url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1204055',
     note: { kz: 'Түлкібас өңіріндегі Грейг қызғалдағының табиғи шоғыры.', ru: 'Группа огненно-красных диких тюльпанов с полосатыми листьями.', en: 'Group of fiery red wild tulips with striped leaves.' },
   },
   {
@@ -188,13 +188,13 @@ export const sourceRecords = [
   {
     id: 'photo-turkistan', category: { kz: 'Фотография · CC BY-SA 4.0', ru: 'Фотография · CC BY-SA 4.0', en: 'Photography · CC BY-SA 4.0' },
     title: 'Blooming Wild Tulip Steppe in Turkistan Region', author: 'Жеке мұрағат / Ашық дереккөз', year: '2024',
-    url: 'https://commons.wikimedia.org/',
+    url: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg',
     note: { kz: 'Түркістан өңіріндегі қызғалдақты дала фотосы. CC BY-SA 4.0 лицензиясы.', ru: 'Фотография цветущей степи в Туркестанской области. Лицензия CC BY-SA 4.0.', en: 'Photograph of blooming tulip steppe in Turkistan Region. CC BY-SA 4.0 license.' },
   },
   {
     id: 'photo-shymkent', category: { kz: 'Фотография · CC BY-SA 4.0', ru: 'Фотография · CC BY-SA 4.0', en: 'Photography · CC BY-SA 4.0' },
     title: 'Tulip Fountain in Shymkent', author: 'Жеке мұрағат / Ашық дереккөз', year: '2024',
-    url: 'https://commons.wikimedia.org/',
+    url: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg',
     note: { kz: 'Шымкенттегі «Қызғалдақ» субұрқағының фотосы. CC BY-SA 4.0 лицензиясы.', ru: 'Фотография фонтана «Тюльпан» в Шымкенте. Лицензия CC BY-SA 4.0.', en: 'Photograph of the Tulip Fountain in Shymkent. CC BY-SA 4.0 license.' },
   },
   {
@@ -210,7 +210,7 @@ export const sourceRecords = [
   {
     id: 'shubaykyzyl-heritage', category: { kz: 'Ресми табиғи дерек', ru: 'Официальные данные о природе', en: 'Official nature site' },
     title: 'Шұбайқызыл қызғалдақ қорықшасы', author: 'Түркістан облысының табиғи мұра қоры', year: '2024',
-    url: 'https://www.gov.kz/memleket/entities/ontustik',
+    url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1204055',
     note: {
       kz: 'Түлкібас ауданындағы Шұбайқызыл табиғат ескерткіші туралы ресми ақпарат.',
       ru: 'Официальная справка о природном памятнике Шубайкызыл в Тюлькубасском районе.',
@@ -250,7 +250,7 @@ export const sourceRecords = [
   {
     id: 'tulkibas-gov', category: { kz: 'Ресми ақпарат', ru: 'Официальная информация', en: 'Official information' },
     title: 'Шұбайқызыл алауы festival in Tulkibas', author: 'Turkistan Region akimat · gov.kz', year: '2026',
-    url: 'https://beta.egov.kz/memleket/entities/ontustik/press/news/details/1204055',
+    url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1204055',
     note: {
       kz: 'Түлкібастағы Шұбайқызыл қызғалдағы фестивалі және табиғатты қорғау шаралары туралы ресми хабар.',
       ru: 'Официальное сообщение о фестивале тюльпанов Шубайкызыл в Тюлькубасе и природоохранных мерах.',
@@ -279,6 +279,16 @@ export const sourceRecords = [
   },
   {
     id: 'mhnn', category: { kz: 'Музей гербарийі', ru: 'Музейный гербарий', en: 'Museum herbarium' },
+    title: 'Tulipa greigii Regel · specimen P00730913', author: 'Muséum national d’Histoire naturelle, Paris', year: '1872',
+    url: 'https://science.mnhn.fr/institution/mnhn/collection/p/item/p00730913',
+    note: {
+      kz: 'Гербарий карточкасы жинау күні мен жергілікті мекенін құжаттайды.',
+      ru: 'Гербарная карточка документирует дату сбора и исторический регион сбора.',
+      en: 'The herbarium record documents collection date and regional provenance.',
+    },
+  },
+  {
+    id: 'mnhn', category: { kz: 'Музей гербарийі', ru: 'Музейный гербарий', en: 'Museum herbarium' },
     title: 'Tulipa greigii Regel · specimen P00730913', author: 'Muséum national d’Histoire naturelle, Paris', year: '1872',
     url: 'https://science.mnhn.fr/institution/mnhn/collection/p/item/p00730913',
     note: {
@@ -476,6 +486,11 @@ export const sourceLabels = {
     ru: { title: 'Гербарный образец тюльпана Грейга · P00730913', author: 'Национальный музей естественной истории в Париже' },
     en: { title: 'Tulipa greigii Regel · specimen P00730913', author: 'National Museum of Natural History, Paris' },
   },
+  mnhn: {
+    kz: { title: 'Грейг қызғалдағының гербарий үлгісі · P00730913', author: 'Париждегі Ұлттық жаратылыстану тарихы музейі' },
+    ru: { title: 'Гербарный образец тюльпана Грейга · P00730913', author: 'Национальный музей естественной истории в Париже' },
+    en: { title: 'Tulipa greigii Regel · specimen P00730913', author: 'National Museum of Natural History, Paris' },
+  },
   'shymkent-tourism': {
     kz: { title: 'Шымкентке барудың жеті себебі · қала нышанындағы қызғалдақ', author: 'Шымкент қаласының ресми туризм порталы' },
     ru: { title: 'Семь причин посетить Шымкент · тюльпан в символике города', author: 'Официальный туристический портал Шымкента' },
@@ -532,7 +547,7 @@ export const places = [
       kz: 'Шымкент қаласының елтаңбасындағы қызғалдақ бейнесі туған өлкенің табиғи мұрасына деген шексіз мақтанышты білдіреді.',
       ru: 'Изображение тюльпана на гербе Шымкента подчёркивает неразрывную связь города с природным богатством южных степей и предгорий.',
       en: 'The tulip on Shymkent’s coat of arms reflects the city’s deep pride in the surrounding natural wonders of the South.',
-    }, source: null,
+    }, source: 'shymkent-tourism',
   },
   {
     slug: 'turkistan', coord: [43.30, 68.25], coordsLabel: '43.30° N, 68.25° E', icon: 'history',

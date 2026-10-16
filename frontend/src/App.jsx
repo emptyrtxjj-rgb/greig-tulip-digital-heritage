@@ -196,8 +196,8 @@ function EditorialPage({ pageKey, index }) {
         <div className="block-heading">
           <div>
             <span className="eyebrow">{lang === 'kz' ? 'ВИЗУАЛДЫ ИНФОГРАФИКА' : lang === 'ru' ? 'ВИЗУАЛЬНАЯ ИНФОГРАФИКА' : 'VISUAL INFOGRAPHIC'}</span>
-            <h2>{lang === 'kz' ? 'Грейг қызғалдағы — Тарихы мен мәңгілік сұлулығы' : lang === 'ru' ? 'Тюльпан Грейга — История и вечная красота' : 'Greig’s Tulip — History and Eternal Beauty'}</h2>
-            <p>{lang === 'kz' ? 'Қазақстанның оңтүстігінің табиғи мұрасы, түрдің ашылуы, зерттелуі мен бүгінгі маңызын көрсететін шолу плакаты.' : lang === 'ru' ? 'Сводный плакат-инфографика о природном наследии Южного Казахстана, истории открытия и современном значении вида.' : 'Comprehensive overview infographic illustrating the natural heritage, historical discovery, and current conservation value.'}</p>
+            <h2>{lang === 'kz' ? 'Грейг қызғалдағы — Тарихы және таралуы' : lang === 'ru' ? 'Тюльпан Грейга — История и распространение' : 'Greig’s Tulip — History and Distribution'}</h2>
+            <p>{lang === 'kz' ? 'Қазақстанның оңтүстігінің табиғи мұрасы, түрдің ашылуы, зерттелуі мен бүгінгі маңызын көрсететін авторлық инфографикалық постер.' : lang === 'ru' ? 'Сводный плакат-инфографика о природном наследии Южного Казахстана, истории открытия и современном значении вида.' : 'Comprehensive overview infographic illustrating the natural heritage, historical discovery, and current conservation value.'}</p>
           </div>
         </div>
         <figure className="about-infographic-card">
@@ -389,7 +389,7 @@ function PlacePage({ slug: propSlug }) {
     shymkent: { image: '/images/shymkent-downtown.webp', srcSet: photoAssets.find(item => item.id === 'shymkent-downtown')?.srcSet, credit: 'Rassim · CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Shymkent_city_downtown.jpg' },
     turkistan: { image: '/images/turkistan-mausoleum.webp', srcSet: photoAssets.find(item => item.id === 'turkistan-mausoleum')?.srcSet, credit: 'Petar Milošević · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Mausoleum_of_Khoja_Ahmed_Yasawi_in_Hazrat-e_Turkestan,_Kazakhstan.jpg' },
     karatau: { image: '/images/karatau-ridge.webp', srcSet: photoAssets.find(item => item.id === 'karatau-ridge')?.srcSet, credit: 'Andrey Shishkalov · Karatau Nature Reserve · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Горы_Каратау_3.png' },
-    shubaykyzyl: { image: '/images/shubaykyzyl-steppe.jpeg', srcSet: photoAssets.find(item => item.id === 'shubaykyzyl-steppe')?.srcSet, credit: 'Shubaykyzyl Nature Sanctuary · Photo Archive', url: 'https://oq.gov.kz/ru/abai/shubaykyzyl-tulips' },
+    shubaykyzyl: { image: '/images/shubaykyzyl-steppe.jpeg', srcSet: photoAssets.find(item => item.id === 'shubaykyzyl-steppe')?.srcSet, credit: 'Shubaykyzyl Nature Sanctuary · Photo Archive', url: 'https://www.gov.kz/memleket/entities/ontustik/press/news/details/1204055' },
     tulkibas: { image: '/images/koktem.jpeg', srcSet: photoAssets.find(item => item.id === 'koktem')?.srcSet, credit: 'Personal photo archive · Free License', url: 'https://www.gov.kz/memleket/entities/ontustik' },
     berkara: { image: '/images/berkara-gorge.jpeg', srcSet: photoAssets.find(item => item.id === 'berkara-gorge')?.srcSet, credit: 'Aidana Shanlatbai · Berkara Nature Sanctuary · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Берікқара_таулары.jpg' },
   }

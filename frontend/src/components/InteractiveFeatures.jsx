@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowLeft,
@@ -28,7 +28,29 @@ import {
   usefulLinkGroups,
   usefulLinksCopy,
 } from '../data/interactiveFeatures.js'
-import { Tulip3DViewer } from './Tulip3DViewer.jsx'
+import { Tulip3DViewer, checkWebGLSupport } from './Tulip3DViewer.jsx'
+
+class SectionErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.warn('3D Section error caught, falling back to 2D view:', error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || null
+    }
+    return this.props.children
+  }
+}
 
 function formatItalicText(text) {
   if (!text) return null
@@ -73,7 +95,8 @@ export function BloomWheelSection() {
   const copy = bloomWheelCopy[lang]
   const [selectedMonth, setSelectedMonth] = useState(4) // Default to April (Peak Mass Bloom)
   const [autoPlay, setAutoPlay] = useState(false)
-  const [viewMode, setViewMode] = useState('3d') // '3d' | 'dial'
+  const isWebGLSupported = typeof window !== 'undefined' ? checkWebGLSupport() : false
+  const [viewMode, setViewMode] = useState(() => (checkWebGLSupport() ? '3d' : 'dial'))
 
   useEffect(() => {
     if (!autoPlay) return undefined
@@ -93,6 +116,144 @@ export function BloomWheelSection() {
     summer: 6,
     autumn: 10,
   }
+
+  const renderDial = () => (
+    <div className="bloom-dial-wrap">
+      <svg
+        className="bloom-dial-svg"
+        viewBox="0 0 360 360"
+        role="img"
+        aria-label={copy.title}
+      >
+        <defs>
+          <radialGradient id="bloomWheelGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={activeItem.accent} stopOpacity="0.24" />
+            <stop offset="100%" stopColor={activeItem.accent} stopOpacity="0.02" />
+          </radialGradient>
+        </defs>
+
+        <circle cx="180" cy="180" r="164" fill="url(#bloomWheelGlow)" />
+        <circle
+          cx="180"
+          cy="180"
+          r="156"
+          fill="none"
+          stroke="rgba(139, 92, 62, 0.22)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+        />
+        <circle
+          cx="180"
+          cy="180"
+          r="116"
+          fill="none"
+          stroke="rgba(139, 92, 62, 0.18)"
+          strokeWidth="1.2"
+        />
+
+        {/* Clock Hand */}
+        <g
+          transform={`rotate(${handAngle} 180 180)`}
+          style={{ transition: 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)' }}
+        >
+          <line
+            x1="180"
+            y1="180"
+            x2="294"
+            y2="180"
+            stroke={activeItem.accent}
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <circle cx="294" cy="180" r="5" fill={activeItem.accent} />
+        </g>
+
+        {/* 12 Month Nodes around the Clock */}
+        {bloomWheelMonths.map(item => {
+          const angleDeg = (item.month - 1) * 30 - 90
+          const angleRad = (angleDeg * Math.PI) / 180
+          const radius = 136
+          const cx = 180 + radius * Math.cos(angleRad)
+          const cy = 180 + radius * Math.sin(angleRad)
+          const isSelected = item.month === selectedMonth
+          return (
+            <g
+              key={item.month}
+              className={`bloom-dial-node ${isSelected ? 'is-selected' : ''}`}
+              onClick={() => {
+                setAutoPlay(false)
+                setSelectedMonth(item.month)
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              <circle
+                cx={cx}
+                cy={cy}
+                r={isSelected ? 24 : 19}
+                fill={isSelected ? item.accent : '#fbf7f1'}
+                stroke={item.accent}
+                strokeWidth={isSelected ? '3' : '1.6'}
+              />
+              <text
+                x={cx}
+                y={cy - 3}
+                textAnchor="middle"
+                fontSize="9.5"
+                fontWeight="700"
+                fill={isSelected ? '#ffffff' : '#6c5344'}
+              >
+                {item.code}
+              </text>
+              <text
+                x={cx}
+                y={cy + 9}
+                textAnchor="middle"
+                fontSize="8.5"
+                fontWeight="600"
+                fill={isSelected ? '#ffffff' : '#2a201b'}
+              >
+                {item.short[lang]}
+              </text>
+            </g>
+          )
+        })}
+
+        {/* Center Hub */}
+        <circle
+          cx="180"
+          cy="180"
+          r="66"
+          fill="#fffdf9"
+          stroke={activeItem.accent}
+          strokeWidth="2.5"
+        />
+        <text x="180" y="158" textAnchor="middle" fontSize="24">
+          {activeItem.icon}
+        </text>
+        <text
+          x="180"
+          y="182"
+          textAnchor="middle"
+          fontSize="11"
+          fontWeight="700"
+          letterSpacing="0.12em"
+          fill={activeItem.accent}
+        >
+          {activeItem.code} / 12
+        </text>
+        <text
+          x="180"
+          y="201"
+          textAnchor="middle"
+          fontSize="14"
+          fontWeight="700"
+          fill="#201713"
+        >
+          {activeItem.name[lang]}
+        </text>
+      </svg>
+    </div>
+  )
 
   return (
     <section
@@ -154,147 +315,15 @@ export function BloomWheelSection() {
           </div>
 
           {viewMode === '3d' ? (
-            <Tulip3DViewer
-              selectedMonth={selectedMonth}
-              onSelectMonth={setSelectedMonth}
-            />
+            <SectionErrorBoundary fallback={renderDial()}>
+              <Tulip3DViewer
+                selectedMonth={selectedMonth}
+                onSelectMonth={setSelectedMonth}
+              />
+            </SectionErrorBoundary>
           ) : (
-            <div className="bloom-dial-wrap">
-            <svg
-              className="bloom-dial-svg"
-              viewBox="0 0 360 360"
-              role="img"
-              aria-label={copy.title}
-            >
-              <defs>
-                <radialGradient id="bloomWheelGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor={activeItem.accent} stopOpacity="0.24" />
-                  <stop offset="100%" stopColor={activeItem.accent} stopOpacity="0.02" />
-                </radialGradient>
-              </defs>
-
-              <circle cx="180" cy="180" r="164" fill="url(#bloomWheelGlow)" />
-              <circle
-                cx="180"
-                cy="180"
-                r="156"
-                fill="none"
-                stroke="rgba(139, 92, 62, 0.22)"
-                strokeWidth="1.5"
-                strokeDasharray="4 4"
-              />
-              <circle
-                cx="180"
-                cy="180"
-                r="116"
-                fill="none"
-                stroke="rgba(139, 92, 62, 0.18)"
-                strokeWidth="1.2"
-              />
-
-              {/* Clock Hand */}
-              <g
-                transform={`rotate(${handAngle} 180 180)`}
-                style={{ transition: 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)' }}
-              >
-                <line
-                  x1="180"
-                  y1="180"
-                  x2="294"
-                  y2="180"
-                  stroke={activeItem.accent}
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-                <circle cx="294" cy="180" r="5" fill={activeItem.accent} />
-              </g>
-
-              {/* 12 Month Nodes around the Clock */}
-              {bloomWheelMonths.map(item => {
-                const angleDeg = (item.month - 1) * 30 - 90
-                const angleRad = (angleDeg * Math.PI) / 180
-                const radius = 136
-                const cx = 180 + radius * Math.cos(angleRad)
-                const cy = 180 + radius * Math.sin(angleRad)
-                const isSelected = item.month === selectedMonth
-                return (
-                  <g
-                    key={item.month}
-                    className={`bloom-dial-node ${isSelected ? 'is-selected' : ''}`}
-                    onClick={() => {
-                      setAutoPlay(false)
-                      setSelectedMonth(item.month)
-                    }}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <circle
-                      cx={cx}
-                      cy={cy}
-                      r={isSelected ? 24 : 19}
-                      fill={isSelected ? item.accent : '#fbf7f1'}
-                      stroke={item.accent}
-                      strokeWidth={isSelected ? '3' : '1.6'}
-                    />
-                    <text
-                      x={cx}
-                      y={cy - 3}
-                      textAnchor="middle"
-                      fontSize="9.5"
-                      fontWeight="700"
-                      fill={isSelected ? '#ffffff' : '#6c5344'}
-                    >
-                      {item.code}
-                    </text>
-                    <text
-                      x={cx}
-                      y={cy + 9}
-                      textAnchor="middle"
-                      fontSize="8.5"
-                      fontWeight="600"
-                      fill={isSelected ? '#ffffff' : '#2a201b'}
-                    >
-                      {item.short[lang]}
-                    </text>
-                  </g>
-                )
-              })}
-
-              {/* Center Hub */}
-              <circle
-                cx="180"
-                cy="180"
-                r="66"
-                fill="#fffdf9"
-                stroke={activeItem.accent}
-                strokeWidth="2.5"
-              />
-              <text x="180" y="158" textAnchor="middle" fontSize="24">
-                {activeItem.icon}
-              </text>
-              <text
-                x="180"
-                y="182"
-                textAnchor="middle"
-                fontSize="11"
-                fontWeight="700"
-                letterSpacing="0.12em"
-                fill={activeItem.accent}
-              >
-                {activeItem.code} / 12
-              </text>
-              <text
-                x="180"
-                y="201"
-                textAnchor="middle"
-                fontSize="14"
-                fontWeight="700"
-                fill="#201713"
-              >
-                {activeItem.name[lang]}
-              </text>
-            </svg>
-          </div>
-        )}
+            renderDial()
+          )}
 
           {/* Interactive Range Slider + Controls */}
           <div className="bloom-slider-box">

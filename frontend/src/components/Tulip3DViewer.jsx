@@ -20,6 +20,20 @@ import {
   createAlpineWildflowers,
 } from './tulip3dBuilder.js'
 
+export function checkWebGLSupport() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return false
+  try {
+    const canvas = document.createElement('canvas')
+    const gl =
+      canvas.getContext('webgl2') ||
+      canvas.getContext('webgl') ||
+      canvas.getContext('experimental-webgl')
+    return Boolean(window.WebGLRenderingContext && gl)
+  } catch {
+    return false
+  }
+}
+
 export function Tulip3DViewer({ selectedMonth = 4, onSelectMonth }) {
   const { lang } = useLocale()
   const copy = bloomWheelCopy[lang]
@@ -117,44 +131,67 @@ export function Tulip3DViewer({ selectedMonth = 4, onSelectMonth }) {
     const mount = canvasMountRef.current
     if (!mount) return undefined
 
-    const width = mount.clientWidth || 400
-    const height = mount.clientHeight || 340
-
-    // 1. Scene with soft atmospheric alpine fog
-    const scene = new THREE.Scene()
-    scene.background = new THREE.Color(0x81c7f5)
-    scene.fog = new THREE.FogExp2(0xcce8ff, 0.038)
-    sceneRef.current = scene
-
-    // 2. Camera: Framed to match the exact eye-level angle of the reference photo
-    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100)
-    camera.position.set(0, 0.96, 2.75)
-    cameraRef.current = camera
-
-    // 3. Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false })
-    renderer.setSize(width, height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.toneMapping = THREE.ACESFilmicToneMapping
-    renderer.toneMappingExposure = 1.2
-    renderer.shadowMap.enabled = true
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap
-
-    while (mount.firstChild) {
-      mount.removeChild(mount.firstChild)
+    if (!checkWebGLSupport()) {
+      setLoadError(copy.model3DFallback || 'WebGL is not supported on this device')
+      setIsLoading(false)
+      return undefined
     }
-    mount.appendChild(renderer.domElement)
-    rendererRef.current = renderer
 
-    // 4. Controls
-    const controls = new OrbitControls(camera, renderer.domElement)
-    controls.enableDamping = true
-    controls.dampingFactor = 0.06
-    controls.minDistance = 1.2
-    controls.maxDistance = 5.5
-    controls.maxPolarAngle = Math.PI / 2 + 0.08
-    controls.target.set(0, 0.72, 0)
-    controlsRef.current = controls
+    let renderer
+    let scene
+    let camera
+    let controls
+
+    try {
+      const width = mount.clientWidth || 400
+      const height = mount.clientHeight || 340
+
+      // 1. Scene with soft atmospheric alpine fog
+      scene = new THREE.Scene()
+      scene.background = new THREE.Color(0x81c7f5)
+      scene.fog = new THREE.FogExp2(0xcce8ff, 0.038)
+      sceneRef.current = scene
+
+      // 2. Camera: Framed to match the exact eye-level angle of the reference photo
+      camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100)
+      camera.position.set(0, 0.96, 2.75)
+      cameraRef.current = camera
+
+      // 3. Renderer with safe fallback
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: false,
+        powerPreference: 'default',
+        failIfMajorPerformanceCaveat: false,
+      })
+      renderer.setSize(width, height)
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
+      renderer.toneMapping = THREE.ACESFilmicToneMapping
+      renderer.toneMappingExposure = 1.2
+      renderer.shadowMap.enabled = true
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap
+
+      while (mount.firstChild) {
+        mount.removeChild(mount.firstChild)
+      }
+      mount.appendChild(renderer.domElement)
+      rendererRef.current = renderer
+
+      // 4. Controls
+      controls = new OrbitControls(camera, renderer.domElement)
+      controls.enableDamping = true
+      controls.dampingFactor = 0.06
+      controls.minDistance = 1.2
+      controls.maxDistance = 5.5
+      controls.maxPolarAngle = Math.PI / 2 + 0.08
+      controls.target.set(0, 0.72, 0)
+      controlsRef.current = controls
+    } catch (err) {
+      console.warn('Could not initialize WebGL renderer:', err)
+      setLoadError(copy.model3DFallback || 'WebGL initialization error')
+      setIsLoading(false)
+      return undefined
+    }
 
     // 5. Lighting: Warm sunny mountain lighting matching the reference photo
     const ambientLight = new THREE.AmbientLight(0xcde8ff, 1.45)

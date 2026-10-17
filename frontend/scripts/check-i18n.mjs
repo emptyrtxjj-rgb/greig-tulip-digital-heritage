@@ -30,6 +30,8 @@ const latinAllowList = [
   'III', 'II', 'IV', 'LC', 'ID', 'PP', 'T', 't', 'Catalogue', 'Life', 'NC', 'State', 'Extension', 'MAB', 'wfo', 'Online', 'World',
   'Research', 'Grade', 'citizen', 'science', 'Tentative', 'List', 'okg', 'okg.kz', 'ontustiktv', 'qazaqstan', 'tv', 'ru', 'en',
   'Group', 'URL', 'Rassim', 'Milo', 'evi',
+  'Green', 'Status', 'Largely', 'Depleted', 'SSC', 'Wild', 'Specialist', 'Caravan', 'Caravan.kz', 'Wikipedia', 'Foundation', 'C', 'XP', 'AJB',
+  'Red', 'XX', 'Tulip',
 ]
 const allowed = new Set(latinAllowList.map(word => word.toLowerCase()))
 const kazakhLetters = /[ӘәҒғҚқҢңӨөҰұҮүҺһІі]/
@@ -94,6 +96,7 @@ try {
   const modules = {
     collections: '/src/data/collections.js', exhibitNarratives: '/src/data/exhibitNarratives.js',
     reviews: '/src/data/reviews.js', media: '/src/data/media.js', facts: '/src/data/facts.js', timeline: '/src/data/timeline.js',
+    interactiveFeatures: '/src/data/interactiveFeatures.js',
   }
   for (const [name, path] of Object.entries(modules)) {
     const module = await server.ssrLoadModule(path)

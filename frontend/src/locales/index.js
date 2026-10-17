@@ -1,7 +1,7 @@
 export const locales = {
   kz: {
     html: 'kk', label: 'Қазақша', short: 'ҚАЗ',
-    nav: { home: 'Басты бет', history: 'Тарихы', encyclopedia: 'Анықтама', timeline: 'Жылнама', map: 'Карта', science: 'Зерттеу', heritage: 'Қорғау', media: 'Галерея', shymkent: 'Шымкент', reviews: 'Пікірлер', sources: 'Дереккөздер', more: 'Тағы' },
+    nav: { home: 'Басты бет', history: 'Тарихы', encyclopedia: 'Анықтама', timeline: 'Жылнама', map: 'Карта', science: 'Зерттеу', quiz: 'Тарихи код (Квиз)', heritage: 'Қорғау', media: 'Галерея', shymkent: 'Шымкент', reviews: 'Пікірлер', sources: 'Дереккөздер', more: 'Тағы' },
     common: { explore: 'Танысу', read: 'Оқуды жалғастыру', sources: 'Дереккөздерді қарау', map: 'Картаны ашу', timeline: 'Жылнаманы көру', back: 'Басты бетке', next: 'Келесі тарау', year: 'Жыл', place: 'Мекен', citation: 'Дереккөз', open: 'Дереккөзді ашу', viewAll: 'Барлығын көру', curated: 'Цифрлық көрме', illustration: 'Ашық лицензиядағы фотосурет', photoNote: 'Бұл галереядан Грейг қызғалдағының табиғи ортадағы суреттерін, өлке көріністері мен тарихи мұрағат бейнелерін көресіз. Әр суреттің авторы мен алынған жері көрсетілген.', mapNote: 'Картадағы нүктелер өңірді бағдарлауға көмектеседі. Картографиялық дерек ашық көше картасынан алынған.', menu: 'Мәзірді ашу', close: 'Жабу', search: 'Іздеу', searchPlaceholder: 'Дерек, мекен не тарау іздеу', noResults: 'Сәйкес материал табылмады', filters: 'Іріктеу', all: 'Барлығы', clear: 'Тазарту', empty: 'Бұл бөлімде әзірге тексерілген сурет жоқ.' },
     footer: { title: 'Табиғи мұраға қамқор болайық', body: 'Грейг қызғалдағы — туған жер табиғатының жауһары. Оны танып, аялап, келесі ұрпаққа жеткізу — ортақ іс.', note: 'Жоба өлке тарихын танытуға және табиғатты қорғауға арналған.', restart: 'Шежірені қайта бастау' },
     home: {
@@ -69,11 +69,12 @@ export const locales = {
         ['Жобаның жалғасы','Көрмеге жаңа мекендер, мақалалар, фотоматериалдар мен зерттеулерді еркін толықтыруға болады.'],
       ] },
       places: { eyebrow: '03 · МЕКЕНДЕР', title: 'Оңтүстік Қазақстанның табиғи мекендері мен қорықтары', lead: 'Грейг және Кауфман қызғалдақтарының жабайы популяциялары сақталған табиғи қорықтар мен тарихи шатқалдар.', cards: [] },
+      quiz: { eyebrow: '07 · ИНТЕРАКТИВТІ ЗЕРТТЕУ', title: 'Оңтүстік Сырлары: Грейг қызғалдағының тарихи коды', lead: 'Тарих, ботаника, генетика және экологияны байланыстыратын 5 сұрақтан тұратын зерттеушілік тесттен өтіп, өз деңгейіңізді анықтаңыз.', cards: [] },
     },
   },
   ru: {
     html: 'ru', label: 'Русский', short: 'RU',
-    nav: { home: 'Главная', history: 'История', encyclopedia: 'Справочник', timeline: 'Хронология', map: 'Карта', science: 'Наука', heritage: 'Охрана', media: 'Галерея', shymkent: 'Шымкент', reviews: 'Отзывы', sources: 'Источники', more: 'Ещё' },
+    nav: { home: 'Главная', history: 'История', encyclopedia: 'Справочник', timeline: 'Хронология', map: 'Карта', science: 'Наука', heritage: 'Охрана', quiz: 'Исторический код (Квиз)', media: 'Галерея', shymkent: 'Шымкент', reviews: 'Отзывы', sources: 'Источники', more: 'Ещё' },
     common: { explore: 'Исследовать', read: 'Читать дальше', sources: 'К источникам', map: 'Открыть карту', timeline: 'Смотреть хронологию', back: 'На главную', next: 'Следующая глава', year: 'Год', place: 'Место', citation: 'Источник', open: 'Открыть источник', viewAll: 'Смотреть все', curated: 'Цифровая экспозиция', illustration: 'Фотоматериал с открытой лицензией', photoNote: 'В этой галерее собраны фотографии тюльпана Грейга в природной среде, ландшафты родного края и исторические архивные материалы с указанием авторов и лицензий.', mapNote: 'Метки на карте служат ориентирами по региону. Картографические данные предоставлены OpenStreetMap.', menu: 'Открыть меню', close: 'Закрыть', search: 'Поиск', searchPlaceholder: 'Ищите факт, место или раздел', noResults: 'Подходящих материалов не найдено', filters: 'Фильтры', all: 'Все', clear: 'Сбросить', empty: 'В этом разделе пока нет проверенных медиаматериалов.' },
     footer: { title: 'Сбережём природное наследие вместе', body: 'Тюльпан Грейга — сокровище и живая жемчужина родной земли. Познать его, беречь и передать будущим поколениям — наше общее дело.', note: 'Проект создан для исторического просвещения и бережного отношения к природе.', restart: 'Начать шествие сначала' },
     home: {
@@ -141,11 +142,12 @@ export const locales = {
         ['Развитие проекта','Архитектура проекта открыта для добавления новых локаций, архивных документов и научных публикаций.'],
       ] },
       places: { eyebrow: '03 · МЕСТА', title: 'Природные памятники и заповедники Южного Казахстана', lead: 'Заповедники, урочища и горные долины, где сохраняются дикие популяции тюльпанов Грейга и Кауфмана.', cards: [] },
+      quiz: { eyebrow: '07 · ИНТЕРАКТИВНЫЙ ТЕСТ', title: 'Тайны Юга: исторический код тюльпана Грейга', lead: 'Проверьте свои знания в исследовательском тесте из 5 вопросов, связывающем историю, ботанику, генетику и экологию, и узнайте свой уровень исследователя.', cards: [] },
     },
   },
   en: {
     html: 'en', label: 'English', short: 'EN',
-    nav: { home: 'Home', history: 'History', encyclopedia: 'Facts', timeline: 'Timeline', map: 'Map', science: 'Science', heritage: 'Conservation', media: 'Gallery', shymkent: 'Shymkent', reviews: 'Reviews', sources: 'Sources', more: 'More' },
+    nav: { home: 'Home', history: 'History', encyclopedia: 'Facts', timeline: 'Timeline', map: 'Map', science: 'Science', heritage: 'Conservation', quiz: 'Historical Code (Quiz)', media: 'Gallery', shymkent: 'Shymkent', reviews: 'Reviews', sources: 'Sources', more: 'More' },
     common: { explore: 'Explore', read: 'Continue reading', sources: 'View sources', map: 'Open map', timeline: 'View timeline', back: 'Back home', next: 'Next chapter', year: 'Year', place: 'Place', citation: 'Source', open: 'Open source', viewAll: 'View all', curated: 'Digital exhibition', illustration: 'Openly licensed photograph', photoNote: 'This gallery showcases Greig’s tulip in its natural habitat, regional landscapes, and historical archives with author credits and open licenses.', mapNote: 'Map markers serve as regional orientation points. Geospatial data provided by OpenStreetMap.', menu: 'Open menu', close: 'Close', search: 'Search', searchPlaceholder: 'Search facts, places or chapters', noResults: 'No matching materials found', filters: 'Filters', all: 'All', clear: 'Clear', empty: 'No verified media is available in this category yet.' },
     footer: { title: 'Caring for Our Natural Heritage Together', body: 'Greig’s tulip is an authentic jewel of our homeland’s living nature. Knowing it, cherishing it, and passing it to future generations is our shared duty.', note: 'This project is dedicated to historical learning and environmental conservation.', restart: 'Begin the chronicle again' },
     home: {
@@ -213,6 +215,7 @@ export const locales = {
         ['Future expansion','The platform is structured to welcome additional field locations, archival documents, and ongoing botanical research.'],
       ] },
       places: { eyebrow: '03 · HABITATS', title: 'Natural Sanctuaries and Habitats of Southern Kazakhstan', lead: 'Biosphere reserves, gorges, and mountain valleys preserving wild Greig and Kaufmann tulip populations.', cards: [] },
+      quiz: { eyebrow: '07 · INTERACTIVE QUIZ', title: 'Secrets of the South: The Historical Code of Greig’s Tulip', lead: 'Test your knowledge in a 5-question research quiz connecting history, botany, genetics, and ecology, and unlock your researcher rank.', cards: [] },
     },
   },
 }

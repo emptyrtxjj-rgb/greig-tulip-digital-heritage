@@ -629,6 +629,84 @@ export const sourceRecords = [
     },
   },
   {
+    id: 'iucn-redlist',
+    category: { kz: 'IUCN · Халықаралық Қызыл тізім', ru: 'МСОП · Красный список и Green Status', en: 'IUCN · Red List & Green Status' },
+    title: 'Tulipa greigii Regel — The IUCN Red List of Threatened Species & Green Status Assessment',
+    author: 'IUCN SSC Wild Tulip Specialist Group · Brett Wilson et al.',
+    year: '2025',
+    identifier: 'IUCN Taxon ID: 184530401 · Assessment: 184539263 (LC / Largely Depleted)',
+    checkedAt: '2026-10-17',
+    status: 'verified',
+    url: 'https://www.iucnredlist.org/species/184530401/184539263',
+    note: {
+      kz: 'Халықаралық табиғатты қорғау одағының (IUCN) ресми бағалауы: жаһандық деңгейде LC (Least Concern), бірақ Green Status бағалауы бойынша тарихи ареалында айтарлықтай сиреген (Largely Depleted) түр ретінде тіркелген.',
+      ru: 'Официальная оценка Международного союза охраны природы (IUCN): при глобальной категории LC (Least Concern) по новой шкале IUCN Green Status вид признан значительно истощённым (Largely Depleted) в пределах исконного ареала.',
+      en: 'Official IUCN Red List and Green Status assessment: while globally listed as Least Concern (LC), the IUCN Green Status evaluation classifies wild populations as Largely Depleted across their ancestral range.',
+    },
+    claims: {
+      kz: 'Грейг қызғалдағының жаһандық IUCN мәртебесі (LC) мен тарихи табиғи мекеніндегі популяциялардың сиреу көрсеткіші (Green Status: Largely Depleted).',
+      ru: 'Международный охранный статус МСОП (LC) и оценка истощённости диких популяций в историческом ареале (Green Status: Largely Depleted).',
+      en: 'Global IUCN Red List category (LC) paired with the Green Status of Species recovery assessment (Largely Depleted in ancestral habitats).',
+    },
+    limitations: {
+      kz: 'Жаһандық бағалау бүкіл Орталық Азия ареалын қамтиды; Қазақстан ішінде түр Қызыл кітаптың III санатымен қатаң қорғалады.',
+      ru: 'Оценка охватывает весь трансграничный ареал вида; на территории Казахстана действует строгая национальная охрана (III категория Красной книги РК).',
+      en: 'Covers the entire transboundary range; within Kazakhstan the species remains strictly protected under Category III of the national Red Book.',
+    },
+  },
+  {
+    id: 'caravan-kz-netherlands',
+    category: { kz: 'Қазақстан — Нидерланд байланысы', ru: 'Связь Казахстана и Нидерландов', en: 'Kazakhstan–Netherlands Heritage' },
+    title: 'Как Казахстан и Нидерланды тюльпаны не поделили (комментарий к.б.н. А. А. Иващенко)',
+    author: 'Ольга Шишанова · Аналитический портал Caravan.kz',
+    year: '2023',
+    identifier: 'Caravan.kz Article ID: 919047 (10.03.2023)',
+    checkedAt: '2026-10-17',
+    status: 'qualified',
+    url: 'https://www.caravan.kz/news/kak-kazakhstan-i-niderlandy-tyulpany-ne-podelili-919047/',
+    note: {
+      kz: 'Қазақстанның жетекші ботанигі А. А. Иващенконың сұхбаты негізіндегі мақала: Қазақстан даласы мен Тянь-Шань тауларының жабайы қызғалдақтардың шынайы отаны екендігі, Грейг және Кауфман қызғалдақтарының голланд селекциясындағы орны және гүлді жұлудың пиязшықты жоятыны туралы дерек.',
+      ru: 'Научно-популярная аналитическая публикация с комментариями ботаника к.б.н. Анны Иващенко об исторической родине диких тюльпанов в Казахстане, роли тюльпана Грейга в голландской селекции и гибели луковицы при срывании цветка (ст. 339 УК РК).',
+      en: 'Analytical publication featuring commentary by botanist Dr. Anna Ivashchenko on Kazakhstan as the evolutionary homeland of wild tulips, the role of Greig’s tulip in Dutch breeding, and why picking blooms starves the underground bulb.',
+    },
+    claims: {
+      kz: 'Қазақстан мен Нидерланд арасындағы селекциялық-тарихи байланыс, Грейг қызғалдағының «қызғалдақтар патшасы» ретіндегі рөлі және үзілген гүлдің пиязшықты қорексіз қалдыру механизмі.',
+      ru: 'Историко-ботаническая связь Казахстана и Нидерландов, роль тюльпана Грейга как предка сотен голландских сортов и объяснение гибели луковицы при срывании стебля.',
+      en: 'Historical and breeding connection between Kazakhstan and the Netherlands, the status of Greig’s tulip as progenitor of hundreds of Dutch cultivars, and the biological mechanism of bulb starvation when stems are picked.',
+    },
+    limitations: {
+      kz: 'Ғылыми-көпшілік басылым; нақты таксономиялық сандар (Қазақстандағы 41 таксон) 2024 жылғы PhytoKeys ревизиясы бойынша нақтыланады.',
+      ru: 'Научно-популярное СМИ; точное современное число таксонов в Казахстане (41 таксон) сверяется по академической ревизии Кубентаева и соавт. (PhytoKeys, 2024).',
+      en: 'Popular science journalism; exact current taxonomic counts in Kazakhstan (41 taxa) are cross-referenced with Kubentayev et al. (PhytoKeys, 2024).',
+    },
+  },
+  {
+    id: 'wikipedia-tulipa-greigii',
+    category: { kz: 'Ашық энциклопедия', ru: 'Открытая энциклопедия', en: 'Open encyclopedia' },
+    title: 'Грейг қызғалдағы (Tulipa greigii) — Уикипедия ашық энциклопедиясы',
+    author: 'Wikimedia Foundation · Қазақша және ағылшынша Уикипедия',
+    year: '2026',
+    identifier: 'Wikipedia: kk:Грейг_қызғалдағы / en:Tulipa_greigii',
+    checkedAt: '2026-10-17',
+    status: 'qualified',
+    url: 'https://kk.wikipedia.org/wiki/Грейг_қызғалдағы',
+    note: {
+      kz: 'Жалпы оқырманға арналған ашық энциклопедиялық шолу мақаласы (қосымша анықтамалық сілтеме ретінде берілген; барлық ғылыми фактілер POWO, IPNI және PMC біріншілік дереккөздерімен тексерілген).',
+      ru: 'Обзорная статья в открытой энциклопедии (приводится как дополнительная справочная ссылка в списке полезных ресурсов; все научные факты на сайте верифицированы по первоисточникам POWO, IPNI и PMC).',
+      en: 'Open encyclopedic overview article (included as a supplementary general reference link; all scientific claims on this site are verified against primary records in POWO, IPNI, and PMC).',
+    },
+    claims: {
+      kz: 'Түр туралы жалпы танымдық-энциклопедиялық анықтама және халықаралық тілдердегі мақалалар торабы.',
+      ru: 'Общедоступная обзорная справка и межъязыковая навигация по популярным сведениям о виде.',
+      en: 'General public reference overview and cross-language encyclopedia navigation for the species.',
+    },
+    limitations: {
+      kz: 'Екіншілік энциклопедиялық дереккөз; ғылыми дәлел ретінде біріншілік академиялық жарияланымдарды алмастырмайды.',
+      ru: 'Вторичный энциклопедический ресурс; не используется вместо рецензируемых научных публикаций.',
+      en: 'Secondary encyclopedic resource; does not replace peer-reviewed primary botanical literature.',
+    },
+  },
+  {
     id: 'photo-greig',
     category: { kz: 'Фотография · CC BY-SA 4.0', ru: 'Фотография · CC BY-SA 4.0', en: 'Photography · CC BY-SA 4.0' },
     title: 'Tulipa greigii in Aksu-Zhabagly',
@@ -1265,6 +1343,21 @@ export const sourceLabels = {
     ru: { title: 'Иллюстрация тюльпана Грейга, Gartenflora 22, табл. 773 (1873)', author: 'Библиотека наследия биоразнообразия · цифровой скан' },
     en: { title: 'Tulipa greigii Gartenflora 22 t. 773 (1873)', author: 'Biodiversity Heritage Library · digitized scan' },
   },
+  'iucn-redlist': {
+    kz: { title: 'Tulipa greigii Regel — IUCN Халықаралық Қызыл тізімі және Green Status бағалауы', author: 'IUCN Жабайы қызғалдақтар мамандар тобы (Б. Уилсон және т.б.)' },
+    ru: { title: 'Tulipa greigii Regel — Красный список МСОП (IUCN Red List) и оценка Green Status', author: 'Группа специалистов МСОП по диким тюльпанам (Б. Уилсон и соавт.)' },
+    en: { title: 'Tulipa greigii Regel — IUCN Red List & Green Status Assessment', author: 'IUCN SSC Wild Tulip Specialist Group (Brett Wilson et al.)' },
+  },
+  'caravan-kz-netherlands': {
+    kz: { title: '«Қазақстан мен Нидерланд қызғалдақты қалай бөлісе алмады» (А. А. Иващенко сұхбаты)', author: 'Ольга Шишанова · Caravan.kz аналитикалық порталы (10.03.2023)' },
+    ru: { title: '«Как Казахстан и Нидерланды тюльпаны не поделили» (комментарий к.б.н. А. А. Иващенко)', author: 'Ольга Шишанова · Медиа-портал Caravan.kz (10.03.2023)' },
+    en: { title: '“How Kazakhstan and the Netherlands Shared the Tulip Legacy” (with Dr. A. Ivashchenko)', author: 'Olga Shishanova · Caravan.kz Analytical Portal (10.03.2023)' },
+  },
+  'wikipedia-tulipa-greigii': {
+    kz: { title: 'Грейг қызғалдағы (Tulipa greigii) — энциклопедиялық анықтама', author: 'Қазақша Уикипедия · ашық энциклопедия' },
+    ru: { title: 'Тюльпан Грейга (Tulipa greigii) — энциклопедическая справка', author: 'Википедия · свободная энциклопедия' },
+    en: { title: 'Tulipa greigii (Greig’s Tulip) — Encyclopedia Overview', author: 'Wikipedia · The Free Encyclopedia' },
+  },
 }
 
 export const sourceTitle = (source, lang) => sourceLabels[source.id]?.[lang]?.title ?? (typeof source.title === 'object' ? source.title[lang] : source.title)
@@ -1390,6 +1483,6 @@ export { mediaItems } from './media.js'
 
 export const navItems = [
   { id: 'history', to: '/history' }, { id: 'encyclopedia', to: '/malimetter' }, { id: 'timeline', to: '/timeline' }, { id: 'map', to: '/map' },
-  { id: 'science', to: '/science' }, { id: 'heritage', to: '/heritage' }, { id: 'media', to: '/media' },
+  { id: 'science', to: '/science' }, { id: 'quiz', to: '/quiz' }, { id: 'heritage', to: '/heritage' }, { id: 'media', to: '/media' },
   { id: 'shymkent', to: '/shymkent' }, { id: 'reviews', to: '/reviews' }, { id: 'sources', to: '/sources' },
 ]

@@ -14,6 +14,7 @@ import { mediaItems as photoAssets } from './data/media.js'
 import { MapTeaser, TimelineStrip, TimelineExplorer, SourceCards, ImageMosaic } from './components/MuseumModules.jsx'
 import { FactExplorer } from './components/FactExplorer.jsx'
 import { RouteBreadcrumbs, SiteUtilities } from './components/SiteUtilities.jsx'
+import { BloomWheelSection, QuizSection, QuizTeaserBanner, UsefulLinksDirectory } from './components/InteractiveFeatures.jsx'
 
 const MuseumMapView = lazy(() => import('./components/MapExperience.jsx').then(module => ({ default: module.MuseumMap })))
 
@@ -62,7 +63,7 @@ function Header() {
 
 function Footer() {
   const { lang, t } = useLocale()
-  const footerLinks = ['history', 'timeline', 'map', 'heritage', 'science', 'shymkent', 'media', 'reviews', 'sources']
+  const footerLinks = ['history', 'timeline', 'map', 'heritage', 'science', 'quiz', 'shymkent', 'media', 'reviews', 'sources']
   return <footer className="site-footer">
     <div className="footer-top"><span className="eyebrow">{t.common.curated}</span><h2>{t.footer.title}</h2><p>{t.footer.body}</p>
       <Link className="button button-light" to="/">{t.footer.restart}<ArrowRight size={17}/></Link>
@@ -112,6 +113,8 @@ function HomePage() {
 
       <NaturePhotoPreview/>
 
+      <BloomWheelSection/>
+
       <section className="story-section page-wrap" data-reveal>
         <div className="story-copy"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ МҰРА' : lang === 'ru' ? 'СЛЕД РАСТЕНИЯ' : 'A PLANT’S TRACE'}</span><h2>{h.story}</h2><p>{h.storyBody}</p><Link className="text-link" to="/history">{t.common.read}<ArrowRight size={17}/></Link></div>
         <div className="story-quote"><div className="quote-mark">“</div><p>{lang === 'kz' ? 'Туған жердің тарихы дерекке үңілгенде тереңдей түседі.' : lang === 'ru' ? 'История, основанная на источниках, помогает надёжно узнавать родной край.' : 'History grounded in evidence is a sure way to know a place.'}</p><div className="quote-flower"><Flower2 size={118} strokeWidth={0.7}/></div></div>
@@ -128,6 +131,8 @@ function HomePage() {
         <Link className="feature-card feature-care" to="/heritage"><span className="feature-card-icon"><Leaf/></span><span className="eyebrow">07 · {t.nav.heritage.toUpperCase()}</span><h3>{h.care}</h3><p>{h.careBody}</p><span className="feature-arrow"><ArrowUpRight/></span></Link>
         <Link className="feature-card feature-city" to="/shymkent"><span className="feature-card-icon"><MapPinned/></span><span className="eyebrow">08 · {t.nav.shymkent.toUpperCase()}</span><h3>{h.city}</h3><p>{h.cityBody}</p><span className="feature-arrow"><ArrowUpRight/></span></Link>
       </section>
+
+      <QuizTeaserBanner/>
 
       <section className="gallery-teaser page-wrap" data-reveal><div className="block-heading"><div><span className="eyebrow">09 · {lang === 'kz' ? 'ВИЗУАЛДЫ ҚОР' : lang === 'ru' ? 'ВИЗУАЛЬНАЯ КОЛЛЕКЦИЯ' : 'VISUAL COLLECTION'}</span><h2>{h.gallery}</h2><p>{t.common.photoNote}</p></div><Link className="text-link" to="/gallery">{t.common.viewAll}<ArrowRight size={17}/></Link></div><ImageMosaic items={mediaItems.slice(0, 6)}/></section>
 
@@ -189,6 +194,8 @@ function EditorialPage({ pageKey, index }) {
     return null
   }
   return <main className="editorial-page"><PageHero pageKey={pageKey} index={index}/><section className="editorial-cards page-wrap">{page.cards.map(([title, body], i) => <article className="editorial-card" data-reveal key={title} style={{ '--card-index': i, '--card-offset': `${i * 11}px` }}><div className="editorial-card-number">{String(i + 1).padStart(2, '0')}</div><div><span className="eyebrow">{page.eyebrow}</span><h2>{title}</h2><p>{body}</p><div className="editorial-source"><Citation id={citations(i)}/></div></div><span className="editorial-card-mark">✳</span></article>)}</section><ExhibitNarrative pageKey={pageKey}/>
+    {(pageKey === 'science' || pageKey === 'heritage') && <BloomWheelSection/>}
+    {(pageKey === 'history' || pageKey === 'science' || pageKey === 'heritage') && <QuizTeaserBanner/>}
     {pageKey === 'shymkent' && <div className="page-wrap editorial-note"><span className="eyebrow">{t.common.citation}</span><p>{lang === 'kz' ? 'Қаланың қызғалдақ белгісі мен көктемгі гүл егіні туралы туристік басқарманың ресми жазбасы.' : lang === 'ru' ? 'Официальная запись туристического управления о тюльпане в символике города и весенних посадках.' : 'Official tourism-office record of the tulip in city symbolism and spring planting.'}</p><Citation id="shymkent-tourism"/></div>}
     {pageKey === 'history' && <section className="history-archive page-wrap" data-reveal><div className="archive-image"><img src="/images/gartenflora-1873.webp" srcSet={mediaItems.find(item => item.id === 'gartenflora-plate-773').srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={lang === 'kz' ? '«Гартенфлора» журналының 1873 жылғы 773-тақтасы' : lang === 'ru' ? 'Таблица 773 журнала Gartenflora за 1873 год' : 'Plate 773 from the 1873 volume of Gartenflora'} loading="lazy" decoding="async"/><a className="archive-photo-credit" href="https://www.biodiversitylibrary.org/page/47574892" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Биоалуандық мұрағаты · ашық мұра' : lang === 'ru' ? 'Библиотека наследия биоразнообразия · Общественное достояние' : 'Biodiversity Heritage Library · Public Domain Mark 1.0'}</a></div><div><span className="eyebrow">{lang === 'kz' ? '1873 · «ГАРТЕНФЛОРА» 22-ТОМ' : lang === 'ru' ? '1873 · «ГАРТЕНФЛОРА», ТОМ 22' : '1873 · GARTENFLORA 22'}</span><h2>{lang === 'kz' ? 'Түпнұсқа мұрағат ізі' : lang === 'ru' ? 'След в первоисточнике' : 'The original archival trace'}</h2><p>{lang === 'kz' ? 'Мұнда 1873 жылғы ботаникалық басылымның цифрланған беті берілген. Ғылыми атаудың жарияланған дерегін түпнұсқамен салыстырып көріңіз.' : lang === 'ru' ? 'Локальная копия открытой оцифрованной страницы издания 1873 года. Библиографические данные публикации научного названия можно сверить с первоисточником.' : 'Local copy of an openly digitized page from the 1873 volume. The publication details for the scientific name can be checked against the original record.'}</p><Citation id="bhl"/></div></section>}
     {pageKey === 'about' && <>
@@ -241,7 +248,7 @@ function EditorialPage({ pageKey, index }) {
         </div>
       </section>
     </>}
-    <NextChapter to={pageKey === 'history' ? '/silk-road' : pageKey === 'science' ? '/heritage' : pageKey === 'heritage' ? '/map' : pageKey === 'silk-road' ? '/map' : '/sources'} label={pageKey === 'history' ? t.home.route : pageKey === 'science' ? t.home.care : pageKey === 'heritage' ? t.home.map : pageKey === 'silk-road' ? t.pages.map.title : t.nav.sources}/>
+    <NextChapter to={pageKey === 'history' ? '/silk-road' : pageKey === 'science' ? '/heritage' : pageKey === 'heritage' ? '/quiz' : pageKey === 'silk-road' ? '/map' : '/sources'} label={pageKey === 'history' ? t.home.route : pageKey === 'science' ? t.home.care : pageKey === 'heritage' ? t.pages.quiz.title : pageKey === 'silk-road' ? t.pages.map.title : t.nav.sources}/>
   </main>
 }
 
@@ -252,7 +259,7 @@ function NextChapter({ to, label }) {
 
 function TimelinePage() {
   const { t } = useLocale()
-  return <main><PageHero pageKey="timeline" index="1873"/><section className="timeline-full page-wrap"><TimelineExplorer items={timeline}/></section><div className="editorial-note page-wrap"><span className="eyebrow">{t.common.citation}</span><p>{t.pages.timeline.lead}</p><Citation id="ipni"/><Citation id="kew"/><Citation id="paper"/><Citation id="frontiers"/><Citation id="unesco"/></div><NextChapter to="/map" label={t.pages.map.title}/></main>
+  return <main><PageHero pageKey="timeline" index="1873"/><section className="timeline-full page-wrap"><TimelineExplorer items={timeline}/></section><BloomWheelSection/><div className="editorial-note page-wrap"><span className="eyebrow">{t.common.citation}</span><p>{t.pages.timeline.lead}</p><Citation id="ipni"/><Citation id="kew"/><Citation id="paper"/><Citation id="frontiers"/><Citation id="unesco"/></div><NextChapter to="/map" label={t.pages.map.title}/></main>
 }
 
 function ReviewsPage() {
@@ -285,9 +292,9 @@ function EncyclopediaPage() {
   const { lang, t } = useLocale()
   const chapters = [
     ['history', '/history'], ['science', '/science'], ['heritage', '/ecology'],
-    ['shymkent', '/shymkent'], ['silk-road', '/silk-road'], ['timeline', '/timeline'], ['map', '/map'],
+    ['quiz', '/quiz'], ['shymkent', '/shymkent'], ['silk-road', '/silk-road'], ['timeline', '/timeline'], ['map', '/map'],
   ]
-  const heading = { kz: 'Жеті зерттеу бағыты', ru: 'Семь направлений экспозиции', en: 'Seven paths through the collection' }
+  const heading = { kz: 'Сегіз зерттеу бағыты', ru: 'Восемь направлений экспозиции', en: 'Eight paths through the collection' }
   return <main className="encyclopedia-page"><PageHero pageKey="facts" index="30+"/>
     <section className="encyclopedia-chapters page-wrap"><div className="block-heading"><div><span className="eyebrow">{lang === 'kz' ? 'ӨЛКЕ · ӨСІМДІК · ҒЫЛЫМ' : lang === 'ru' ? 'РЕГИОН · РАСТЕНИЕ · НАУКА' : 'REGION · PLANT · SCIENCE'}</span><h2>{heading[lang]}</h2></div></div><div className="encyclopedia-chapter-grid">{chapters.map(([key, to], index) => <Link to={to} key={key}><span>{String(index + 1).padStart(2, '0')}</span><div><b>{key === 'heritage' ? t.pages.heritage.title : t.pages[key].title}</b><small>{t.pages[key].lead}</small></div><ArrowUpRight size={17}/></Link>)}</div></section>
     <section className="page-wrap encyclopedia-facts"><div className="block-heading"><div><span className="eyebrow">{lang === 'kz' ? `ҒЫЛЫМИ АНЫҚТАМА · ${facts.length} ЖАЗБА` : lang === 'ru' ? `НАУЧНЫЙ СПРАВОЧНИК · ${facts.length} ЗАПИСЕЙ` : `REFERENCE · ${facts.length} RECORDS`}</span><h2>{t.pages.science.title}</h2><p>{lang === 'kz' ? 'Санат бойынша сүзгілеңіз, сөзбен іздеңіз, дереккөзді ашыңыз.' : lang === 'ru' ? 'Выберите тему, найдите термин и откройте первичный источник.' : 'Filter by subject, search a term and open its source.'}</p></div></div><FactExplorer/></section>
@@ -306,7 +313,12 @@ function SourcesPage() {
     const yearOf = record => Number.parseInt(record.year, 10) || Number.POSITIVE_INFINITY
     return yearOf(a) - yearOf(b)
   })
-  return <main><PageHero pageKey="sources" index="06"/><section className="sources-explainer page-wrap"><p className="eyebrow">01 · {lang === 'kz' ? 'ҒЫЛЫМ' : lang === 'ru' ? 'НАУКА' : 'SCIENCE'}</p><p>{lang === 'kz' ? 'Дереккөз карточкасын ашып, бастапқы материалмен танысыңыз. Сілтемелер жеке бетте ашылады.' : lang === 'ru' ? 'Откройте карточку источника и проверьте оригинальный материал. Ссылки откроются отдельно.' : 'Open a source card to review the original material. Links open in a separate tab.'}</p></section><section className="page-wrap"><SourceCards items={sortedSources}/></section><NextChapter to="/about" label={lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About this project'}/></main>
+  return <main><PageHero pageKey="sources" index="06"/><UsefulLinksDirectory/><section className="sources-explainer page-wrap"><p className="eyebrow">01 · {lang === 'kz' ? 'ТОЛЫҚ БИБЛИОГРАФИЯ ЖӘНЕ АРХИВ КАРТОЧКАЛАРЫ' : lang === 'ru' ? 'ПОЛНАЯ БИБЛИОГРАФИЯ И АРХИВНЫЕ КАРТОЧКИ' : 'COMPLETE BIBLIOGRAPHY & ARCHIVE CARDS'}</p><p>{lang === 'kz' ? 'Дереккөз карточкасын ашып, бастапқы материалмен танысыңыз. Сілтемелер жеке бетте ашылады.' : lang === 'ru' ? 'Откройте карточку источника и проверьте оригинальный материал. Ссылки откроются отдельно.' : 'Open a source card to review the original material. Links open in a separate tab.'}</p></section><section className="page-wrap"><SourceCards items={sortedSources}/></section><NextChapter to="/about" label={lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About this project'}/></main>
+}
+
+function QuizPage() {
+  const { t } = useLocale()
+  return <main className="quiz-page"><PageHero pageKey="quiz" index="05 / 05"/><QuizSection/><BloomWheelSection/><NextChapter to="/sources" label={t.pages.sources.title}/></main>
 }
 
 function FieldFilm() {
@@ -476,6 +488,7 @@ function App() {
     <Route path="/science" element={<EditorialPage pageKey="science" index="BOTANICA"/>}/>
     <Route path="/heritage" element={<EditorialPage pageKey="heritage" index="01 FLOWER"/>}/>
     <Route path="/ecology" element={<EditorialPage pageKey="heritage" index="01 FLOWER"/>}/>
+    <Route path="/quiz" element={<QuizPage/>}/>
     <Route path="/media" element={<MediaPage/>}/><Route path="/gallery" element={<MediaPage/>}/>
     <Route path="/3d" element={<Navigate to="/heritage" replace/>}/><Route path="/shymkent" element={<EditorialPage pageKey="shymkent" index="42° N"/>}/>
     <Route path="/silk-road" element={<EditorialPage pageKey="silk-road" index="EURASIA"/>}/>

@@ -1156,6 +1156,234 @@
   text-decoration: underline;
 }
 
+/* ==========================================================================
+   Interactive 3D WebGL Model Viewer & Stage
+   ========================================================================== */
+.bloom-panel-mode-switch {
+  display: inline-flex;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 4px;
+  background: #ece4d7;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.bloom-mode-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #5c4c3e;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bloom-mode-tab:hover {
+  color: #201713;
+}
+
+.bloom-mode-tab.active {
+  background: #231b16;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.tulip-3d-stage-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fbf7ef;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.tulip-3d-stage-card.is-fullscreen {
+  position: fixed;
+  inset: 20px;
+  z-index: 9999;
+  height: calc(100vh - 40px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.tulip-3d-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.tulip-3d-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tulip-3d-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #231b16;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.tulip-3d-stage-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4b3d33;
+}
+
+.tulip-3d-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tulip-3d-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: #ffffff;
+  color: #3b2e24;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tulip-3d-btn:hover {
+  border-color: #8a3b2e;
+  color: #8a3b2e;
+}
+
+.tulip-3d-btn.active {
+  background: #8a3b2e;
+  color: #ffffff;
+  border-color: #8a3b2e;
+}
+
+.tulip-3d-canvas-wrapper {
+  width: 100%;
+  height: 340px;
+  position: relative;
+  cursor: grab;
+  touch-action: none;
+}
+
+.tulip-3d-canvas-mount {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.tulip-3d-stage-card.is-fullscreen .tulip-3d-canvas-wrapper {
+  height: 100%;
+  flex: 1;
+}
+
+.tulip-3d-canvas-wrapper:active {
+  cursor: grabbing;
+}
+
+.tulip-3d-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(251, 247, 239, 0.92);
+  z-index: 5;
+}
+
+.tulip-3d-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(138, 59, 46, 0.18);
+  border-top-color: #8a3b2e;
+  border-radius: 50%;
+  animation: tulipSpin 0.85s linear infinite;
+}
+
+@keyframes tulipSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tulip-3d-loading p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6a5747;
+}
+
+.tulip-3d-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  background: #fdf5f4;
+  color: #b42318;
+  text-align: center;
+  font-size: 12px;
+}
+
+.tulip-3d-bottom-info {
+  padding: 9px 12px;
+  border-top: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.tulip-3d-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tulip-3d-depth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #8a3b2e;
+}
+
+.tulip-3d-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #706050;
+}
+
 @media (max-width: 960px) {
   .bloom-wheel-grid,
   .quiz-result-hero {

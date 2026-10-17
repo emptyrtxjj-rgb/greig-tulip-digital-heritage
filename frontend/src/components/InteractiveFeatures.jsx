@@ -28,6 +28,7 @@ import {
   usefulLinkGroups,
   usefulLinksCopy,
 } from '../data/interactiveFeatures.js'
+import { Tulip3DViewer } from './Tulip3DViewer.jsx'
 
 function formatItalicText(text) {
   if (!text) return null
@@ -72,6 +73,7 @@ export function BloomWheelSection() {
   const copy = bloomWheelCopy[lang]
   const [selectedMonth, setSelectedMonth] = useState(4) // Default to April (Peak Mass Bloom)
   const [autoPlay, setAutoPlay] = useState(false)
+  const [viewMode, setViewMode] = useState('3d') // '3d' | 'dial'
 
   useEffect(() => {
     if (!autoPlay) return undefined
@@ -126,9 +128,38 @@ export function BloomWheelSection() {
       </div>
 
       <div className="bloom-wheel-grid">
-        {/* Left: Interactive Circular Clock / Wheel + Slider */}
+        {/* Left: Interactive Circular Clock / Wheel or 3D Model + Slider */}
         <div className="bloom-dial-panel">
-          <div className="bloom-dial-wrap">
+          <div className="bloom-panel-mode-switch" role="tablist">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={viewMode === '3d'}
+              className={`bloom-mode-tab ${viewMode === '3d' ? 'active' : ''}`}
+              onClick={() => setViewMode('3d')}
+            >
+              <Sparkles size={13} />
+              <span>{copy.viewMode3D}</span>
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={viewMode === 'dial'}
+              className={`bloom-mode-tab ${viewMode === 'dial' ? 'active' : ''}`}
+              onClick={() => setViewMode('dial')}
+            >
+              <Clock size={13} />
+              <span>{copy.viewModeDial}</span>
+            </button>
+          </div>
+
+          {viewMode === '3d' ? (
+            <Tulip3DViewer
+              selectedMonth={selectedMonth}
+              onSelectMonth={setSelectedMonth}
+            />
+          ) : (
+            <div className="bloom-dial-wrap">
             <svg
               className="bloom-dial-svg"
               viewBox="0 0 360 360"
@@ -263,6 +294,7 @@ export function BloomWheelSection() {
               </text>
             </svg>
           </div>
+        )}
 
           {/* Interactive Range Slider + Controls */}
           <div className="bloom-slider-box">

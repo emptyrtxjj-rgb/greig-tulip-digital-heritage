@@ -276,17 +276,18 @@
       "en": "Distribution in Kazakhstan"
     },
     "value": {
-      "kz": "Қаратау мен Батыс Тянь-Шаньды қамтиды",
-      "ru": "Включает Каратау и Западный Тянь-Шань",
-      "en": "Includes Karatau and the Western Tien Shan"
+      "kz": "Қаратау мен Батыс Тянь-Шаньды қамтитын 7 флоралық аудан",
+      "ru": "7 флористических районов, включая Каратау и Западный Тянь-Шань",
+      "en": "7 floristic regions including Karatau and Western Tien Shan"
     },
     "detail": {
-      "kz": "2024 жылғы ботаникалық мақала Қазақстандағы белгілі өңірлік таралымды бірнеше тау жүйесі мен жазыққа қатысты сипаттайды.",
-      "ru": "Ботаническая статья 2024 года описывает известное распространение в Казахстане по нескольким горным системам и равнинам.",
-      "en": "A 2024 botanical paper describes the known Kazakhstan range across several mountain systems and plains."
+      "kz": "2024 жылғы ботаникалық мақалалар (PhytoKeys 250; Frontiers in Plant Science 15) Қазақстандағы таралуын Қаратау, Батыс Тянь-Шань, Түркістан, Шу-Іле, Қырғыз Алатауы, Мойынқұм және Іле-Күнгей Алатауы бойынша сипаттайды.",
+      "ru": "Ботанические ревизии 2024 года (PhytoKeys 250; Frontiers in Plant Science 15) описывают ареал в Казахстане по Каратау, Западному Тянь-Шаню, Туркестанскому, Чу-Илийскому, Кыргызскому, Мойынкумскому и Заилийско-Кунгейскому флористическим районам.",
+      "en": "2024 botanical studies (PhytoKeys 250; Frontiers in Plant Science 15) document the Kazakhstan range across Karatau, Western Tien Shan, Turkestan, Chu-Ili, Kyrgyz Alatau, Moiynkum, and Trans-Ili Kungey Alatau."
     },
     "source": [
-      "frontiers"
+      "frontiers",
+      "paper"
     ]
   },
   {
@@ -309,7 +310,8 @@
       "en": "The study reports habitats ranging from loamy valleys and foothills to rocky slopes."
     },
     "source": [
-      "frontiers"
+      "frontiers",
+      "paper"
     ]
   },
   {
@@ -332,7 +334,8 @@
       "en": "A 2024 study reports sites up to 2,400 m above sea level; this is not a universal limit for every population."
     },
     "source": [
-      "frontiers"
+      "frontiers",
+      "paper"
     ]
   },
   {
@@ -379,7 +382,8 @@
     },
     "source": [
       "frontiers",
-      "cambridge"
+      "cambridge",
+      "rhs"
     ]
   },
   {
@@ -426,7 +430,8 @@
     },
     "source": [
       "frontiers",
-      "cambridge"
+      "cambridge",
+      "rhs"
     ]
   },
   {
@@ -462,18 +467,19 @@
       "en": "Flower form"
     },
     "value": {
-      "kz": "Тостағанша не шарап бокалы тәрізді",
-      "ru": "Чашевидная или бокаловидная",
-      "en": "Bowl- to wineglass-shaped"
+      "kz": "Тостағанша не шарап бокалы тәрізді (10–12 см)",
+      "ru": "Чашевидная или бокаловидная (10–12 см)",
+      "en": "Bowl- to wineglass-shaped (10–12 cm)"
     },
     "detail": {
-      "kz": "Ғылыми сипаттамада гүлдің көлемі ірі және пішіні бокал тәрізді деп берілген. Бұл көркем сұлбадағы өлшем емес, жарияланған сипаттама.",
-      "ru": "В научном описании цветок назван крупным и бокаловидным. Это не измерение с проектной иллюстрации, а опубликованная характеристика.",
-      "en": "The scientific description calls the flower large and wineglass-shaped. This is a published description, not a measurement from the project artwork."
+      "kz": "Ғылыми сипаттамада гүлдің көлемі ірі (10–12 см) және пішіні бокал тәрізді деп берілген. Бұл көркем сұлбадағы өлшем емес, жарияланған сипаттама.",
+      "ru": "В научном описании цветок назван крупным (10–12 см) и бокаловидным. Это не измерение с проектной иллюстрации, а опубликованная характеристика.",
+      "en": "The scientific description calls the flower large (10–12 cm) and wineglass-shaped. This is a published description, not a measurement from the project artwork."
     },
     "source": [
       "frontiers",
-      "cambridge"
+      "cambridge",
+      "rhs"
     ]
   },
   {
@@ -546,6 +552,54 @@
     ]
   },
   {
+    "id": "plastid-genome",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Хлоропласт геномы",
+      "ru": "Хлоропластный геном",
+      "en": "Chloroplast genome"
+    },
+    "value": {
+      "kz": "152 006–152 242 ж.н. · 136 ген",
+      "ru": "152 006–152 242 п.н. · 136 генов",
+      "en": "152,006–152,242 bp · 136 genes"
+    },
+    "detail": {
+      "kz": "2024 жылғы екі тәуелсіз геномдық зерттеу (GenBank: PP335814; PMC11593697) Қазақстан популяцияларынан *Tulipa greigii* толық пластидтік геномын секвенирлеп, оның *T. alberti* түріне ең жақын екенін көрсетті.",
+      "ru": "Два независимых геномных исследования 2024 года (GenBank: PP335814; PMC11593697) секвенировали полный пластидный геном *Tulipa greigii* из популяций Казахстана и подтвердили его ближайшую филогенетическую близость к *T. alberti*.",
+      "en": "Two independent 2024 genomic studies (GenBank: PP335814; PMC11593697) sequenced the complete plastid genome of *Tulipa greigii* from Kazakhstan populations and confirmed its closest phylogenetic affinity to *T. alberti*."
+    },
+    "source": [
+      "frontiers",
+      "almerekova-2024"
+    ]
+  },
+  {
+    "id": "phylogenomics-2026",
+    "category": "science",
+    "status": "verified",
+    "title": {
+      "kz": "Филогеномика және эволюция",
+      "ru": "Филогеномика и эволюция",
+      "en": "Phylogenomics and evolution"
+    },
+    "value": {
+      "kz": "Tulipa туыс тармағы · Орталық Азия радиациясы",
+      "ru": "Подрод Tulipa · Центральноазиатская радиация",
+      "en": "Subgenus Tulipa · Central Asian radiation"
+    },
+    "detail": {
+      "kz": "2026 жылғы филогеномдық зерттеу (Wilson et al., American Journal of Botany, PMC13496073) қызғалдақтардың соңғы 10 млн жылда Орталық Азия тауларының көтерілуі кезінде диверсификацияланғанын және *T. greigii* типтік түрі болған бұрынғы *Vinistriatae* секциясының монофилиялық емес екенін дәлелдеді.",
+      "ru": "Филогеномное исследование 2026 года (Wilson et al., American Journal of Botany, PMC13496073) доказало диверсификацию рода *Tulipa* в Центральной Азии за последние 10 млн лет и немонофилетичность прежней секции *Vinistriatae* внутри подрода *Tulipa*.",
+      "en": "A 2026 phylogenomic study (Wilson et al., American Journal of Botany, PMC13496073) demonstrated Central Asian diversification of *Tulipa* over the past 10 million years and showed that former sect. *Vinistriatae* is non-monophyletic within subg. *Tulipa*."
+    },
+    "source": [
+      "wilson-2026",
+      "kew"
+    ]
+  },
+  {
     "id": "type-specimen",
     "category": "archive",
     "status": "qualified",
@@ -578,17 +632,19 @@
       "en": "The Greig name"
     },
     "value": {
-      "kz": "Самуил А. Грейг",
-      "ru": "Самуил А. Грейг",
-      "en": "Samuel A. Greig"
+      "kz": "Самуил А. Грейг (1827–1887)",
+      "ru": "Самуил А. Грейг (1827–1887)",
+      "en": "Samuel A. Greig (1827–1887)"
     },
     "detail": {
-      "kz": "2024 жылғы ботаникалық мақала түр атауын Samuel A. Greig (1827–1887) есімімен байланыстырады. Жылдар атаудың құрметіне берілген тұлғаның өмірбаянына қатысты; тюльпанның ашылған уақыты емес.",
-      "ru": "Ботаническая статья 2024 года связывает название вида с Samuel A. Greig (1827–1887). Эти годы относятся к биографии человека, а не к открытию тюльпана.",
-      "en": "A 2024 botanical paper links the species name to Samuel A. Greig (1827–1887). Those dates refer to the person’s life, not the discovery of the tulip."
+      "kz": "1873 жылғы протолог пен 2024 жылғы ботаникалық мақалалар түр атауын Ресей императорлық бау-бақша қоғамының президенті Самуил Алексеевич Грейг (1827–1887) есімімен байланыстырады.",
+      "ru": "Протолог 1873 года и ботанические статьи 2024 года связывают название вида с президентом Российского императорского общества садоводства Самуилом Алексеевичем Грейгом (1827–1887).",
+      "en": "The 1873 protologue and 2024 botanical studies link the species epithet to Samuel Alexeyevich Greig (1827–1887), President of the Russian Imperial Horticultural Society."
     },
     "source": [
-      "frontiers"
+      "frontiers",
+      "paper",
+      "ipni"
     ]
   },
   {
@@ -601,16 +657,18 @@
       "en": "Protection in Kazakhstan"
     },
     "value": {
-      "kz": "Қызыл кітапқа енгізілген",
-      "ru": "Включён в Красную книгу",
-      "en": "Listed in Kazakhstan’s Red Book"
+      "kz": "ҚР Қызыл кітабы (III санат) · ҚР ҮҚ № 1034",
+      "ru": "Красная книга РК (III категория) · ПП РК № 1034",
+      "en": "Red Book of Kazakhstan (Category III) · Decree No. 1034"
     },
     "detail": {
-      "kz": "2026 жылғы Түркістан облысы әкімдігінің ресми хабарламасы Қазығұрт ауданына қатысты *Tulipa greigii*-ді Қазақстанның Қызыл кітабына енген түр деп атайды.",
-      "ru": "В сообщении акимата Туркестанской области за 2026 год *Tulipa greigii* в районе Казыгурта назван видом, включённым в Красную книгу Казахстана.",
-      "en": "A 2026 Turkistan Region akimat notice describes *Tulipa greigii* in Kazygurt District as listed in Kazakhstan’s Red Book."
+      "kz": "ҚР Үкіметінің 2006 жылғы 31 қазандағы № 1034 Қаулысымен сирек және құрып кету қаупі төнген өсімдіктер тізбесіне енгізілген; Қазақстанның Қызыл кітабында (2014) III санат (сирек түр) ретінде тіркелген.",
+      "ru": "Включён в Перечень редких и находящихся под угрозой исчезновения видов растений Постановлением Правительства РК № 1034 от 31.10.2006 и в Красную книгу Казахстана (2014, категория III — редкий вид).",
+      "en": "Legally protected under Decree No. 1034 of the Government of the Republic of Kazakhstan (31.10.2006) and listed in the Red Book of Kazakhstan (2014, Category III — rare species)."
     },
     "source": [
+      "adilet-redbook",
+      "paper",
       "gov"
     ]
   },
@@ -623,15 +681,16 @@
       "ru": "Национальные и глобальные списки",
       "en": "National and global listings"
     },
-    "value": "LC · IUCN 2022",
+    "value": "LC · IUCN (2022 / 2024)",
     "detail": {
-      "kz": "2024 жылғы мақала 2022 бағалауында жаһандық IUCN санатын Least Concern деп келтіреді. Бұл ұлттық Қызыл кітаптағы мәртебемен бірдей тізім емес; екі бағалау деңгейі бөлек оқылады.",
-      "ru": "Статья 2024 года приводит для глобальной оценки IUCN 2022 категорию Least Concern. Это не та же самая система, что национальная Красная книга; уровни оценки следует различать.",
-      "en": "A 2024 paper reports Least Concern for the 2022 global IUCN assessment. This is a different listing from Kazakhstan’s national Red Book; the assessment levels should be kept distinct."
+      "kz": "2024 жылғы ғылыми мақалалар (Frontiers in Plant Science; PhytoKeys) жаһандық IUCN санатын Least Concern (LC) деп келтіреді. Бұл Қазақстанның ұлттық Қызыл кітабындағы мәртебемен бірдей жүйе емес; екі бағалау деңгейі бөлек оқылады.",
+      "ru": "Научные статьи 2024 года (Frontiers in Plant Science; PhytoKeys) приводят для глобальной оценки IUCN категорию Least Concern (LC). Это не та же система, что национальная Красная книга РК; уровни оценки следует различать.",
+      "en": "2024 peer-reviewed studies (Frontiers in Plant Science; PhytoKeys) report a global IUCN category of Least Concern (LC). This is distinct from Kazakhstan’s national Red Book listing; the two assessment scales must be kept separate."
     },
     "source": [
       "frontiers",
-      "gov"
+      "paper",
+      "adilet-redbook"
     ]
   },
   {

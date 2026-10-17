@@ -31,7 +31,9 @@ const latinAllowList = [
   'Research', 'Grade', 'citizen', 'science', 'Tentative', 'List', 'okg', 'okg.kz', 'ontustiktv', 'qazaqstan', 'tv', 'ru', 'en',
   'Group', 'URL', 'Rassim', 'Milo', 'evi',
   'Green', 'Status', 'Largely', 'Depleted', 'SSC', 'Wild', 'Specialist', 'Caravan', 'Caravan.kz', 'Wikipedia', 'Foundation', 'C', 'XP', 'AJB',
-  'Red', 'XX', 'Tulip',
+  'Red', 'XX', 'Tulip', 'Meshy', 'AI', 'Crimson', 'Bloom', 'WebGL', 'GLB', '3D',
+  'JSTOR', 'UNDP', 'EPPO', 'PBS', 'Gardenia', 'BioLib', 'Tropicos', 'BGCI', 'EOL', 'eFloras', 'Wikispecies', 'Egemen', 'Inform', 'Kazinform', 'History',
+  'Global', 'Plants', 'W', 'AGM', 'TUPGR', 'Code', 'Hybrid', 'MOBOT', 'Name', 'PlantSearch', 'situ', 'e-history.kz',
 ]
 const allowed = new Set(latinAllowList.map(word => word.toLowerCase()))
 const kazakhLetters = /[ӘәҒғҚқҢңӨөҰұҮүҺһІі]/

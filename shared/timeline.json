@@ -76,11 +76,14 @@
       "en": "Primary illustration in *Gartenflora* publication"
     },
     "body": {
-      "kz": "1873 жылғы «Gartenflora» журналының 22-томында Қазақстан аумағынан табылған қызғалдақтың 773-шы суретті түрлі-түсті иллюстрациясы жарық көреді. Эдуард Регель салған бұл бейне өсімдіктің әлемге танылуына негіз болды.",
-      "ru": "В 22-м томе журнала «Gartenflora» за 1873 год опубликована цветная иллюстрация тюльпана, найденного на территории Казахстана, под номером 773. Этот рисунок, выполненный Эдуардом Регелем, стал основой для признания растения в мире.",
-      "en": "In volume 22 of *Gartenflora* (1873), a color illustration of a tulip found in Kazakhstan appears as plate 773. Drawn by Eduard Regel, this image helped establish the plant’s recognition worldwide."
+      "kz": "1873 жылғы «Gartenflora» журналының 22-томында Қазақстан аумағынан табылған қызғалдақтың 773-ші түрлі-түсті литографиясы жарық көреді. Эдуард Регельдің алғашқы ғылыми сипаттамасымен бірге жарияланған бұл тақта 2013 жылы түрдің лектотипі ретінде бекітілді.",
+      "ru": "В 22-м томе журнала «Gartenflora» за 1873 год опубликована цветная хромолитография тюльпана под номером 773, сопровождающая первоописание Эдуарда Регеля. В 2013 году эта таблица была официально обозначена лектотипом вида.",
+      "en": "In volume 22 of *Gartenflora* (1873), a chromolithograph of the tulip appears as Plate 773 accompanying Eduard Regel’s original description. In 2013, this plate was formally designated as the lectotype of the species."
     },
-    "source": "bhl"
+    "source": [
+      "bhl",
+      "paper"
+    ]
   },
   {
     "year": 1877,
@@ -260,16 +263,19 @@
       "en": "2024 · genomic research"
     },
     "title": {
-      "kz": "Қазақстан қызғалдақтарының геномдары салыстырылды",
-      "ru": "Сопоставлены геномы тюльпанов Казахстана",
-      "en": "Kazakhstan tulip genomes were compared"
+      "kz": "Қазақстан қызғалдақтарының пластидтік геномдары секвенирленді",
+      "ru": "Секвенированы пластидные геномы тюльпанов Казахстана",
+      "en": "Plastid genomes of Kazakhstan tulips were sequenced"
     },
     "body": {
-      "kz": "Рецензияланған мақала *Tulipa greigii* кіретін төрт жергілікті түрдің хлоропласт геномдарын зерттейді; сонымен бірге таралу мен морфология туралы шолу береді.",
-      "ru": "Рецензируемая статья исследует хлоропластные геномы четырёх местных видов, включая *Tulipa greigii*, и рассматривает распространение и морфологию.",
-      "en": "A peer-reviewed paper studies chloroplast genomes of four local species, including *Tulipa greigii*, and reviews distribution and morphology."
+      "kz": "Frontiers in Plant Science және Genes журналдарындағы рецензияланған зерттеулер *Tulipa greigii* (152 006–152 242 ж.н., 136 ген) пластидтік геномын толық сипаттап, оның *Tulipa alberti* түрімен тығыз филогенетикалық жақындығын дәлелдеді.",
+      "ru": "Рецензируемые работы в журналах Frontiers in Plant Science и Genes полностью расшифровали пластидный геном *Tulipa greigii* (152 006–152 242 п.н., 136 генов) и доказали его близкое филогенетическое родство с *Tulipa alberti*.",
+      "en": "Peer-reviewed studies in *Frontiers in Plant Science* and *Genes* sequenced the complete plastid genome of *Tulipa greigii* (152,006–152,242 bp, 136 genes) and confirmed its close phylogenetic relationship with *Tulipa alberti*."
     },
-    "source": "frontiers"
+    "source": [
+      "frontiers",
+      "almerekova-2024"
+    ]
   },
   {
     "year": 2024,
@@ -285,11 +291,32 @@
       "en": "Tulipa in Kazakhstan was revisited"
     },
     "body": {
-      "kz": "Turczaninowia журналындағы шолу Қазақстандағы *Tulipa* атаулары, таралуы және қорғау тізімдерін жинақтайды.",
-      "ru": "Обзор в журнале Turczaninowia сводит данные о названиях, распространении и охранных списках казахстанских *Tulipa*.",
-      "en": "A review in Turczaninowia brings together names, distribution and conservation listings for Kazakhstan’s *Tulipa*."
+      "kz": "PhytoKeys (250: 95–163) журналындағы іргелі ревизия Қазақстандағы *Tulipa* туысының 41 таксонын, соның ішінде *Tulipa greigii* таралу флоралық аудандарын, лектотипін және қорғау мәртебесін жүйеледі.",
+      "ru": "Фундаментальная ревизия в журнале PhytoKeys (250: 95–163) систематизировала данные о 41 таксоне *Tulipa* флоры Казахстана, включая флористические районы, лектотип и охранный статус *Tulipa greigii*.",
+      "en": "A comprehensive revision in *PhytoKeys* (250: 95–163) synthesized nomenclature, floristic distribution, lectotypification, and conservation statuses across all 41 *Tulipa* taxa in Kazakhstan."
     },
     "source": "paper"
+  },
+  {
+    "year": 2026,
+    "sortDate": "2026-01-15",
+    "category": "research",
+    "date": {
+      "kz": "2026 · филогеномика",
+      "ru": "2026 · филогеномика",
+      "en": "2026 · phylogenomics"
+    },
+    "title": {
+      "kz": "Tulipa туысының эволюциясы мен биогеографиясы нақтыланды",
+      "ru": "Уточнены эволюция и биогеография рода Tulipa",
+      "en": "Phylogenomic insights into Tulipa evolution and biogeography"
+    },
+    "body": {
+      "kz": "American Journal of Botany (Wilson et al., 2026; PMC13496073) зерттеуі қызғалдақтардың соңғы 10 млн жылда Орталық Азия тауларының көтерілуімен бірге диверсификацияланғанын және *Tulipa greigii* кіретін *Tulipa* тармағындағы бұрынғы *Vinistriatae* секциясының монофилиялық емес екенін көрсетті.",
+      "ru": "Филогеномное исследование в American Journal of Botany (Wilson et al., 2026; PMC13496073) показало диверсификацию рода *Tulipa* в Центральной Азии за последние 10 млн лет на фоне горообразования и доказало немонофилетичность прежней секции *Vinistriatae* (тип — *T. greigii*) внутри подрода *Tulipa*.",
+      "en": "A phylogenomic study in the *American Journal of Botany* (Wilson et al., 2026; PMC13496073) demonstrated Central Asian diversification of *Tulipa* over the past 10 million years during mountain uplift and showed that former sect. *Vinistriatae* (typed by *T. greigii*) is non-monophyletic within subg. *Tulipa*."
+    },
+    "source": "wilson-2026"
   },
   {
     "year": 2026,

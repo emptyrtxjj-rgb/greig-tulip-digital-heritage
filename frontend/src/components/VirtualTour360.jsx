@@ -56,7 +56,7 @@ export function VirtualTourSection() {
             {copy.badge}
           </span>
           <a
-            href="https://truevirtualtours.com/ru/panorama/230864/360view"
+            href="https://truevirtualtours.com/ru/panorama/231040/360view"
             target="_blank"
             rel="noreferrer"
             className="button button-outline button-sm virtual-tour-ext-btn"
@@ -70,7 +70,7 @@ export function VirtualTourSection() {
       <div className={`virtual-tour-card ${isFullscreen ? 'is-fullscreen' : ''}`}>
         <div className="virtual-tour-frame-wrap">
           <iframe
-            src="https://truevirtualtours.com/ru/panorama/230864/360view"
+            src="https://truevirtualtours.com/ru/panorama/231040/360view"
             title={copy.title}
             className="virtual-tour-iframe"
             allow="fullscreen; accelerometer; gyroscope; magnetometer"

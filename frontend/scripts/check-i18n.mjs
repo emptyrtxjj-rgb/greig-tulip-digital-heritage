@@ -32,6 +32,7 @@ const latinAllowList = [
   'Group', 'URL', 'Rassim', 'Milo', 'evi',
   'Green', 'Status', 'Largely', 'Depleted', 'SSC', 'Wild', 'Specialist', 'Caravan', 'Caravan.kz', 'Wikipedia', 'Foundation', 'C', 'XP', 'AJB',
   'Red', 'XX', 'Tulip', 'Meshy', 'AI', 'Crimson', 'Bloom', 'WebGL', 'GLB', '3D',
+  'True', 'Virtual', 'Tours', 'videoplayback', '360view', 'Panorama',
   'JSTOR', 'UNDP', 'EPPO', 'PBS', 'Gardenia', 'BioLib', 'Tropicos', 'BGCI', 'EOL', 'eFloras', 'Wikispecies', 'Egemen', 'Inform', 'Kazinform', 'History',
   'Global', 'Plants', 'W', 'AGM', 'TUPGR', 'Code', 'Hybrid', 'MOBOT', 'Name', 'PlantSearch', 'situ', 'e-history.kz',
 ]

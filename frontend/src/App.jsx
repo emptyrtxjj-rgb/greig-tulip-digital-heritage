@@ -15,6 +15,7 @@ import { MapTeaser, TimelineStrip, TimelineExplorer, SourceCards, ImageMosaic } 
 import { FactExplorer } from './components/FactExplorer.jsx'
 import { RouteBreadcrumbs, SiteUtilities } from './components/SiteUtilities.jsx'
 import { BloomWheelSection, QuizSection, QuizTeaserBanner, UsefulLinksDirectory } from './components/InteractiveFeatures.jsx'
+import { VirtualTourSection } from './components/VirtualTour360.jsx'
 
 const MuseumMapView = lazy(() => import('./components/MapExperience.jsx').then(module => ({ default: module.MuseumMap })))
 
@@ -114,6 +115,8 @@ function HomePage() {
       <NaturePhotoPreview/>
 
       <BloomWheelSection/>
+
+      <VirtualTourSection/>
 
       <section className="story-section page-wrap" data-reveal>
         <div className="story-copy"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ МҰРА' : lang === 'ru' ? 'СЛЕД РАСТЕНИЯ' : 'A PLANT’S TRACE'}</span><h2>{h.story}</h2><p>{h.storyBody}</p><Link className="text-link" to="/history">{t.common.read}<ArrowRight size={17}/></Link></div>
@@ -345,6 +348,7 @@ function MediaPage() {
     <PageHero pageKey="media" index="03 / 06"/>
     <div className="gallery-filter page-wrap" role="group" aria-label={t.common.filters}>{categories.map((cat,i)=><button type="button" className={(active ?? 0)===i?'selected':''} key={cat} onClick={()=>setActive(i)} aria-pressed={(active ?? 0)===i}>{cat}<small>{categoryCounts[i]}</small></button>)}</div>
     {visibleItems.length ? <section className="page-wrap"><ImageMosaic items={visibleItems} large/></section> : <p className="fact-empty page-wrap">{t.common.empty}</p>}
+    <VirtualTourSection/>
     <FieldFilm/>
     <NextChapter to="/sources" label={t.pages.sources.title}/>
   </main>

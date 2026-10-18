@@ -1562,8 +1562,8 @@ export const sourceRecords = [
     status: 'qualified',
     url: 'https://science.mnhn.fr/institution/mnhn/collection/p/item/p00730913',
     note: {
-      kz: 'Париж музейінің (MNHN) гербарий карточкасы 1872 жылғы жинау күні мен Боролдай мекенін құжаттайды.',
-      ru: 'Гербарная карточка Национального музея естественной истории (Париж) документирует сбор 1872 года из гор Боролдай.',
+      kz: 'Париж музейінің (MNHN) гербарий карточкасы 1872 жылғы жинау күні мен Боралдай мекенін құжаттайды.',
+      ru: 'Гербарная карточка Национального музея естественной истории (Париж) документирует сбор 1872 года из гор Боралдай.',
       en: 'The Paris National Museum of Natural History herbarium record documents an 1872 collection date and Boroldai provenance.',
     },
   },
@@ -1578,8 +1578,8 @@ export const sourceRecords = [
     status: 'qualified',
     url: 'https://science.mnhn.fr/institution/mnhn/collection/p/item/p00730913',
     note: {
-      kz: 'Гербарий карточкасы 1872 жылы Боролдай тауларында жиналған тарихи үлгіні құжаттайды (типтік мәртебесі карточкада белгісіз деп көрсетілген, ал лектотипі — Gartenflora t. 773).',
-      ru: 'Гербарная карточка документирует сбор 1872 года из гор Боролдай (статус типа на самой карточке отмечен как неопределённый, а лектотипом вида является табл. 773 в Gartenflora).',
+      kz: 'Гербарий карточкасы 1872 жылы Боралдай тауларында жиналған тарихи үлгіні құжаттайды (типтік мәртебесі карточкада белгісіз деп көрсетілген, ал лектотипі — Gartenflora t. 773).',
+      ru: 'Гербарная карточка документирует сбор 1872 года из гор Боралдай (статус типа на самой карточке отмечен как неопределённый, а лектотипом вида является табл. 773 в Gartenflora).',
       en: 'Herbarium record documenting the 1872 Boroldai collection (type status is marked uncertain on the sheet itself, while the formal lectotype is Plate 773 in Gartenflora).',
     },
   },

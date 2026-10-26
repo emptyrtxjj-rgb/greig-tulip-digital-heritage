@@ -1,0 +1,264 @@
+/* =============================================================
+   Our Journey with Greigii — Botanical Chronicle Timeline
+   Matches reference design: deep forest green outer canvas,
+   smooth cream card, vertical timeline spine, and alternating items.
+   ============================================================= */
+
+.journey-section {
+  background-color: #0d3824;
+  padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 36px);
+  border-radius: 28px;
+  margin: 32px 0 48px;
+  color: #1a382a;
+  box-sizing: border-box;
+}
+
+.journey-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #faf7f0;
+  border-radius: 22px;
+  padding: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 48px);
+  box-shadow: 0 20px 50px rgba(7, 24, 16, 0.28);
+  box-sizing: border-box;
+}
+
+.journey-timeline {
+  position: relative;
+}
+
+/* Vertical central timeline spine */
+.journey-timeline::before {
+  content: '';
+  position: absolute;
+  top: 130px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: #e2dac9;
+  z-index: 1;
+}
+
+.journey-heading {
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.journey-heading h1 {
+  font-family: var(--serif, 'Playfair Display', Georgia, serif);
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #173d2c;
+  margin: 0 0 12px;
+}
+
+.journey-lead {
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #55695e;
+  margin: 0;
+}
+
+.journey-items {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid layout for each milestone */
+.journey-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  position: relative;
+}
+
+/* Alternating positions: left vs right */
+.journey-item-left .journey-image-wrapper {
+  justify-self: end;
+}
+
+.journey-item-left .journey-content {
+  text-align: left;
+}
+
+.journey-item-right .journey-image-wrapper {
+  order: 2;
+  justify-self: start;
+}
+
+.journey-item-right .journey-content {
+  order: 1;
+  text-align: right;
+}
+
+/* Image container */
+.journey-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 4 / 3.8;
+  border-radius: 8px;
+  background-color: #ede6d8;
+  box-shadow: 0 6px 18px rgba(16, 38, 28, 0.08);
+}
+
+.journey-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Empty photo placeholder */
+.journey-image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border-radius: 8px;
+  border: 1.5px dashed #cfc5b0;
+  background-color: #f1ebdE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.journey-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #5d7065;
+}
+
+.journey-placeholder-icon {
+  color: #7b9184;
+  opacity: 0.85;
+}
+
+.journey-placeholder-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #274d3c;
+  letter-spacing: 0.02em;
+}
+
+.journey-placeholder-year {
+  font-family: var(--serif, Georgia, serif);
+  font-size: 13px;
+  color: #83978b;
+}
+
+/* Arrow buttons (seafoam / mint green circles with dark green arrow) */
+.journey-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background-color: #a3d9cc;
+  color: #0e3422;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(10, 38, 26, 0.18);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 3;
+}
+
+.journey-arrow:hover {
+  background-color: #bbf0e4;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.journey-arrow-left {
+  left: -14px;
+}
+
+.journey-arrow-right {
+  right: -14px;
+}
+
+/* Text content block */
+.journey-content {
+  padding: 8px 0;
+}
+
+.journey-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #265540;
+  margin-bottom: 6px;
+}
+
+.journey-year {
+  font-family: var(--serif, 'Playfair Display', Georgia, serif);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  color: #143b2a;
+  margin: 0 0 12px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.journey-text {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #485c50;
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* =============================================================
+   Responsive: Mobile and Tablet
+   ============================================================= */
+
+@media (max-width: 768px) {
+  .journey-timeline::before {
+    left: 20px;
+    top: 100px;
+  }
+
+  .journey-item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-left: 36px;
+  }
+
+  .journey-item-left .journey-image-wrapper,
+  .journey-item-right .journey-image-wrapper {
+    order: 1;
+    justify-self: start;
+    max-width: 240px;
+  }
+
+  .journey-item-left .journey-content,
+  .journey-item-right .journey-content {
+    order: 2;
+    text-align: left;
+  }
+
+  .journey-items {
+    gap: 48px;
+  }
+}

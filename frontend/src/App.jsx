@@ -16,6 +16,7 @@ import { FactExplorer } from './components/FactExplorer.jsx'
 import { RouteBreadcrumbs, SiteUtilities } from './components/SiteUtilities.jsx'
 import { BloomWheelSection, QuizSection, QuizTeaserBanner, UsefulLinksDirectory } from './components/InteractiveFeatures.jsx'
 import { VirtualTourSection } from './components/VirtualTour360.jsx'
+import { OurJourney } from './components/OurJourney.jsx'
 
 const MuseumMapView = lazy(() => import('./components/MapExperience.jsx').then(module => ({ default: module.MuseumMap })))
 
@@ -262,7 +263,7 @@ function NextChapter({ to, label }) {
 
 function TimelinePage() {
   const { t } = useLocale()
-  return <main><PageHero pageKey="timeline" index="1873"/><section className="timeline-full page-wrap"><TimelineExplorer items={timeline}/></section><BloomWheelSection/><div className="editorial-note page-wrap"><span className="eyebrow">{t.common.citation}</span><p>{t.pages.timeline.lead}</p><Citation id="ipni"/><Citation id="kew"/><Citation id="paper"/><Citation id="frontiers"/><Citation id="unesco"/></div><NextChapter to="/map" label={t.pages.map.title}/></main>
+  return <main><PageHero pageKey="timeline" index="1873"/><section className="timeline-full page-wrap"><OurJourney/></section><BloomWheelSection/><div className="editorial-note page-wrap"><span className="eyebrow">{t.common.citation}</span><p>{t.pages.timeline.lead}</p><Citation id="ipni"/><Citation id="kew"/><Citation id="paper"/><Citation id="frontiers"/><Citation id="unesco"/></div><NextChapter to="/map" label={t.pages.map.title}/></main>
 }
 
 function ReviewsPage() {

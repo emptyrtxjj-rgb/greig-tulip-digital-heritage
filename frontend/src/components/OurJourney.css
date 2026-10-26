@@ -5,7 +5,7 @@
    ============================================================= */
 
 .journey-section {
-  background-color: #0d3824;
+  background-color: #8a3b2e;
   padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 36px);
   border-radius: 28px;
   margin: 32px 0 48px;
@@ -170,7 +170,7 @@
   height: 28px;
   border-radius: 50%;
   border: none;
-  background-color: #a3d9cc;
+  background-color: #8a3b2e;
   color: #0e3422;
   font-size: 14px;
   font-weight: 700;
@@ -194,6 +194,21 @@
 
 .journey-arrow-right {
   right: -14px;
+}
+
+.journey-image-counter {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(14, 52, 34, 0.78);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  letter-spacing: 0.05em;
 }
 
 /* Text content block */
@@ -233,32 +248,194 @@
    Responsive: Mobile and Tablet
    ============================================================= */
 
+@media (max-width: 900px) {
+  .journey-item {
+    gap: 32px;
+  }
+  .journey-image-wrapper {
+    max-width: 240px;
+  }
+}
+
 @media (max-width: 768px) {
+  .journey-section {
+    padding: clamp(20px, 4vw, 36px) clamp(10px, 2.5vw, 20px);
+    border-radius: 20px;
+    margin: 24px 0 40px;
+  }
+
+  .journey-card {
+    padding: clamp(22px, 4vw, 36px) clamp(14px, 3vw, 24px);
+    border-radius: 18px;
+  }
+
   .journey-timeline::before {
-    left: 20px;
-    top: 100px;
+    left: 14px;
+    top: 80px;
+    bottom: 24px;
+    width: 2px;
+  }
+
+  .journey-heading {
+    margin-bottom: 32px;
+  }
+
+  .journey-heading h1 {
+    font-size: clamp(28px, 6vw, 38px);
+  }
+
+  .journey-lead {
+    font-size: 13px;
+    line-height: 1.65;
   }
 
   .journey-item {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding-left: 36px;
+    gap: 16px;
+    padding-left: 30px;
   }
 
   .journey-item-left .journey-image-wrapper,
   .journey-item-right .journey-image-wrapper {
     order: 1;
     justify-self: start;
-    max-width: 240px;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 11;
   }
 
   .journey-item-left .journey-content,
   .journey-item-right .journey-content {
     order: 2;
     text-align: left;
+    padding: 0;
+  }
+
+  .journey-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .journey-arrow-left {
+    left: 10px;
+  }
+
+  .journey-arrow-right {
+    right: 10px;
+  }
+
+  .journey-year {
+    font-size: clamp(26px, 5.5vw, 34px);
+    margin: 0 0 8px;
+  }
+
+  .journey-text {
+    font-size: 13px;
+    line-height: 1.7;
   }
 
   .journey-items {
-    gap: 48px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-section {
+    padding: 16px 8px;
+    border-radius: 14px;
+    margin: 18px 0 32px;
+  }
+
+  .journey-card {
+    padding: 18px 12px;
+    border-radius: 14px;
+  }
+
+  .journey-timeline::before {
+    left: 8px;
+  }
+
+  .journey-heading h1 {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+
+  .journey-item {
+    padding-left: 20px;
+    gap: 14px;
+  }
+
+  .journey-item-left .journey-image-wrapper,
+  .journey-item-right .journey-image-wrapper {
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+  }
+
+  .journey-image,
+  .journey-image-placeholder {
+    border-radius: 6px;
+  }
+
+  .journey-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .journey-arrow-left {
+    left: 8px;
+  }
+
+  .journey-arrow-right {
+    right: 8px;
+  }
+
+  .journey-label {
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+  }
+
+  .journey-year {
+    font-size: 23px;
+  }
+
+  .journey-text {
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+
+  .journey-items {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 360px) {
+  .journey-section {
+    padding: 12px 6px;
+  }
+
+  .journey-card {
+    padding: 14px 10px;
+  }
+
+  .journey-timeline::before {
+    left: 6px;
+  }
+
+  .journey-item {
+    padding-left: 16px;
+  }
+
+  .journey-heading h1 {
+    font-size: 23px;
+  }
+
+  .journey-year {
+    font-size: 21px;
+  }
+
+  .journey-text {
+    font-size: 12px;
   }
 }

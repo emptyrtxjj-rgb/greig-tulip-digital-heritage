@@ -17,15 +17,182 @@ import { RouteBreadcrumbs, SiteUtilities } from './components/SiteUtilities.jsx'
 import { BloomWheelSection, QuizSection, QuizTeaserBanner, UsefulLinksDirectory } from './components/InteractiveFeatures.jsx'
 import { VirtualTourSection } from './components/VirtualTour360.jsx'
 import { OurJourney } from './components/OurJourney.jsx'
+import { OrbitMap } from './components/OrbitMap.jsx'
+import { VideoChronicleSection, NicheVideoCard } from './components/VideoChronicle.jsx'
+import { videoMaterials } from './data/videoMaterials.js'
 
 const MuseumMapView = lazy(() => import('./components/MapExperience.jsx').then(module => ({ default: module.MuseumMap })))
 
 gsap.registerPlugin(ScrollTrigger)
 function LanguagePicker({ small = false }) {
   const { lang, setLang } = useLocale()
-  return <div className={`language-picker ${small ? 'language-picker-small' : ''}`} role="group" aria-label={lang === 'kz' ? 'Тіл' : lang === 'ru' ? 'Язык' : 'Language'}>
-    {localeOrder.map(code => <button key={code} type="button" onClick={() => setLang(code)} aria-pressed={lang === code}>{lang === 'kz' ? ({ kz: 'ҚАЗ', ru: 'ОРЫС', en: 'АҒЫЛШЫН' })[code] : locales[code].short}</button>)}
+  return <div className={`language-picker ${small ? 'language-picker-small' : ''}`} role="group" aria-label={lang === 'kz' ? 'Тілді таңдау' : lang === 'ru' ? 'Выбор языка' : 'Language'}>
+    {localeOrder.map(code => <button key={code} type="button" onClick={() => setLang(code)} aria-pressed={lang === code} className={`lang-btn ${lang === code ? 'is-active' : ''}`}>{locales[code].short}</button>)}
   </div>
+}
+
+function MobileNav({ open, onClose }) {
+  const { lang, t, setLang } = useLocale()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (open) {
+      const scrollY = window.scrollY
+      const originalOverflow = document.body.style.overflow
+      const originalPosition = document.body.style.position
+      const originalTop = document.body.style.top
+      const originalWidth = document.body.style.width
+
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onClose()
+      }
+      window.addEventListener('keydown', handleKeyDown)
+
+      return () => {
+        document.body.style.overflow = originalOverflow
+        document.body.style.position = originalPosition
+        document.body.style.top = originalTop
+        document.body.style.width = originalWidth
+        window.scrollTo(0, scrollY)
+        window.removeEventListener('keydown', handleKeyDown)
+      }
+    }
+  }, [open, onClose])
+
+  if (!open) return null
+
+  const categories = [
+    {
+      title: {
+        kz: 'ШЕЖІРЕ ЖӘНЕ МЕКЕНДЕР',
+        ru: 'ЛЕТОПИСЬ И ПРИРОДА',
+        en: 'CHRONICLE & PLACES',
+      }[lang],
+      links: [
+        { to: '/', label: t.nav.home, icon: '🌸' },
+        { to: '/history', label: t.nav.history, icon: '🏛️' },
+        { to: '/timeline', label: t.nav.timeline, icon: '📜' },
+        { to: '/places', label: lang === 'kz' ? 'Табиғи мекендер' : lang === 'ru' ? 'Места произрастания' : 'Habitats', icon: '🏔️' },
+        { to: '/silk-road', label: lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads', icon: '🐫' },
+      ],
+    },
+    {
+      title: {
+        kz: 'ЗЕРТТЕУ ЖӘНЕ ҚОРҒАУ',
+        ru: 'БОТАНИКА И НАУКА',
+        en: 'BOTANY & RESEARCH',
+      }[lang],
+      links: [
+        { to: '/malimetter', label: t.nav.encyclopedia, icon: '📖' },
+        { to: '/science', label: t.nav.science, icon: '🔬' },
+        { to: '/heritage', label: t.nav.heritage, icon: '🌿' },
+        { to: '/shymkent', label: t.nav.shymkent, icon: '🏙️' },
+      ],
+    },
+    {
+      title: {
+        kz: 'ИНТЕРАКТИВ ПЕН ҚОР',
+        ru: 'ИНТЕРАКТИВ И МЕДИА',
+        en: 'INTERACTIVE & MEDIA',
+      }[lang],
+      links: [
+        { to: '/map', label: t.nav.map, icon: '🗺️' },
+        { to: '/gallery', label: t.nav.media, icon: '📷' },
+        { to: '/quiz', label: t.nav.quiz, icon: '💡' },
+        { to: '/reviews', label: t.nav.reviews, icon: '💬' },
+        { to: '/sources', label: t.nav.sources, icon: '📚' },
+        { to: '/about', label: lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About', icon: 'ℹ️' },
+      ],
+    },
+  ]
+
+  return (
+    <div className="mobile-drawer-backdrop" onClick={onClose} role="presentation">
+      <div
+        className="mobile-drawer-sheet"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={lang === 'kz' ? 'Навигация мәзірі' : lang === 'ru' ? 'Меню навигации' : 'Navigation menu'}
+      >
+        <div className="mobile-drawer-header">
+          <div className="mobile-drawer-brand">
+            <span className="brand-symbol">
+              <img src="/favicon.svg" alt="" width="26" height="26" style={{ borderRadius: '50%', objectFit: 'cover' }} />
+            </span>
+            <div>
+              <strong>{lang === 'kz' ? 'ГРЕЙГ' : lang === 'ru' ? 'ГРЕЙГ' : 'GREIG'}</strong>
+              <small>{lang === 'kz' ? 'НАВИГАЦИЯ МӘЗІРІ' : lang === 'ru' ? 'МЕНЮ НАВИГАЦИИ' : 'NAVIGATION'}</small>
+            </div>
+          </div>
+          <button
+            type="button"
+            className="mobile-drawer-close"
+            onClick={onClose}
+            aria-label={t.common.close}
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Trilingual language selector */}
+        <div className="mobile-drawer-lang-wrap">
+          <div className="mobile-drawer-lang" role="group" aria-label="Language selection">
+            {localeOrder.map((code) => {
+              const active = lang === code
+              return (
+                <button
+                  key={code}
+                  type="button"
+                  className={`mobile-lang-chip ${active ? 'is-active' : ''}`}
+                  onClick={() => setLang(code)}
+                  aria-pressed={active}
+                >
+                  {code === 'kz' ? 'ҚАЗАҚША' : code === 'ru' ? 'РУССКИЙ' : 'ENGLISH'}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Navigation list */}
+        <div className="mobile-drawer-nav">
+          {categories.map((cat, idx) => (
+            <div key={idx} className="mobile-drawer-section">
+              <span className="mobile-drawer-section-title">{cat.title}</span>
+              <div className="mobile-drawer-links">
+                {cat.links.map((link) => {
+                  const isActive = location.pathname === link.to
+                  return (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      end={link.to === '/'}
+                      onClick={onClose}
+                      className={`mobile-drawer-link ${isActive ? 'is-active' : ''}`}
+                    >
+                      <span className="mobile-link-icon">{link.icon}</span>
+                      <span className="mobile-link-label">{link.label}</span>
+                      <ArrowRight size={15} className="mobile-link-arrow" />
+                    </NavLink>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mobile-drawer-footer">
+          <p>© 2026 · {lang === 'kz' ? 'Грейг қызғалдағының цифрлық шежіресі' : lang === 'ru' ? 'Цифровая летопись тюльпана Грейга' : 'Greig Tulip Digital Chronicle'}</p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 function Header() {
@@ -41,26 +208,34 @@ function Header() {
   useEffect(() => setMobileOpen(false), [location.pathname])
   const primary = navItems.slice(0, 6)
   const extra = navItems.slice(6)
-  return <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
-    <div className="header-inner">
-      <Link className="brand" to="/" aria-label={lang === 'kz' ? 'Грейг қызғалдағы цифрлық шежіресі · басты бет' : lang === 'ru' ? 'Цифровая летопись тюльпана Грейга · главная' : 'Greig tulip digital chronicle home'}>
-        <span className="brand-symbol"><img src="/favicon.svg" alt="" width="26" height="26" style={{ borderRadius: '50%', objectFit: 'cover' }} /></span>
-        <span className="brand-copy"><strong>{lang === 'kz' ? 'ГРЕЙГ' : lang === 'ru' ? 'ГРЕЙГ' : 'GREIG'}</strong><small>{lang === 'kz' ? 'ӨЛКЕНІҢ ЦИФРЛЫҚ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЦИФРОВАЯ ЛЕТОПИСЬ КРАЯ' : 'DIGITAL REGIONAL CHRONICLE'}</small></span>
-      </Link>
-      <nav className="desktop-nav" aria-label={lang === 'kz' ? 'Негізгі навигация' : lang === 'ru' ? 'Основная навигация' : 'Main navigation'}>
-        <NavLink to="/" end className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav.home}</NavLink>
-        {primary.map(item => <NavLink key={item.id} to={item.to} className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav[item.id]}</NavLink>)}
-        <details className="nav-more"><summary>{t.nav.more}<span aria-hidden="true">⌄</span></summary><div className="nav-dropdown">{extra.map(item => <NavLink key={item.id} to={item.to}>{t.nav[item.id]}</NavLink>)}<NavLink to="/places">{lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'}</NavLink><NavLink to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</NavLink><NavLink to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</NavLink></div></details>
-      </nav>
-      <div className="header-tools"><LanguagePicker/><button className="mobile-menu-button" onClick={() => setMobileOpen(v => !v)} aria-label={mobileOpen ? t.common.close : t.common.menu} aria-expanded={mobileOpen}>{mobileOpen ? <X/> : <Menu/>}</button></div>
-    </div>
-    {mobileOpen && <nav className="mobile-nav" aria-label={lang === 'kz' ? 'Мобильді навигация' : lang === 'ru' ? 'Мобильная навигация' : 'Mobile navigation'}>
-      <NavLink to="/" end>{t.nav.home}</NavLink>{navItems.map(item => <NavLink key={item.id} to={item.to}>{t.nav[item.id]}</NavLink>)}
-      <NavLink to="/places">{lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'}</NavLink>
-      <NavLink to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</NavLink><NavLink to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</NavLink>
-      <LanguagePicker small/>
-    </nav>}
-  </header>
+  return <>
+    <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="header-inner">
+        <Link className="brand" to="/" aria-label={lang === 'kz' ? 'Грейг қызғалдағы цифрлық шежіресі · басты бет' : lang === 'ru' ? 'Цифровая летопись тюльпана Грейга · главная' : 'Greig tulip digital chronicle home'}>
+          <span className="brand-symbol"><img src="/favicon.svg" alt="" width="26" height="26" style={{ borderRadius: '50%', objectFit: 'cover' }} /></span>
+          <span className="brand-copy"><strong>{lang === 'kz' ? 'ГРЕЙГ' : lang === 'ru' ? 'ГРЕЙГ' : 'GREIG'}</strong><small>{lang === 'kz' ? 'ӨЛКЕНІҢ ЦИФРЛЫҚ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЦИФРОВАЯ ЛЕТОПИСЬ КРАЯ' : 'DIGITAL REGIONAL CHRONICLE'}</small></span>
+        </Link>
+        <nav className="desktop-nav" aria-label={lang === 'kz' ? 'Негізгі навигация' : lang === 'ru' ? 'Основная навигация' : 'Main navigation'}>
+          <NavLink to="/" end className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav.home}</NavLink>
+          {primary.map(item => <NavLink key={item.id} to={item.to} className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>{t.nav[item.id]}</NavLink>)}
+          <details className="nav-more"><summary>{t.nav.more}<span aria-hidden="true">⌄</span></summary><div className="nav-dropdown">{extra.map(item => <NavLink key={item.id} to={item.to}>{t.nav[item.id]}</NavLink>)}<NavLink to="/places">{lang === 'kz' ? 'Мекендер' : lang === 'ru' ? 'Места' : 'Habitats'}</NavLink><NavLink to="/silk-road">{lang === 'kz' ? 'Ұлы Жібек жолы' : lang === 'ru' ? 'Шёлковый путь' : 'Silk Roads'}</NavLink><NavLink to="/about">{lang === 'kz' ? 'Жоба туралы' : lang === 'ru' ? 'О проекте' : 'About'}</NavLink></div></details>
+        </nav>
+        <div className="header-tools">
+          <LanguagePicker/>
+          <button
+            className="mobile-menu-button"
+            onClick={() => setMobileOpen(v => !v)}
+            aria-label={mobileOpen ? t.common.close : t.common.menu}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X size={22}/> : <Menu size={22}/>}
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+  </>
 }
 
 function Footer() {
@@ -124,7 +299,17 @@ function HomePage() {
         <div className="story-quote"><div className="quote-mark">“</div><p>{lang === 'kz' ? 'Туған жердің тарихы дерекке үңілгенде тереңдей түседі.' : lang === 'ru' ? 'История, основанная на источниках, помогает надёжно узнавать родной край.' : 'History grounded in evidence is a sure way to know a place.'}</p><div className="quote-flower"><Flower2 size={118} strokeWidth={0.7}/></div></div>
       </section>
 
-      <section className="silk-section" data-reveal><div className="silk-art"><div className="silk-route-map"><span className="route-pin pin-1">{lang === 'kz' ? 'ОҢТҮСТІК ҚАЗАҚСТАН' : lang === 'ru' ? 'ЮЖНЫЙ КАЗАХСТАН' : 'SOUTHERN KAZAKHSTAN'}</span><span className="route-pin pin-2">{lang === 'kz' ? 'ҚАРАТАУ' : lang === 'ru' ? 'КАРАТАУ' : 'KARATAU'}</span><span className="route-pin pin-3">{lang === 'kz' ? 'ТҮЛКІБАС' : lang === 'ru' ? 'ТЮЛЬКУБАС' : 'TYULKUBAS'}</span><span className="route-pin pin-4">{lang === 'kz' ? 'ТҮРКІСТАН' : lang === 'ru' ? 'ТУРКЕСТАН' : 'TURKISTAN'}</span><span className="route-line"/><small></small></div></div><div className="silk-copy"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ ДЕРЕК' : lang === 'ru' ? 'ИСТОРИЧЕСКИЙ КОНТЕКСТ' : 'HISTORICAL CONTEXT'}</span><h2>{h.route}</h2><p>{h.routeBody}</p><Link className="text-link" to="/silk-road">{lang === 'kz' ? 'Тарихи жолды зерттеу' : lang === 'ru' ? 'Исследовать исторический путь' : 'Explore the historical route'}<ArrowRight size={17}/></Link></div></section>
+      <section className="silk-section" data-reveal>
+        <div className="silk-art">
+          <OrbitMap />
+        </div>
+        <div className="silk-copy">
+          <span className="eyebrow">{lang === 'kz' ? 'ТАРИХИ ДЕРЕК' : lang === 'ru' ? 'ИСТОРИЧЕСКИЙ КОНТЕКСТ' : 'HISTORICAL CONTEXT'}</span>
+          <h2>{h.route}</h2>
+          <p>{h.routeBody}</p>
+          <Link className="text-link" to="/silk-road">{lang === 'kz' ? 'Тарихи жолды зерттеу' : lang === 'ru' ? 'Исследовать исторический путь' : 'Explore the historical route'}<ArrowRight size={17}/></Link>
+        </div>
+      </section>
 
       <section className="map-teaser page-wrap" data-reveal><div className="map-teaser-heading"><div><span className="eyebrow">{lang === 'kz' ? 'ӨҢІРГЕ САЯХАТ' : lang === 'ru' ? 'ПУТЕШЕСТВИЕ ПО РЕГИОНУ' : 'EXPLORE THE REGION'}</span><h2>{h.map}</h2><p>{h.mapBody}</p></div><Link className="round-link" to="/map" aria-label={t.common.map}><ArrowUpRight/></Link></div><MapTeaser/></section>
 
@@ -139,6 +324,8 @@ function HomePage() {
       <QuizTeaserBanner/>
 
       <section className="gallery-teaser page-wrap" data-reveal><div className="block-heading"><div><span className="eyebrow">09 · {lang === 'kz' ? 'ВИЗУАЛДЫ ҚОР' : lang === 'ru' ? 'ВИЗУАЛЬНАЯ КОЛЛЕКЦИЯ' : 'VISUAL COLLECTION'}</span><h2>{h.gallery}</h2><p>{t.common.photoNote}</p></div><Link className="text-link" to="/gallery">{t.common.viewAll}<ArrowRight size={17}/></Link></div><ImageMosaic items={mediaItems.slice(0, 6)}/></section>
+
+      <VideoChronicleSection/>
 
       <section className="source-ribbon" data-reveal><div className="source-ribbon-icon"><BookOpen size={25}/></div><div><span className="eyebrow">10 · {lang === 'kz' ? 'АШЫҚ ДЕРЕК' : lang === 'ru' ? 'ОТКРЫТЫЕ ДАННЫЕ' : 'OPEN EVIDENCE'}</span><h2>{h.sources}</h2><p>{lang === 'kz' ? 'Ғылыми атаулардан бастап архивтік құжаттарға дейін — зерттеудің түпнұсқа дереккөздері жинақталған.' : lang === 'ru' ? 'От научного названия до исторического архива — источники в одном разделе.' : 'From a scientific name to a historic archive, follow the sources.'}</p></div><Link to="/sources" className="button button-dark">{t.common.sources}<ArrowRight size={17}/></Link></section>
 
@@ -199,6 +386,8 @@ function EditorialPage({ pageKey, index }) {
   }
   return <main className="editorial-page"><PageHero pageKey={pageKey} index={index}/><section className="editorial-cards page-wrap">{page.cards.map(([title, body], i) => <article className="editorial-card" data-reveal key={title} style={{ '--card-index': i, '--card-offset': `${i * 11}px` }}><div className="editorial-card-number">{String(i + 1).padStart(2, '0')}</div><div><span className="eyebrow">{page.eyebrow}</span><h2>{title}</h2><p>{body}</p><div className="editorial-source"><Citation id={citations(i)}/></div></div><span className="editorial-card-mark">✳</span></article>)}</section><ExhibitNarrative pageKey={pageKey}/>
     {(pageKey === 'science' || pageKey === 'heritage') && <BloomWheelSection/>}
+    {pageKey === 'heritage' && <div className="page-wrap"><NicheVideoCard videoId="nZ3xwTtdzIg"/></div>}
+    {pageKey === 'shymkent' && <div className="page-wrap"><NicheVideoCard videoId="M0OQEGd9J4s"/></div>}
     {(pageKey === 'history' || pageKey === 'science' || pageKey === 'heritage') && <QuizTeaserBanner/>}
     {pageKey === 'shymkent' && <div className="page-wrap editorial-note"><span className="eyebrow">{t.common.citation}</span><p>{lang === 'kz' ? 'Қаланың қызғалдақ белгісі мен көктемгі гүл егіні туралы туристік басқарманың ресми жазбасы.' : lang === 'ru' ? 'Официальная запись туристического управления о тюльпане в символике города и весенних посадках.' : 'Official tourism-office record of the tulip in city symbolism and spring planting.'}</p><Citation id="shymkent-tourism"/></div>}
     {pageKey === 'history' && <section className="history-archive page-wrap" data-reveal><div className="archive-image"><img src="/images/gartenflora-1873.webp" srcSet={mediaItems.find(item => item.id === 'gartenflora-plate-773').srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={lang === 'kz' ? '«Гартенфлора» журналының 1873 жылғы 773-тақтасы' : lang === 'ru' ? 'Таблица 773 журнала Gartenflora за 1873 год' : 'Plate 773 from the 1873 volume of Gartenflora'} loading="lazy" decoding="async"/><a className="archive-photo-credit" href="https://www.biodiversitylibrary.org/page/47574892" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Биоалуандық мұрағаты · ашық мұра' : lang === 'ru' ? 'Библиотека наследия биоразнообразия · Общественное достояние' : 'Biodiversity Heritage Library · Public Domain Mark 1.0'}</a></div><div><span className="eyebrow">{lang === 'kz' ? '1873 · «ГАРТЕНФЛОРА» 22-ТОМ' : lang === 'ru' ? '1873 · «ГАРТЕНФЛОРА», ТОМ 22' : '1873 · GARTENFLORA 22'}</span><h2>{lang === 'kz' ? 'Түпнұсқа мұрағат ізі' : lang === 'ru' ? 'След в первоисточнике' : 'The original archival trace'}</h2><p>{lang === 'kz' ? 'Мұнда 1873 жылғы ботаникалық басылымның цифрланған беті берілген. Ғылыми атаудың жарияланған дерегін түпнұсқамен салыстырып көріңіз.' : lang === 'ru' ? 'Локальная копия открытой оцифрованной страницы издания 1873 года. Библиографические данные публикации научного названия можно сверить с первоисточником.' : 'Local copy of an openly digitized page from the 1873 volume. The publication details for the scientific name can be checked against the original record.'}</p><Citation id="bhl"/></div></section>}
@@ -341,14 +530,18 @@ function FieldFilm() {
 function MediaPage() {
   const { lang, t } = useLocale()
   const [active, setActive] = useState(null)
-  const categories = lang === 'kz' ? ['Барлығы','Қызғалдақ','Табиғат','Архив'] : lang === 'ru' ? ['Все','Цветы','Природа','Архив'] : ['All','Tulips','Nature','Archive']
-  const kinds = ['all', 'flower', 'landscape', 'archive']
+  const categories = lang === 'kz' ? ['Барлығы','Қызғалдақ','Табиғат','Архив','Бейне'] : lang === 'ru' ? ['Все','Цветы','Природа','Архив','Видео'] : ['All','Tulips','Nature','Archive','Video']
+  const kinds = ['all', 'flower', 'landscape', 'archive', 'video']
+  const isVideoSelected = kinds[active] === 'video'
   const visibleItems = mediaItems.filter(item => (active ?? 0) === 0 || item.kind === kinds[active])
-  const categoryCounts = kinds.map(kind => kind === 'all' ? mediaItems.length : mediaItems.filter(item => item.kind === kind).length)
+  const categoryCounts = kinds.map(kind => kind === 'all' ? mediaItems.length + videoMaterials.length : kind === 'video' ? videoMaterials.length : mediaItems.filter(item => item.kind === kind).length)
   return <main>
     <PageHero pageKey="media" index="03 / 06"/>
     <div className="gallery-filter page-wrap" role="group" aria-label={t.common.filters}>{categories.map((cat,i)=><button type="button" className={(active ?? 0)===i?'selected':''} key={cat} onClick={()=>setActive(i)} aria-pressed={(active ?? 0)===i}>{cat}<small>{categoryCounts[i]}</small></button>)}</div>
-    {visibleItems.length ? <section className="page-wrap"><ImageMosaic items={visibleItems} large/></section> : <p className="fact-empty page-wrap">{t.common.empty}</p>}
+    {!isVideoSelected && (
+      visibleItems.length ? <section className="page-wrap"><ImageMosaic items={visibleItems} large/></section> : <p className="fact-empty page-wrap">{t.common.empty}</p>
+    )}
+    <VideoChronicleSection/>
     <VirtualTourSection/>
     <FieldFilm/>
     <NextChapter to="/sources" label={t.pages.sources.title}/>
@@ -417,7 +610,11 @@ function PlacePage({ slug: propSlug }) {
     ru: [['01 · ОРИЕНТИР', 'Координата на карте — ориентир для знакомства с местом, а не точка популяции редкого растения.'], ['02 · РЕГИОН', place.region[lang]], ['03 · ЗАПИСЬ', place.detail[lang]], ['04 · ИСТОЧНИК', 'Откройте ссылку и сверьте сведения об этом месте с первичным материалом.']],
     en: [['01 · ORIENTATION', 'The map coordinate is an orientation point for visitors, not a rare-plant population coordinate.'], ['02 · REGION', place.region[lang]], ['03 · RECORD', place.detail[lang]], ['04 · SOURCE', 'Open the linked record and check its place information against the source.']],
   }[lang]
-  return <main><section className="place-detail-hero page-wrap"><div style={{ display: 'flex', gap: '16px', marginBottom: 'auto' }}><Link className="back-link" to="/places">← {lang === 'kz' ? 'Мекендер тізімі' : lang === 'ru' ? 'Все места' : 'All habitats'}</Link><Link className="back-link" to="/map">{t.nav.map}</Link></div><span className="eyebrow">{place.region[lang]}</span><h1>{place.name[lang]}</h1><p>{place.summary[lang]}</p><span className="place-coordinates">{place.coordsLabel}</span></section><section className="place-detail-body page-wrap"><figure className="place-illustration"><img src={photo.image} srcSet={photo.srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={photoAlt} loading="lazy" decoding="async"/><figcaption><a href={photo.url} target="_blank" rel="noreferrer">{photo.credit}</a></figcaption></figure><div className="place-facts"><span className="eyebrow">{lang==='kz'?'МЕКЕН ТУРАЛЫ':lang==='ru'?'О МЕСТЕ':'ABOUT THIS PLACE'}</span><h2>{place.name[lang]}</h2><p>{place.detail[lang]}</p><div className="place-meta"><span>{t.common.place}</span><b>{place.region[lang]}</b></div><div className="place-meta"><span>{lang==='kz'?'Картадағы бағдар':lang==='ru'?'Ориентир на карте':'Map orientation'}</span><b>{place.coordsLabel}</b></div><Citation id={place.source}/><Link className="button button-outline" to="/map">{t.common.map}<ArrowRight size={17}/></Link></div></section><section className="place-tour page-wrap"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХҚА САЯХАТ' : lang === 'ru' ? 'ВИРТУАЛЬНАЯ ЭКСКУРСИЯ' : 'A VIRTUAL FIELD VISIT'}</span><h2>{lang === 'kz' ? 'Мекенді дерекпен зерттеу' : lang === 'ru' ? 'Изучаем место через источники' : 'Explore this place through records'}</h2><div className="place-tour-steps">{tour.map(([title, description], index) => <article key={title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{description}</p>{index === 3 && <Citation id={place.source}/>}</div></article>)}</div></section><NextChapter to="/heritage" label={t.pages.heritage.title}/></main>
+  return <main><section className="place-detail-hero page-wrap"><div style={{ display: 'flex', gap: '16px', marginBottom: 'auto' }}><Link className="back-link" to="/places">← {lang === 'kz' ? 'Мекендер тізімі' : lang === 'ru' ? 'Все места' : 'All habitats'}</Link><Link className="back-link" to="/map">{t.nav.map}</Link></div><span className="eyebrow">{place.region[lang]}</span><h1>{place.name[lang]}</h1><p>{place.summary[lang]}</p><span className="place-coordinates">{place.coordsLabel}</span></section><section className="place-detail-body page-wrap"><figure className="place-illustration"><img src={photo.image} srcSet={photo.srcSet} sizes="(max-width: 700px) 100vw, 55vw" alt={photoAlt} loading="lazy" decoding="async"/><figcaption><a href={photo.url} target="_blank" rel="noreferrer">{photo.credit}</a></figcaption></figure><div className="place-facts"><span className="eyebrow">{lang==='kz'?'МЕКЕН ТУРАЛЫ':lang==='ru'?'О МЕСТЕ':'ABOUT THIS PLACE'}</span><h2>{place.name[lang]}</h2><p>{place.detail[lang]}</p><div className="place-meta"><span>{t.common.place}</span><b>{place.region[lang]}</b></div><div className="place-meta"><span>{lang==='kz'?'Картадағы бағдар':lang==='ru'?'Ориентир на карте':'Map orientation'}</span><b>{place.coordsLabel}</b></div><Citation id={place.source}/><Link className="button button-outline" to="/map">{t.common.map}<ArrowRight size={17}/></Link></div></section><section className="place-tour page-wrap"><span className="eyebrow">{lang === 'kz' ? 'ТАРИХҚА САЯХАТ' : lang === 'ru' ? 'ВИРТУАЛЬНАЯ ЭКСКУРСИЯ' : 'A VIRTUAL FIELD VISIT'}</span><h2>{lang === 'kz' ? 'Мекенді дерекпен зерттеу' : lang === 'ru' ? 'Изучаем место через источники' : 'Explore this place through records'}</h2><div className="place-tour-steps">{tour.map(([title, description], index) => <article key={title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{description}</p>{index === 3 && <Citation id={place.source}/>}</div></article>)}</div></section>
+    {slug === 'shubaykyzyl' && <div className="page-wrap"><NicheVideoCard videoId="M0OQEGd9J4s"/></div>}
+    {slug === 'karatau' && <div className="page-wrap"><NicheVideoCard videoId="ygg_zbj5SCE"/></div>}
+    {(slug === 'tulkibas' || slug === 'turkistan') && <div className="page-wrap"><NicheVideoCard videoId="ygg_zbj5SCE"/></div>}
+    <NextChapter to="/heritage" label={t.pages.heritage.title}/></main>
 }
 
 function ArticlePage() {

@@ -19,6 +19,7 @@ import { VirtualTourSection } from './components/VirtualTour360.jsx'
 import { OurJourney } from './components/OurJourney.jsx'
 import { OrbitMap } from './components/OrbitMap.jsx'
 import { VideoChronicleSection, NicheVideoCard } from './components/VideoChronicle.jsx'
+import { MainVideoFeature } from './components/MainVideoFeature.jsx'
 import { videoMaterials } from './data/videoMaterials.js'
 
 const MuseumMapView = lazy(() => import('./components/MapExperience.jsx').then(module => ({ default: module.MuseumMap })))
@@ -267,13 +268,23 @@ function HomePage() {
           <h1 id="hero-title">{h.titleA}<br/><em>{h.titleB}</em></h1>
           <p className="hero-subheading">{h.subheading}</p><p className="hero-species">{h.species}</p>
           <p className="hero-intro">{h.intro}</p>
-          <div className="hero-actions"><Link className="button button-primary" to="/history">{h.discover}<ArrowUpRight size={17}/></Link><Link className="button button-ghost" to="/heritage"><span className="button-orbit">✳</span>{h.seeNature}</Link></div>
+          <div className="hero-actions">
+            <Link className="button button-primary" to="/history">{h.discover}<ArrowUpRight size={17}/></Link>
+            <a className="button button-hero-film" href="#main-film">
+              <Play size={15} fill="currentColor" stroke="none" />
+              <span>{lang === 'kz' ? 'Басты фильмді қарау' : lang === 'ru' ? 'Главный фильм' : 'Watch Feature Film'}</span>
+            </a>
+            <Link className="button button-ghost" to="/heritage"><span className="button-orbit">✳</span>{h.seeNature}</Link>
+          </div>
         </div>
         <div className="hero-note"><span>{lang === 'kz' ? 'ТАРИХИ МҰРА' : lang === 'ru' ? 'ИСТОРИЧЕСКОЕ НАСЛЕДИЕ' : 'HISTORY LEGACY'}</span></div>
         <a className="hero-photo-credit" href="https://commons.wikimedia.org/wiki/File:Tulipa_greigii_(Aksu_Zhabagly_Nature_Reserve,_Kazakhstan).png" target="_blank" rel="noreferrer">{lang === 'kz' ? 'Сурет: В. А. Ковшар · Уикимедиа ашық қоры · CC BY-SA 4.0' : lang === 'ru' ? 'Фото: В. А. Ковшар · Wikimedia Commons · CC BY-SA 4.0' : 'Photo: V. A. Kovshar · Wikimedia Commons · CC BY-SA 4.0'}</a>
         <a className="hero-scroll" href="#introduction" aria-label={lang === 'kz' ? 'Кіріспеге өту' : lang === 'ru' ? 'Перейти к введению' : 'Scroll to introduction'}><ArrowDownRight size={18}/></a>
         <span className="hero-number" aria-hidden="true">01</span>
       </section>
+
+      {/* Flagship Centerpiece Main Video */}
+      <MainVideoFeature />
 
       <section className="intro-section page-wrap" id="introduction" data-reveal>
         <div className="section-index"><span>{lang === 'kz' ? 'ӨЛКЕМНІҢ ШЕЖІРЕСІ' : lang === 'ru' ? 'ЛЕТОПИСЬ КРАЯ' : 'REGIONAL CHRONICLE'}</span><b>01 — 05</b></div>
@@ -541,6 +552,7 @@ function MediaPage() {
     {!isVideoSelected && (
       visibleItems.length ? <section className="page-wrap"><ImageMosaic items={visibleItems} large/></section> : <p className="fact-empty page-wrap">{t.common.empty}</p>
     )}
+    <MainVideoFeature/>
     <VideoChronicleSection/>
     <VirtualTourSection/>
     <FieldFilm/>

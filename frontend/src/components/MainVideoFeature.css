@@ -1,0 +1,372 @@
+/* =============================================================
+   MainVideoFeature — Flagship Centerpiece Cinema Player
+   ============================================================= */
+
+.main-film-section {
+  position: relative;
+  padding: 48px 0 84px;
+  background: radial-gradient(ellipse at 50% 20%, #2b3027 0%, #1c201a 55%, #141712 100%);
+  color: #fff9f0;
+  overflow: hidden;
+}
+
+.main-film-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 163, 99, 0.5), transparent);
+}
+
+.main-film-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 163, 99, 0.35), transparent);
+}
+
+.main-film-ambient-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  max-width: 900px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(170, 57, 46, 0.18) 0%, rgba(200, 163, 99, 0.12) 45%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main-film-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 36px;
+  padding: 0 16px;
+}
+
+.main-film-badge-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background: rgba(45, 50, 40, 0.75);
+  border: 1px solid rgba(200, 163, 99, 0.4);
+  border-radius: 999px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.main-film-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c8a363;
+  box-shadow: 0 0 10px #c8a363;
+  animation: filmPulse 2s ease-in-out infinite;
+}
+
+@keyframes filmPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.main-film-badge-text {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #f2e2be;
+  text-transform: uppercase;
+}
+
+.main-film-title {
+  font-family: var(--serif, 'Playfair Display', Georgia, serif);
+  font-size: clamp(32px, 4.4vw, 54px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #fff9f0;
+  margin: 0 0 14px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.main-film-title em {
+  font-style: italic;
+  color: #e5c27f;
+}
+
+.main-film-synopsis {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.7;
+  color: #d8d0c0;
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+/* =============================================================
+   Cinema Player Container
+   ============================================================= */
+.main-film-cinema-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.main-film-frame {
+  position: relative;
+  background: #0d0f0c;
+  border: 1px solid rgba(200, 163, 99, 0.35);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 0 80px rgba(0, 0, 0, 0.5);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-film-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+/* Poster and Big Play Overlay */
+.main-film-poster-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 15, 12, 0.45);
+  cursor: pointer;
+  transition: background 0.25s ease;
+  z-index: 3;
+}
+
+.main-film-poster-overlay:hover {
+  background: rgba(13, 15, 12, 0.25);
+}
+
+.main-film-big-play-btn {
+  width: clamp(72px, 8vw, 96px);
+  height: clamp(72px, 8vw, 96px);
+  border-radius: 50%;
+  background: radial-gradient(circle, #aa392e 0%, #7d261e 100%);
+  border: 2px solid rgba(248, 235, 210, 0.85);
+  color: #fff9f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 12px 36px rgba(170, 57, 46, 0.65),
+    0 0 0 8px rgba(200, 163, 99, 0.2);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-left: 5px;
+}
+
+.main-film-poster-overlay:hover .main-film-big-play-btn {
+  transform: scale(1.1);
+  box-shadow:
+    0 16px 44px rgba(170, 57, 46, 0.85),
+    0 0 0 14px rgba(200, 163, 99, 0.3);
+}
+
+.main-film-play-label {
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f6eedb;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Custom Controls Bar */
+.main-film-controls-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(0deg, rgba(10, 12, 9, 0.95) 0%, rgba(10, 12, 9, 0.65) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.main-film-frame:hover .main-film-controls-bar,
+.main-film-frame.is-controls-visible .main-film-controls-bar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.main-film-scrub-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  transition: height 0.15s ease;
+}
+
+.main-film-scrub-wrap:hover {
+  height: 8px;
+}
+
+.main-film-scrub-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #aa392e, #e5a755);
+  border-radius: 3px;
+  position: relative;
+}
+
+.main-film-scrub-thumb {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.main-film-ctrl-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.main-film-ctrl-left,
+.main-film-ctrl-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.main-film-ctrl-btn {
+  background: transparent;
+  border: none;
+  color: #fff9f0;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.18s ease;
+}
+
+.main-film-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #e5c27f;
+}
+
+.main-film-time {
+  font-family: monospace;
+  font-size: 12px;
+  color: #d8d0c0;
+}
+
+.main-film-pill {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(200, 163, 99, 0.2);
+  border: 1px solid rgba(200, 163, 99, 0.4);
+  color: #f2e2be;
+  text-transform: uppercase;
+}
+
+/* Meta Footer Info */
+.main-film-meta-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 12px 18px;
+  background: rgba(30, 35, 28, 0.65);
+  border: 1px solid rgba(200, 163, 99, 0.22);
+  border-radius: 12px;
+  font-size: 11px;
+  color: #cec5b2;
+}
+
+.main-film-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.main-film-meta-item strong {
+  color: #f6eedb;
+  font-weight: 600;
+}
+
+/* =============================================================
+   Mobile Responsiveness
+   ============================================================= */
+@media (max-width: 768px) {
+  .main-film-section {
+    padding: 36px 0 54px;
+  }
+  .main-film-title {
+    font-size: 26px;
+  }
+  .main-film-synopsis {
+    font-size: 13px;
+  }
+  .main-film-cinema-wrap {
+    padding: 0 12px;
+  }
+  .main-film-controls-bar {
+    padding: 12px 14px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .main-film-ctrl-btn {
+    padding: 4px;
+  }
+  .main-film-time {
+    font-size: 10px;
+  }
+  .main-film-pill {
+    display: none;
+  }
+  .main-film-meta-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 14px;
+    font-size: 10px;
+  }
+}

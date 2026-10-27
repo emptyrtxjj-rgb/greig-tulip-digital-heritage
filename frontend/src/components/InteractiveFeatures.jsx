@@ -29,6 +29,7 @@ import {
   usefulLinksCopy,
 } from '../data/interactiveFeatures.js'
 import { Tulip3DViewer, checkWebGLSupport } from './Tulip3DViewer.jsx'
+import { QuizCertificate } from './QuizCertificate.jsx'
 
 class SectionErrorBoundary extends Component {
   constructor(props) {
@@ -691,6 +692,9 @@ export function QuizSection() {
               </div>
             </div>
           </article>
+
+          {/* Official Steppe Heritage Certificate Award */}
+          <QuizCertificate score={score} total={total} unlockedLevel={unlockedLevel} />
 
           {/* Gamification Ladder */}
           <div className="quiz-ranks-ladder">

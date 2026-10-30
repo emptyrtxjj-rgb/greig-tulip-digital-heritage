@@ -1,10 +1,21 @@
+# Dependencies & builds
 node_modules/
 frontend/node_modules/
 frontend/dist/
-frontend/.env
 backend/vendor/
-backend/.env
+
+# Database & logs
 backend/database/*.sqlite
 backend/storage/logs/*.log
+backend/bootstrap/cache/*.php
+
+# Environment variables & secrets (never commit secrets)
 .env
-.env.local
+.env.*
+*.env
+!.env.example
+!*.env.example
+
+# OS / Editor files
+.DS_Store
+Thumbs.db

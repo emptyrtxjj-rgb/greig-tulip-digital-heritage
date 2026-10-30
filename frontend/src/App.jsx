@@ -14,6 +14,7 @@ import { mediaItems as photoAssets } from './data/media.js'
 import { MapTeaser, TimelineStrip, TimelineExplorer, SourceCards, ImageMosaic } from './components/MuseumModules.jsx'
 import { FactExplorer } from './components/FactExplorer.jsx'
 import { RouteBreadcrumbs, SiteUtilities } from './components/SiteUtilities.jsx'
+import { AiAssistant } from './components/AiAssistant.jsx'
 import { BloomWheelSection, QuizSection, QuizTeaserBanner, UsefulLinksDirectory } from './components/InteractiveFeatures.jsx'
 import { VirtualTourSection } from './components/VirtualTour360.jsx'
 import { OurJourney } from './components/OurJourney.jsx'
@@ -719,7 +720,7 @@ function App() {
     <Route path="/places/shymkent" element={<PlacePage slug="shymkent"/>}/>
     <Route path="/articles/:slug" element={<ArticlePage/>}/>
     <Route path="*" element={<NotFound/>}/>
-  </Routes></div><Footer/><SiteUtilities/></LocaleContext.Provider>
+  </Routes></div><Footer/><SiteUtilities/><AiAssistant/></LocaleContext.Provider>
 }
 
 export default App
